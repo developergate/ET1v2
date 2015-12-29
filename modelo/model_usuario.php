@@ -19,7 +19,7 @@ class Usuario implements iModel {
     private $equipo;
     private $rol;
     
-    public function __construct($idUsuario="" , $sede="", $nombre="", $email="" , $password="" , $idioma="esp", $equipo="", $rol="participante") {
+    public function __construct($idUsuario="", $sede="", $nombre="", $email="", $password="", $idioma="esp", $equipo=null, $rol="participante") {
         $this->idUsuario = $idUsuario;
         $this->sede = $sede;
         $this->nombre = $nombre;
@@ -248,21 +248,23 @@ class Usuario implements iModel {
             return false;
         }
     }
-    
+	
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
     public function crear($objeto){
         $db = new Database();
         
         if ($objeto->exists($objeto->idUsuario) == false) 
         {
-             //Inserta el usuario en la tabla usuario
-            $insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email , Idioma, Equipo_idEquipo, Rol) 
-				VALUES ('$objeto->idUsuario','$objeto->sede','$objeto->nombre','$objeto->password','$objeto->email','$objeto->idioma','$objeto->equipo' '$objeto->rol')";
-            $db->consulta($insertaUsu) or die('Error al crear el Usuario');
-            return true;
-        } else return false;
-        
-        $db->desconectar();
+					//Inserta el usuario en la tabla usuario
+					$insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email, Idioma) VALUES ('$objeto->idUsuario', '$objeto->sede', '$objeto->nombre', '$objeto->password', '$objeto->email', '$objeto->idioma');";
+					
+					$db->consulta($insertaUsu) or die('Error al crear el Usuario');
+					$db->desconectar();
+					return true;
+        } else{
+					$db->desconectar();
+					return false;
+				}
     }
     
     //Elimina de la base de datos segun la primary key pasada

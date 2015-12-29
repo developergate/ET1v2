@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Usuario (
   `Password` VARCHAR(300) NOT NULL,
   `Email` VARCHAR(50) NOT NULL,
   `Idioma` ENUM('esp', 'eng') NOT NULL DEFAULT 'esp',
-	`Equipo_idEquipo` VARCHAR(50),
+	`Equipo_idEquipo` VARCHAR(50) DEFAULT NULL,
   `Rol` ENUM('admin', 'juradoNacional', 'juradoSede', 'participante') DEFAULT 'participante',
    PRIMARY KEY (`idUsuario`, `Sede_idSede`),
   CONSTRAINT `fk_Usuario_Sede`
