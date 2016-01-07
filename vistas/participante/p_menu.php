@@ -11,6 +11,9 @@ Fecha: 07/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("participante", "../../");
     include_once $includeIdioma;
+    include_once "../../modelo/model_reto.php";
+    $reto = new Reto();
+    $retos = $reto->listar();
     ?>
 
     <body>
@@ -38,7 +41,36 @@ Fecha: 07/01/2016
 
                 <!-- CONTENIDO -->
                 <div class="content">
-                    <div class="container-fluid">     
+                    <div class="container-fluid"> 
+                        <div class="row">                   
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>Reto</th>
+                                    	<th>Descripcion</th>
+                                    	<th>Propuesta de solucion</th>
+                                    	<th>Solucion</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($retos as $r){
+                                        if($r['Aceptado'] == true){?>
+                                        <tr>
+                                        	<td><?php echo $r['idReto'];?></td>
+                                        	<td><?php echo $r['DescReto'];?></td>
+                                        	<td><i class="pe-7s-paper-plane"></i></td>
+                                        	<td><i class="pe-7s-check"></i></td>
+                                        </tr>
+                                        <?php }
+                                        }?>
+                                    </tbody>
+                                </table>
+                                   
+                            </div>
+                        </div>
+                    </div>      
+                </div>   
                     </div>    
                 </div>
 

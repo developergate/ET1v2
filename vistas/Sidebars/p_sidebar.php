@@ -9,7 +9,7 @@ Fecha: 07/01/2016
 -->
 
 <?php function p_sidebar($perfil, $equipos, $retos){ ?>
-    <div class="sidebar" data-color="purple" data-image="../../light-template/img/sidebar-5.jpg">    
+    <div class="sidebar" data-color="blue" data-image="../../light-template/img/sidebar-5.jpg">    
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
