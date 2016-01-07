@@ -38,7 +38,7 @@ $ResultadoExisteLogin = $db->consulta($ExisteLogin) or die('No se puede comproba
 	{
 		session_start();
 		$_SESSION["login_usuario"] = $login;
-		$_SESSION["tipo"] = $TuplaLogin['Rol'];
+		$_SESSION["rol"] = $TuplaLogin['Rol'];
 		$_SESSION["idioma"] = $TuplaLogin["Idioma"];
 		 
 		//Redirige a su menu correspondiente

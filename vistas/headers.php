@@ -1,20 +1,28 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hackaton</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/form-elements.css">
-    <link rel="stylesheet" href="../css/style.css">
+	<title>Hackaton</title>
 
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    
+    
+    <!-- Bootstrap core CSS     -->
+    <link href="../../light-template/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link rel="shortcut icon" href="./ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../ico/apple-touch-icon-57-precomposed.png">
+    <!-- Animation library for notifications   -->
+    <link href="../../light-template/css/animate.min.css" rel="stylesheet"/>
+    
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="../../light-template/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    
+    
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../../light-template/css/demo.css" rel="stylesheet" />
+        
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="../../light-template/css/pe-icon-7-stroke.css" rel="stylesheet" />  
 </head>

@@ -16,7 +16,7 @@ Fecha: 15/12/2015
     $pass = $_POST['pass'];
     $email = $_POST['email'];
     $language = $_POST['language'];
-		$usu = new Usuario();
+    $usu = new Usuario();
 
 // Si no devuelve ninguna fila no encontro el login
 if (!$usu->exists($login)){

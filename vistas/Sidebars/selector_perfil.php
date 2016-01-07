@@ -7,22 +7,24 @@ Fecha: 07/01/2016
 -->
 
 <?php
-session_start();	
-
 if (isset($_SESSION['rol'])){
 	switch ($_SESSION['rol'])
 	{
 		case 'admin':
-			header('Location: admin/a_menu.php');
+			include 'a_sidebar.php';                   //Importa la barra correspondiente
+            a_sidebar('class="active"', '', '', '', '', '');    //Selecciona el perfil
 			break;
 		case 'juradoNacional':
-			header('Location: jurado_nacional/jn_menu.php');
+			include 'jn_sidebar.php';
+            jn_sidebar('class="active"', '');
 			break;
 		case 'juradoSede':
-			header('Location: jurado_sede/js_menu.php');
+			include 'js_sidebar.php';
+            js_sidebar('class="active"', '');
 			break;
         case 'participante':
-			header('Location: participante/p_menu.php');
+			include 'p_sidebar.php';
+            p_sidebar('class="active"', '', '', '', '');
 			break;
 		default:
 			header('Location: login.php');
