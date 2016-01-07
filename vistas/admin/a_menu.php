@@ -38,7 +38,8 @@ Fecha: 07/01/2016
                 
                 <!-- CONTENIDO -->
                 <div class="content">
-                    <div class="container-fluid">     
+                    <div class="container-fluid">  
+                        <td width='10%' colspan='4' ><button class="btn btn-info btn-fill" onclick="location.href='../nueva_sede.php'"><?php echo $idioma["nueva_sede"];?></button></div>
                     </div>    
                 </div>
 

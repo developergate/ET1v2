@@ -42,4 +42,8 @@ $idioma["crear"] = "Create";
 $idioma["reto_introduce"] = "Complete the following fields";
 $idioma["titulo_reto"] = "Title";
 $idioma["desc_reto"] = "Description";
+
+//nueva sede
+$idioma["nueva_sede"] = "New Place";
+$idioma["id_Sede"] = "Insert Location";
 ?>
