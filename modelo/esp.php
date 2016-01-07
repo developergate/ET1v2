@@ -5,8 +5,6 @@ Creado por: Edgard Ruiz
 Fecha: 27/12/2015
 ======================================================================
 -->
-
-
 <?php
 //login
 $idioma["login_introduccion"] = "Bienvenido a la pagina del Hackaton.";
@@ -19,6 +17,10 @@ $idioma["login_aceptar"] = "Entra!";
 $idioma["login_registrar"] = "Regístrate";
 $idioma["login_or"] = "o si no...";
 $idioma["login_visita"] = "Mira los retos";
+$idioma["login_retos"] = "Retos";
+$idioma['login_frase_retos'] = "¡¡Aqui puedes ver todos los retos!!";
+$idioma['volver_login'] = "Volver al login";
+$idioma['crear_reto'] = "¡Crea un reto!";
 
 //Registro
 $idioma["registro_introduccion"] = "Bienvenido a la pagina del Hackaton.";
@@ -34,5 +36,9 @@ $idioma["registro_equipo"] = "Equipo";
 $idioma["registro_aceptar"] = "Regístrate";
 $idioma["registro_volver"] = "Volver";
 
-
+//Nuevo reto
+$idioma["crear"] = "Crear";
+$idioma["reto_introduce"] = "Completa los siguientes campos";
+$idioma["titulo_reto"] = "Titulo";
+$idioma["desc_reto"] = "Descripcion";
 ?>

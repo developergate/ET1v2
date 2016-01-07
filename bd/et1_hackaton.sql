@@ -76,8 +76,9 @@ ENGINE = InnoDB;
  
 
 INSERT INTO Reto (`idReto`, `DescReto`, `Aceptado`) VALUES
-('Nopollution', 'Evitar la contacminacion', '1'),
-('FreeEnergy', 'Energias renovables', '1');
+('Nopollution', 'Evitar la contaminacion', '1'),
+('FreeEnergy', 'Energias renovables', '1'),
+('NuevoCoche', 'El coche del futuro', '0');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Solucion`

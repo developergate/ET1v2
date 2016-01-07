@@ -6,7 +6,6 @@ Fecha: 27/12/2015
 ======================================================================
 -->
 
-
 <?php
 //login
 $idioma["login_introduccion"] = "Welcome to the Hackaton website.";
@@ -19,7 +18,10 @@ $idioma["login_aceptar"] = "Sign in!";
 $idioma["login_registrar"] = "Sing up";
 $idioma["login_or"] = "or...";
 $idioma["login_visita"] = "Check challenges";
-
+$idioma["login_retos"] = "Challenges";
+$idioma['login_frase_retos'] = "Here you can see all the challenges!!";
+$idioma['volver_login'] = "Go to Login";
+$idioma['crear_reto'] = "Create a challenge!";
 
 //Registro
 $idioma["registro_introduccion"] = "Welcome to the Hackaton website.";
@@ -33,5 +35,11 @@ $idioma["registro_pass"] = "Password";
 $idioma["registro_email"] = "Email";
 $idioma["registro_equipo"] = "Team";
 $idioma["registro_aceptar"] = "Sign up";
-$idioma["registro_volver"] = "Back";
+$idioma["registro_volver"] = "Go back";
+
+//Nuevo reto
+$idioma["crear"] = "Create";
+$idioma["reto_introduce"] = "Complete the following fields";
+$idioma["titulo_reto"] = "Title";
+$idioma["desc_reto"] = "Description";
 ?>

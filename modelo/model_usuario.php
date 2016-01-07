@@ -1,14 +1,14 @@
 <!--
 ======================================================================
 Modelo de la tabla Usuario
-Creado por: Andrea Sanchez Blanco
-Fecha: 17/12/2015
+Creado por: Edgard Ruiz, Andrea Sanchez Blanco
+Fecha: 29/12/2015
 ======================================================================
 -->
 <?php 
 include_once 'interface.php';
 
-class Usuario implements iModel {
+class Usuario {
 	
     private $idUsuario;
     private $sede;
@@ -97,25 +97,6 @@ class Usuario implements iModel {
         
         return $pass;
     }
-	
-		/*Devuelve un array con el nombre de los proyectos en los que trabaja el idEmpleado
-		Si el usuario no es un empleado devuelve null*/
-		public function getProyectosEmpleado ($idEmpleado){
-			//Si el usuario es un empleado
-			if($this->getTipo($idEmpleado) == "empleado"){
-				$db = new Database();
-			
-				$query = 'SELECT DISTINCT Tarea_Hito_Proyecto_idProyecto FROM Usuario_has_Tarea WHERE Usuario_idUsuario = \'' . $idEmpleado .  '\'';
-				$result = $db->consulta($query) or die('Error al ejecutar la consulta de proyectos del empleado');;
-				
-        $arrayProyectos = array();
-        while ($row = mysqli_fetch_assoc($result))
-            $arrayProyectos[] = $row;
-        
-        $db->desconectar();
-				return $arrayProyectos;
-			}else return null;
-		}
 
     //Devuelve true o false si realizo el cambio correctamente o no
     private function setPassword($oldPass, $newPass, $pk){
@@ -171,12 +152,8 @@ class Usuario implements iModel {
         
         $sqlUsuario = $db->consulta("SELECT idUsuario , Sede, Nombre, Email, Rol FROM Usuario");
         $arrayUsuario = array();
-        //Numero de usuarios 
-        $this->numUsuarios = 0;
-        while ($row_usuario = mysqli_fetch_assoc($sqlUsuario)) {
+        while ($row_usuario = mysqli_fetch_assoc($sqlUsuario))
             $arrayUsuario[] = $row_usuario;
-            $this->numUsuarios++;
-        }
         
         $db->desconectar();
         return $arrayUsuario;
