@@ -41,10 +41,7 @@ Fecha: 07/01/2016
                 
                 <!-- CONTENIDO -->
                 <div class="content">
-<<<<<<< HEAD
-                    <div class="container-fluid" style="text-align: center;">  
-                        <td width='10%' colspan='4' ><button class="btn btn-info btn-fill" onclick="location.href='../nueva_sede.php'"><?php echo $idioma["nueva_sede"];?></button></div>
-=======
+
                     <div class="container-fluid">   
                         <div class="row">                   
                             <div class="col-md-12">
@@ -69,10 +66,9 @@ Fecha: 07/01/2016
                                 </div>
                             </div>      
                         </div> 
-                        <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-info btn-fill"><a class="boton" href="a_sede_nueva.php">Crear sede</a></button>
+                        <div  class="container-fluid" style="text-align: center;">
+                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='a_sede_nueva.php'"><?php echo $idioma["nueva_sede"] ?></a></button>
                         </div>
->>>>>>> origin/master
                     </div>    
                 </div>
 

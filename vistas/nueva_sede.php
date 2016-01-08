@@ -37,6 +37,7 @@ Fecha: 07/01/2016
                         </div>
                     </div>
                 </nav>
+                
             <!-- Contenido -->
                 <div id="content">
                     <div class="inner">
@@ -44,10 +45,14 @@ Fecha: 07/01/2016
                         <header><h1><a><?php echo $idioma["crear_sede"]; ?></a></h1></header>
                         
                                 <!--Ubicacion de la sede-->
-                                <tr> 
-                                  <td style=""><?php echo $idioma["id_Sede"]; ?></td> 
-                                    <td><input type='text' class='text' required name='titulo' placeholder="introduce sede"></td>
-                                </tr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label><?php echo $idioma["id_Sede"] ?></label>
+                                            <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                        </div>        
+                                    </div>
+                                </div>
                                 
                             <!-- Botones GUARDAR y CANCELAR -->
                             <table>
