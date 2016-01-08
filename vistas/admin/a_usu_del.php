@@ -1,35 +1,34 @@
 <!--
 ======================================================================
-Perfil de cada usuario
+Eliminar una sede
 Creado por: Andrea Sanchez
-Fecha: 07/01/2016
+Fecha: 08/01/2016
 ======================================================================
 -->
-
-<?php
-session_start();
-$lang = $_SESSION['idioma'];
-
-if($lang == "esp"){
-    include "../../modelo/esp.php";
-}else{
-    include "../../modelo/eng.php";
-}
-?>
-
 <!doctype html>
 <html lang="en">
-    <?php include_once '../headers.php';?>
+    <?php
+    include_once('../../controladores/ctrl_permisos.php');
+    $includeIdioma = permisos("admin", "../../");
+    include_once $includeIdioma;
+    if(isset($_GET['usu'])){
+        $idUsuario = $_GET['usu'];
+        include_once '../../modelo/model_usuario.php';
+        $usuario = new Usuario();
+        $u = $usuario->consultar($idUsuario);
+    } else die("Falta el id del usuario.");
+    ?>
+
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once 'selector_perfil.php'; ?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', 'class="active"', '', '', '');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de sedes</a>
+                            <a class="navbar-brand" href="#">Gestion de usuarios</a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -43,55 +42,64 @@ if($lang == "esp"){
                     </div>
                 </nav>
 
-
+                <!-- CONTENIDO -->
                 <div class="content">
-                    <!-- CONTENIDO -->
-                    <div class="container-fluid">
+                    <div class="container-fluid">  
                         <div class="row">
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Edit Profile</h4>
+                                        <h4 class="title">Eliminar usuario</h4>
                                     </div>
                                     <div class="content">
-                                        <form>
+                                        <form action='../../controladores/admin/ctrl_a_usu_del.php' method='post'>
                                             <div class="row">
-                                                <div class="col-md-5">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Sede (disabled)</label>
-                                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                                        <label>Login</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $idUsuario;?>">
+                                                        <input type="hidden" name="usuario" value="<?php echo $idUsuario;?>">
                                                     </div>        
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
-                                                    </div>        
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control" placeholder="Email">
+                                                        <label>Nombre</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $u['nombre'];?>">
                                                     </div>        
                                                 </div>
                                             </div>
-
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $u['email'];?>">
+                                                    </div>        
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Rol</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $u['rol'];?>">
+                                                    </div>        
+                                                </div>
+                                            </div>
+                                            <?php if($u['rol'] == 'participante'){ ?>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Name</label>
-                                                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                        <label>Equipo</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $u['equipo'];?>">
                                                     </div>        
                                                 </div>
                                             </div>
+                                            <?php }?>
 
-                                            <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Eliminar</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>    
                 </div>
 
@@ -104,5 +112,5 @@ if($lang == "esp"){
             </div>   
         </div>
     </body>
-    <?php include_once '../footers.php';?>
+    <?php include_once '../footers.php'; ?>
 </html>

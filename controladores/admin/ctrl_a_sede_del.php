@@ -1,6 +1,6 @@
 <!--
 ===========================================================================
-Controlador para añadir una nueva sede
+Controlador para eliminar una sede
 Creado por: Andrea Sanchez
 Fecha: 08/01/2016
 ============================================================================

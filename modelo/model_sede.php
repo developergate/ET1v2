@@ -65,9 +65,9 @@ class Sede {
     public function eliminar($pk){
         if($this->exists($pk)){
             $db = new Database();
-			$result = $db->consulta('DELETE FROM Sede WHERE idSede = \'' . $pk . '\'') or die('Error al eliminar la sede');
+			$db->consulta('DELETE FROM Sede WHERE idSede = \'' . $pk . '\'') or die('Error al eliminar la sede');
 			$db->desconectar();
-			return result;   
+			return true;   
         }else return false;
     }
 }
