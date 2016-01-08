@@ -1,8 +1,8 @@
 <!--
 ======================================================================
-Menu principal del administrador, muestra las sedes
+Crear una nueva sede
 Creado por: Andrea Sanchez
-Fecha: 07/01/2016
+Fecha: 08/01/2016
 ======================================================================
 -->
 <!doctype html>
@@ -11,9 +11,6 @@ Fecha: 07/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("admin", "../../");
     include_once $includeIdioma;
-    include_once '../../modelo/model_sede.php';
-    $sede = new Sede();
-    $sedes = $sede->listar();
     ?>
 
     <body>
@@ -38,41 +35,34 @@ Fecha: 07/01/2016
                         </div>
                     </div>
                 </nav>
-                
+
                 <!-- CONTENIDO -->
                 <div class="content">
-<<<<<<< HEAD
-                    <div class="container-fluid" style="text-align: center;">  
-                        <td width='10%' colspan='4' ><button class="btn btn-info btn-fill" onclick="location.href='../nueva_sede.php'"><?php echo $idioma["nueva_sede"];?></button></div>
-=======
-                    <div class="container-fluid">   
-                        <div class="row">                   
-                            <div class="col-md-12">
+                    <div class="container-fluid">  
+                        <div class="row">
+                            <div>
                                 <div class="card">
-                                    <div class="content table-responsive table-full-width">
-                                        <table class="table table-hover table-striped">
-                                            <thead>
-                                                <th>Sede</th>
-                                                <th>Eliminar</th>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($sedes as $s){ ?>
-                                                <tr>
-                                                    <td><?php echo $s['idSede'];?></td>
-                                                    <td><a href="a_sede_del.php?sede=<?php echo $s['idSede'];?>"><i class="pe-7s-trash"></i></a></td>
-                                                </tr>
-                                                <?php }?>
-                                            </tbody>
-                                        </table>
+                                    <div class="header">
+                                        <h4 class="title">Crear sede</h4>
+                                    </div>
+                                    <div class="content">
+                                        <form action='../../controladores/admin/ctrl_a_sede_nueva.php' method='post'>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Nombre de sede</label>
+                                                        <input type="text" class="form-control" placeholder="Sede" name="sede">
+                                                    </div>        
+                                                </div>
+                                            </div>
 
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Crear</button>
+                                            <div class="clearfix"></div>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>      
-                        </div> 
-                        <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-info btn-fill"><a class="boton" href="a_sede_nueva.php">Crear sede</a></button>
+                            </div>
                         </div>
->>>>>>> origin/master
                     </div>    
                 </div>
 

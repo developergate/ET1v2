@@ -64,7 +64,7 @@ class Usuario {
         return $email;
     }
     
-		private function getRol ($pk){
+    private function getRol ($pk){
         $db = new Database();
         
         $query = 'SELECT Rol FROM Usuario WHERE idUsuario = \'' . $pk .  '\'';
@@ -79,6 +79,23 @@ class Usuario {
         $db->desconectar();
         
         return $rol;
+    }
+    
+    private function getEquipo ($pk){
+        $db = new Database();
+        
+        $query = 'SELECT Equipo_idEquipo FROM Usuario WHERE idUsuario = \'' . $pk .  '\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $equipo = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $equipo;
     }
     
     public function getPassword ($pk){
@@ -150,7 +167,7 @@ class Usuario {
     public function listar(){
         $db = new Database();
         
-        $sqlUsuario = $db->consulta("SELECT idUsuario , Sede, Nombre, Email, Rol FROM Usuario");
+        $sqlUsuario = $db->consulta("SELECT * FROM Usuario");
         $arrayUsuario = array();
         while ($row_usuario = mysqli_fetch_assoc($sqlUsuario))
             $arrayUsuario[] = $row_usuario;
@@ -169,9 +186,11 @@ class Usuario {
         $usuPass = $this->getPassword($pk);
         //Obtener tipo de usuario
         $rol = $this->getRol($pk);
+        //Obtener el equipo
+        $equipo = $this->getEquipo($pk);
         
         //Crear array asoc con los datos de $pk
-        $usuario = array("idUsuario"=>$pk, "nombre"=>$usuNombre, "email"=>$usuEmail, "password"=>$usuPass, "Rol" => $rol);
+        $usuario = array("idUsuario"=>$pk, "nombre"=>$usuNombre, "email"=>$usuEmail, "password"=>$usuPass, "rol" => $rol, "equipo"=>$equipo);
         
         return $usuario;
     }
@@ -228,28 +247,26 @@ class Usuario {
 	
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
     public function crear($objeto){
-        $db = new Database();
-        
         if ($objeto->exists($objeto->idUsuario) == false) 
         {
-					//Inserta el usuario en la tabla usuario
-					$insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email, Idioma) VALUES ('$objeto->idUsuario', '$objeto->sede', '$objeto->nombre', '$objeto->password', '$objeto->email', '$objeto->idioma');";
-					
-					$db->consulta($insertaUsu) or die('Error al crear el Usuario');
-					$db->desconectar();
-					return true;
-        } else{
-					$db->desconectar();
-					return false;
-				}
+            $db = new Database();
+            //Inserta el usuario en la tabla usuario
+            $insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email, Rol) VALUES ('$objeto->idUsuario', '$objeto->sede', '$objeto->nombre', '$objeto->password', '$objeto->email', '$objeto->rol');";
+
+            $db->consulta($insertaUsu) or die('Error al crear el Usuario');
+            $db->desconectar();
+            return true;
+        } else return false;
     }
     
     //Elimina de la base de datos segun la primary key pasada
     public function eliminar($pk){
-			$db = new Database();
-			$result = $db->consulta('DELETE FROM Usuario WHERE idUsuario = \'' .  $pk .  '\'') or die('Error al eliminar el usuario');
+        if($this->exists($pk)){
+            $db = new Database();
+			$db->consulta('DELETE FROM Usuario WHERE idUsuario = \'' .  $pk .  '\'') or die('Error al eliminar el usuario');
 			$db->desconectar();
-			return result;
+			return true;
+        } else return false;
     }
 }
 ?>

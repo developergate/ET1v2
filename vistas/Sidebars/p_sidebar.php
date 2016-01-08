@@ -13,7 +13,7 @@ Fecha: 07/01/2016
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    JURADO SEDE
+                    PARTICIPANTE
                 </a>
             </div>
 

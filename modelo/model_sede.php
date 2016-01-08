@@ -49,13 +49,13 @@ class Sede {
     
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
     public function crear($pk){
-        if ($objeto->exists($pk) == false) 
+        if ($this->exists($pk) == false) 
         {
             $db = new Database();
             //Inserta la sede en la tabla Sede
             $insertaSede = "INSERT INTO Sede (idSede) VALUES ('$pk');";
 
-            $db->consulta($insertaUsu) or die('Error al crear la sede '. $pk);
+            $db->consulta($insertaSede) or die('Error al crear la sede '. $pk);
             $db->desconectar();
             return true;
         } else return false;
@@ -63,10 +63,12 @@ class Sede {
     
     //Elimina de la base de datos segun la primary key pasada
     public function eliminar($pk){
-			$db = new Database();
-			$result = $db->consulta('DELETE FROM Sede WHERE idSede = \'' . $pk . '\'') or die('Error al eliminar la sede');
+        if($this->exists($pk)){
+            $db = new Database();
+			$db->consulta('DELETE FROM Sede WHERE idSede = \'' . $pk . '\'') or die('Error al eliminar la sede');
 			$db->desconectar();
-			return result;
+			return true;   
+        }else return false;
     }
 }
 ?>

@@ -45,7 +45,7 @@ Fecha: 07/01/2016
 
                 <footer class="footer">
                     <div class="container-fluid">
-                        <p class="copyright pull-right"> &copy; 2016 Grupo 5, Hackaton</p>
+                        <p class="copyright pull-right"> &copy; 2016 Grupo 5, Hackathon</p>
                     </div>
                 </footer>
             </div>   
