@@ -49,13 +49,13 @@ class Sede {
     
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
     public function crear($pk){
-        if ($objeto->exists($pk) == false) 
+        if ($this->exists($pk) == false) 
         {
             $db = new Database();
             //Inserta la sede en la tabla Sede
             $insertaSede = "INSERT INTO Sede (idSede) VALUES ('$pk');";
 
-            $db->consulta($insertaUsu) or die('Error al crear la sede '. $pk);
+            $db->consulta($insertaSede) or die('Error al crear la sede '. $pk);
             $db->desconectar();
             return true;
         } else return false;
