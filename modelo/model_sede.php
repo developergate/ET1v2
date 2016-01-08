@@ -63,10 +63,12 @@ class Sede {
     
     //Elimina de la base de datos segun la primary key pasada
     public function eliminar($pk){
-			$db = new Database();
+        if($this->exists($pk)){
+            $db = new Database();
 			$result = $db->consulta('DELETE FROM Sede WHERE idSede = \'' . $pk . '\'') or die('Error al eliminar la sede');
 			$db->desconectar();
-			return result;
+			return result;   
+        }else return false;
     }
 }
 ?>

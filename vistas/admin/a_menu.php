@@ -49,15 +49,13 @@ Fecha: 07/01/2016
                                         <table class="table table-hover table-striped">
                                             <thead>
                                                 <th>Sede</th>
-                                                <th>Editar</th>
                                                 <th>Eliminar</th>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($sedes as $s){ ?>
                                                 <tr>
                                                     <td><?php echo $s['idSede'];?></td>
-                                                    <td><a href="a_sede_mod.php"><i class="pe-7s-eyedropper"></i></a></td>
-                                                    <td><a href="a_sede_del.php"><i class="pe-7s-trash"></i></a></td>
+                                                    <td><a href="a_sede_del.php?sede=<?php echo $s['idSede'];?>"><i class="pe-7s-trash"></i></a></td>
                                                 </tr>
                                                 <?php }?>
                                             </tbody>
