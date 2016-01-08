@@ -90,7 +90,7 @@ Fecha: 08/01/2016
                                                     <div class="form-group">
                                                         <label>Rol</label>
                                                         <select type="text" name='rol' class="form-username form-control">
-                                                            <option value='participante' selected>Participante</option>
+                                                            <option value='participante'>Participante</option>
                                                             <option value='juradoSede'>Jurado sede</option>
                                                             <option value='juradoNacional'>Jurado nacional</option>
                                                             <option value='admin'>Administrador</option>

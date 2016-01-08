@@ -16,7 +16,7 @@ $sede = $_POST['sede'];
 $rol = $_POST['rol'];
 $password = $_POST['pass'];
 
-$nuevoUsu = new Usuario($idUsuario, $sede, $nombre, $email, $password, $rol);
+$nuevoUsu = new Usuario($idUsuario, $sede, $nombre, $email, $password, "esp", null, $rol);
 
 //Crear el usuario
 if ($nuevoUsu->crear($nuevoUsu))
