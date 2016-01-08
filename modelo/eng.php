@@ -7,6 +7,11 @@ Fecha: 27/12/2015
 -->
 
 <?php
+
+//varios
+$idioma["aceptar"] = "Save";
+$idioma["cancelar"] = "Cancel";
+
 //login
 $idioma["login_introduccion"] = "Welcome to the Hackaton website.";
 $idioma["login_introduccion2"] = "The biggest event of challenges around the world";
