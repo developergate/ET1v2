@@ -15,6 +15,10 @@ if($lang == "esp"){
 }else{
     include "../../modelo/eng.php";
 }
+include '../../modelo/model_usuario.php';
+$usu = new Usuario();
+$idUsuario = $_SESSION['login_usuario'];
+$perfil = $usu->consultar($idUsuario);
 ?>
 
 <!doctype html>
@@ -29,7 +33,7 @@ if($lang == "esp"){
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de sedes</a>
+                            <a class="navbar-brand" href="#">Perfil</a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -43,7 +47,6 @@ if($lang == "esp"){
                     </div>
                 </nav>
 
-
                 <div class="content">
                     <!-- CONTENIDO -->
                     <div class="container-fluid">
@@ -54,38 +57,79 @@ if($lang == "esp"){
                                         <h4 class="title">Edit Profile</h4>
                                     </div>
                                     <div class="content">
-                                        <form>
+                                        <form action='../../controladores/ctrl_perfil.php' method='post'>
                                             <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <label>Sede (disabled)</label>
-                                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
-                                                    </div>        
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
-                                                    </div>        
-                                                </div>
+                                                <!-- Login -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control" placeholder="Email">
+                                                        <label>Username</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $perfil['idUsuario']; ?>">
+                                                        <input name="login" type="hidden" value="<?php echo $perfil['idUsuario']; ?>">
+                                                    </div>        
+                                                </div>
+                                                <!-- Sede -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Sede</label>
+                                                        <input type="text" class="form-control" disabled value="<?php echo $perfil['sede']; ?>">
+                                                        <input name="sede" type="hidden" value="<?php echo $perfil['sede']; ?>">
+                                                    </div>        
+                                                </div>
+                                                <!-- Rol -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Rol</label>
+                                                        <input disabled type="text" class="form-control" value="<?php echo $perfil['rol']; ?>">
                                                     </div>        
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <!-- Nombre -->
+                                                <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>Name</label>
-                                                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                        <input name="nombre" type="text" class="form-control" value="<?php echo $perfil['nombre']; ?>">
+                                                    </div>        
+                                                </div>
+                                                <!-- Email -->
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Email address</label>
+                                                        <input name="email" type="email" class="form-control" value="<?php echo $perfil['email']; ?>">
+                                                    </div>        
+                                                </div>
+                                                <!-- Idioma -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Idioma</label>
+                                                        <?php if($perfil['idioma'] == 'esp'){ ?>
+                                                        <select type="text" name='idioma' class="form-control">
+                                                            <option value='esp' selected>Español</option>
+                                                            <option value='eng'>English</option>
+                                                        </select>
+                                                        <?php } else{ ?>
+                                                        <select type="text" name='idioma' class="form-control">
+                                                            <option value='esp'>Español</option>
+                                                            <option value='eng' selected>English</option>
+                                                        </select>
+                                                        <?php } ?>
                                                     </div>        
                                                 </div>
                                             </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="exampleInputEmail1">Contraseña</label>
+                                                    <input id="oldPass" name="oldPass" type="password" required class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="exampleInputEmail1">Nueva contraseña</label>
+                                                    <input id="newPass" name="newPass" type="password" class="form-control">
+                                                </div>
+                                            </div>
 
-                                            <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                            <button type="submit"  onclick="cifrar()" class="btn btn-info btn-fill pull-right">Update Profile</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -103,6 +147,16 @@ if($lang == "esp"){
                 </footer>
             </div>   
         </div>
+        
+        <script src="../../js/md5.js" type="text/javascript"></script> 
+        <script>
+            function cifrar(){
+                var input_oldPass = document.getElementById("oldPass");
+                input_oldPass.value = hex_md5(input_oldPass.value);
+                var input_newPass = document.getElementById("newPass");
+                input_newPass.value = hex_md5(input_newPass.value);
+            }
+        </script>
     </body>
     <?php include_once '../footers.php';?>
 </html>

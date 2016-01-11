@@ -30,6 +30,23 @@ class Usuario {
         $this->rol = $rol;
     }
     
+    private function getSede ($pk){
+        $db = new Database();
+
+        $query = 'SELECT Sede_idSede FROM Usuario WHERE idUsuario = \'' . $pk .  '\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $sede = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $sede;
+    }
+    
     private function getNombre ($pk){
         $db = new Database();
         
@@ -62,6 +79,23 @@ class Usuario {
         $db->desconectar();
         
         return $email;
+    }
+    
+    private function getIdioma ($pk){
+        $db = new Database();
+
+        $query = 'SELECT Idioma FROM Usuario WHERE idUsuario = \'' . $pk .  '\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $idioma = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $idioma;
     }
     
     private function getRol ($pk){
@@ -116,26 +150,17 @@ class Usuario {
     }
 
     //Devuelve true o false si realizo el cambio correctamente o no
-    private function setPassword($oldPass, $newPass, $pk){
+    private function setPassword($newPass, $pk){
       //Si oldPass coincide con la de la de $pk en la BD, hace UPDATE con newPass
 			$db = new Database();
 
-			$pass = $this->getPassword($pk);
-
-			if(strcmp($oldPass, $pass)!== 0){ return false;}
-			//Si la contraseña nueva no es la cadena vacia en MD5
-			else if (strcmp($newPass, "")!== 0){
-					$sql = 'UPDATE Usuario SET Password=\''. $newPass . '\' WHERE Usuario.idUsuario = \'' . $pk .  '\'' ;
-					$db->consulta($sql) or die('Error al modificar la password');
-					$result = $db->consulta($sql);
-					$db->desconectar();
-
-					return $result;
-			}else return true;
+            $sql = 'UPDATE Usuario SET Password=\''. $newPass . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+            $db->consulta($sql) or die('Error al modificar la password');
+            $db->desconectar();
     }
     
-		//Este metodo se llama cada vez que se cambia el idioma en la navBar lateral
-		//Devuelve true si se realizo correctamente el cambio de idioma
+    //Este metodo se llama cada vez que se cambia el idioma en la navBar lateral
+	//Devuelve true si se realizo correctamente el cambio de idioma
     public function setIdioma ($newIdioma, $pk){
 			$db = new Database();
 			$sql = 'UPDATE Usuario SET Idioma = \'' .$newIdioma. '\' WHERE Usuario.idUsuario = \'' .  $pk .  '\'';
@@ -178,68 +203,72 @@ class Usuario {
     
     //Muestra los datos de la $pk indicada. Devuelve una array asociativo
     public function consultar ($pk){
+        //Obtener la sede
+        $sede = $this->getSede($pk);
         //Obtener el nombre
         $usuNombre = $this->getNombre($pk);
         //Obtener el email
         $usuEmail = $this->getEmail($pk);
         //Obtener contraseña
         $usuPass = $this->getPassword($pk);
-        //Obtener tipo de usuario
-        $rol = $this->getRol($pk);
+        //Obtener el idioma
+        $idioma = $this->getIdioma($pk);
         //Obtener el equipo
         $equipo = $this->getEquipo($pk);
+        //Obtener tipo de usuario
+        $rol = $this->getRol($pk);
         
         //Crear array asoc con los datos de $pk
-        $usuario = array("idUsuario"=>$pk, "nombre"=>$usuNombre, "email"=>$usuEmail, "password"=>$usuPass, "rol" => $rol, "equipo"=>$equipo);
+        $usuario = array("idUsuario"=>$pk, "sede"=>$sede, "nombre"=>$usuNombre, "email"=>$usuEmail, "password"=>$usuPass, "idioma"=>$idioma, "equipo"=>$equipo, "rol" => $rol);
         
         return $usuario;
     }
     
     //Modifica los datos del objeto con $pk, y lo guarda segun los datos de $objeto pasado
     //No se modifica la primary key, que es el login, el idUsuario en la BD
-    public function modificar ($pk, $objeto) {
-        $db = new Database();
-        //Guardar los datos del objeto $pk antes de modificar
+    public function modificar ($pk, $objeto, $newPass) {
         if ($this->exists($pk)){
-            $datos = $this->consultar($pk);
-			
-            $oldNombre = $datos['nombre'];
-            $newNombre = $objeto->nombre;
-		
-            if ($oldNombre != $newNombre){
-                $sql = 'UPDATE Usuario SET Nombre=\''. $newNombre . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+            //Obtener la contraseña del usuario
+            $pass = $this->getPassword($pk);
+            //Si las contraseñas coinciden, puede modificar el perfil
+            if($pass == $objeto->password){
+                $db = new Database();
+                $datos = $this->consultar($pk);
 
-                $db->consulta($sql) or die('Error al modificar el nombre');
-            }
-		
-            $oldEmail = $datos['email'];
-            $newEmail = $objeto->email;
-		
-            if ($oldEmail != $newEmail){
-                $sql = 'UPDATE Usuario SET Email=\''. $newEmail . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+                //Modificar el nombre
+                $oldNombre = $datos['nombre'];
+                $newNombre = $objeto->nombre;
 
-                $db->consulta($sql) or die('Error al modificar el email');
-            }
-					
-						$oldRol = $datos['Rol'];
-            $newRol = $objeto->rol;
-		
-            if ($oldRol != $newRol){
-                $sql = 'UPDATE Usuario SET Rol=\''. $newRol . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+                if ($oldNombre != $newNombre){
+                    $sql = 'UPDATE Usuario SET Nombre=\''. $newNombre . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
 
-                $db->consulta($sql) or die('Error al modificar el rol');
-            }
+                    $db->consulta($sql) or die('Error al modificar el nombre');
+                }
 
-            $result = true;
-        
-            $oldPass = $datos['password'];
-            $newPass = $objeto->password;
-            if (($oldPass != $newPass) && ($newPass != "d41d8cd98f00b204e9800998ecf8427e")){
-                 $result = $this->setPassword($oldPass, $newPass, $pk);
-            }
-        
-            $db->desconectar();
-            return $result;
+                //Modificar el email
+                $oldEmail = $datos['email'];
+                $newEmail = $objeto->email;
+
+                if ($oldEmail != $newEmail){
+                    $sql = 'UPDATE Usuario SET Email=\''. $newEmail . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+
+                    $db->consulta($sql) or die('Error al modificar el email');
+                }
+                
+                //Modificar el idioma
+                $idioma = $objeto->idioma;
+                $sqlIdioma = 'UPDATE Usuario SET Idioma=\''. $idioma . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+                $db->consulta($sqlIdioma) or die('Error al modificar el idioma');
+                
+                //Modificar la contraseña
+                //Si la nueva contraseña es diferente y no es la cadena vacia en md5
+                if (($pass != $newPass) && ($newPass != "d41d8cd98f00b204e9800998ecf8427e")){
+                     $result = $this->setPassword($newPass, $pk);
+                }
+
+                $db->desconectar();
+                return true;
+            } else die("La contraseña del usuario es incorrecta, no puede modificar los datos.");
         }else {
             return false;
         }
