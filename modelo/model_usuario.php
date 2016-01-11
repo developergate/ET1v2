@@ -224,9 +224,71 @@ class Usuario {
         return $usuario;
     }
     
-    //Modifica los datos del objeto con $pk, y lo guarda segun los datos de $objeto pasado
+    //Modifica los datos del objeto con $pk por el administrador, y lo guarda segun los datos de $objeto pasado
     //No se modifica la primary key, que es el login, el idUsuario en la BD
-    public function modificar ($pk, $objeto, $newPass) {
+    public function modificar ($pk, $objeto) {
+        if ($this->exists($pk)){
+            $db = new Database();
+            $datos = $this->consultar($pk);
+            
+            //Modificar el nombre
+            $oldNombre = $datos['nombre'];
+            $newNombre = $objeto->nombre;
+
+            if ($oldNombre != $newNombre){
+                $sql = 'UPDATE Usuario SET Nombre=\''. $newNombre . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar el nombre');
+            }
+
+            //Modificar el email
+            $oldEmail = $datos['email'];
+            $newEmail = $objeto->email;
+
+            if ($oldEmail != $newEmail){
+                $sql = 'UPDATE Usuario SET Email=\''. $newEmail . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar el email');
+            }
+            
+            //Modificar la sede
+            $oldSede = $datos['sede'];
+            $newSede = $objeto->sede;
+
+            if ($oldSede != $newSede){
+                $sql = 'UPDATE Usuario SET Sede_idSede=\''. $newSede . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar la sede');
+            }
+
+            //Modificar el rol
+            $newRol = $objeto->rol;
+            $sqlRol = 'UPDATE Usuario SET Rol=\''. $newRol . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+            $db->consulta($sqlRol) or die('Error al modificar el rol');
+            
+            //Modificar el idioma
+            $idioma = $objeto->idioma;
+            $sqlIdioma = 'UPDATE Usuario SET Idioma=\''. $idioma . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+            $db->consulta($sqlIdioma) or die('Error al modificar el idioma');
+
+            //Modificar la contraseña
+            $oldPass = $this->getPassword($pk);
+            $newPass = $objeto->password;
+            //Si la nueva contraseña es diferente y no es la cadena vacia en md5
+            if (($oldPass != $newPass) && ($newPass != "d41d8cd98f00b204e9800998ecf8427e")){
+                 $result = $this->setPassword($newPass, $pk);
+            }
+
+            $db->desconectar();
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
+    //Modifica los datos del objeto con $pk para el perfil, y lo guarda segun los datos de $objeto pasado
+    //No se modifica la primary key, que es el login, el idUsuario en la BD
+    public function modificar_perfil ($pk, $objeto, $newPass) {
         if ($this->exists($pk)){
             //Obtener la contraseña del usuario
             $pass = $this->getPassword($pk);

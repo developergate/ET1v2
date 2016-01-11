@@ -54,14 +54,14 @@ Fecha: 08/01/2016
                                                 <!-- Login -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="sr-only">Login</label>
+                                                        <label>Login</label>
                                                         <input type="text" required class="form-control" placeholder="Login" name="login">
                                                     </div>        
                                                 </div>
                                                 <!-- Nombre -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="sr-only" >Nombre</label>
+                                                        <label>Nombre</label>
                                                         <input type="text" required class="form-control" placeholder="Nombre" name="nombre">
                                                     </div>        
                                                 </div>
@@ -70,7 +70,7 @@ Fecha: 08/01/2016
                                                 <!-- Email -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="form-username">Email</label>
+                                                        <label for="form-username">Email</label>
                                                         <input type="email" name="email" required class="form-control" placeholder="Email">
                                                     </div>        
                                                 </div>
@@ -78,7 +78,7 @@ Fecha: 08/01/2016
                                                 <!-- Contrasenha -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="sr-only">Contraseña</label>
+                                                        <label>Contraseña</label>
                                                         <input type="password" required id="pass" name="pass" class="form-control" placeholder="Password">
                                                     </div>
                                                 </div>

@@ -31,7 +31,7 @@ Fecha: 07/01/2016
                     </a>            
                 </li>
                 <li <?php echo $usuarios;?>>
-                    <a href="a_usuarios.php">
+                    <a href="../admin/a_usuarios.php">
                         <i class="pe-7s-note2"></i> 
                         <p>Gestión de usuarios</p>
                     </a>        
