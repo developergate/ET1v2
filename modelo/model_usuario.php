@@ -342,7 +342,7 @@ class Usuario {
         {
             $db = new Database();
             //Inserta el usuario en la tabla usuario
-            $insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email, Rol) VALUES ('$objeto->idUsuario', '$objeto->sede', '$objeto->nombre', '$objeto->password', '$objeto->email', '$objeto->rol');";
+            $insertaUsu = "INSERT INTO Usuario (idUsuario, Sede_idSede, Nombre, Password, Email, Idioma, Rol) VALUES ('$objeto->idUsuario', '$objeto->sede', '$objeto->nombre', '$objeto->password', '$objeto->email', '$objeto->idioma', '$objeto->rol');";
 
             $db->consulta($insertaUsu) or die('Error al crear el Usuario');
             $db->desconectar();

@@ -86,7 +86,7 @@ Fecha: 08/01/2016
                                             
                                             <div class="row">
                                                 <!-- Rol -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>Rol</label>
                                                         <select type="text" name='rol' class="form-username form-control">
@@ -98,7 +98,7 @@ Fecha: 08/01/2016
                                                     </div>        
                                                 </div>
                                                 <!-- Sedes -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["registro_sede"];?></label>
                                                         <select type="text" name='sede' class="form-username form-control">
@@ -108,7 +108,17 @@ Fecha: 08/01/2016
                                                         <?php }?>
                                                         </select>
                                                     </div>        
-                                                </div>    
+                                                </div>  
+                                                 <!-- Idioma -->
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Idioma</label>
+                                                        <select type="text" name='idioma' class="form-control">
+                                                            <option value='esp' selected>Español</option>
+                                                            <option value='eng'>English</option>
+                                                        </select>
+                                                    </div>        
+                                                </div>
                                             </div>
 
                                             <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right">Crear</button>
