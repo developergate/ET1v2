@@ -1,6 +1,6 @@
 <!--
 ===========================================================================
-Controlador para crear una propuesta
+Controlador para crear una propuesta y una solucion
 Creado por: Andrea Sanchez
 Fecha: 12/01/2016
 ============================================================================
@@ -18,10 +18,10 @@ $video = $_POST['video'];
 $documento = $_POST['documento'];
 $repo = $_POST['repo'];
 
-$nuevaProp = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
+$nueva = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
 
-//Crear propuesta
-if ($nuevaProp->crear($nuevaProp))
+//Crear propuesta o solucion
+if ($nueva->crear($nueva))
     header('Location:../../vistas/participante/p_menu.php');
 else
     die("La propuesta ya existe.");

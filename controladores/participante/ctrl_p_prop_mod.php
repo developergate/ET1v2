@@ -1,6 +1,6 @@
 <!--
 ===========================================================================
-Controlador para modificar una propuesta
+Controlador para modificar una propuesta y una solucion
 Creado por: Andrea Sanchez
 Fecha: 12/01/2016
 ============================================================================
@@ -18,11 +18,11 @@ $video = $_POST['video'];
 $documento = $_POST['documento'];
 $repo = $_POST['repo'];
 
-$modProp = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
+$mod = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
 
-//Modificar la propuesta
-if ($modProp->modificar($modProp))
+//Modificar la propuesta o solucion
+if ($mod->modificar($mod))
     header('Location:../../vistas/participante/p_menu.php');
 else
-    die("La propuesta no existe.");
+    die("No existe.");
 ?>
