@@ -128,11 +128,14 @@ $perfil = $usu->consultar($idUsuario);
                                             </div>
                                         </div>
 
-                                        <button type="submit"  onclick="cifrar()" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                        <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right">Update Profile</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
+                            <form action='../../controladores/ctrl_perfil_del.php' method='post'>
+                                <button type="submit" class="btn btn-danger btn-fill">Eliminar mi cuenta</button>
+                            </form>
                         </div> 
                     </div>    
                 </div>

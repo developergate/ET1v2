@@ -186,18 +186,21 @@ class Solucion {
     }
     
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
-//    public function crear($objeto){
-//        if ($this->exists($esP, $equipo, $reto) == false) 
-//        {
-//            $db = new Database();
-//            //Inserta la Solucion en la tabla Solucion
-//            $insertaSolucion = "INSERT INTO Solucion (Equipo_idEquipo, Reto_idReto, EsPropuesta) VALUES ('$equipo', '$reto', '$esP');";
-//
-//            $db->consulta($insertaSolucion) or die('Error al crear la Solucion '. $idSolucion);
-//            $db->desconectar();
-//            return true;
-//        } else return false;
-//    }
+    public function crear($objeto){
+        $esP = $objeto->esPropuesta;
+        $equipo = $objeto->equipo;
+        $reto = $objeto->reto;
+        if ($this->exists($esP, $equipo, $reto) == false) 
+        {
+            $db = new Database();
+            //Inserta la Solucion en la tabla Solucion
+            $insertaSolucion = "INSERT INTO Solucion (EsPropuesta, Equipo_idEquipo, Reto_idReto, Titulo, Descripcion, Video, Documento, Repositorio) VALUES ('$esP', '$equipo', '$reto', '$objeto->titulo', '$objeto->descripcion', '$objeto->video', '$objeto->documento', '$objeto->repositorio');";
+
+            $db->consulta($insertaSolucion) or die('Error al crear.');
+            $db->desconectar();
+            return true;
+        } else return false;
+    }
     
     //Comprueba si el equipo subió una solucion o propuesta
     public function subieronSol ($equipo, $reto, $esP) {
