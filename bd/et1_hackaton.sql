@@ -86,15 +86,15 @@ INSERT INTO Reto (`idReto`, `DescReto`, `Aceptado`) VALUES
 -- Table `et1_hackaton`.`Solucion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Solucion (
-  `idSolucion` VARCHAR(50) NOT NULL,
+  `EsPropuesta` TINYINT(1) NOT NULL DEFAULT 0,
   `Equipo_idEquipo` VARCHAR(50) NOT NULL,
   `Reto_idReto` VARCHAR(50) NOT NULL,
-  `DescSolucion` VARCHAR(45),
+  `Titulo` VARCHAR(50) NOT NULL,
+  `Descripcion` VARCHAR(45),
   `Video` VARCHAR(100),
   `Documento` VARCHAR(100),
   `Repositorio` VARCHAR(100),
-  `EsPropuesta` TINYINT(1) NOT NULL DEFAULT 0,
-   PRIMARY KEY (`idSolucion`, `Equipo_idEquipo`, `Reto_idReto`),
+   PRIMARY KEY (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`),
   CONSTRAINT `fk_Solucion_Equipo`
     FOREIGN KEY (`Equipo_idEquipo`)
     REFERENCES Equipo(`idEquipo`)
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS Solucion (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Solucion (`idSolucion`, `Equipo_idEquipo`, `Reto_idReto`, `DescSolucion`, `Video`, `Documento`, `Repositorio`, `EsPropuesta`) VALUES
-('solu1', 'equipoActimel', 'Nopollution', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip', '1'),
-('propuesta1', 'equipoActimel', 'Nopollution', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip', '0'),
-('solu2', 'equipoA', 'Nopollution', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip', '1');
+INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`, `Descripcion`, `Video`, `Documento`, `Repositorio`) VALUES
+('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip'),
+('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip'),
+('0', 'equipoA', 'Nopollution', 'solu2', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Premio`
@@ -122,35 +122,35 @@ CREATE TABLE IF NOT EXISTS Premio (
   `FechaJuradoS` DATE NOT NULL,
   `FechaJuradoN` VARCHAR(45) NOT NULL,
   `TipoPremio` ENUM('s', 'n') DEFAULT 'n',
-  `Solucion_idSolucion` VARCHAR(50) NOT NULL,
+  `Solucion_EsPropuesta` TINYINT(1),
   `Solucion_Equipo_idEquipo` VARCHAR(50),
   `Solucion_Reto_idReto` VARCHAR(50),
   PRIMARY KEY (`idPremio`),
   CONSTRAINT `fk_Premio_Solucion`
-    FOREIGN KEY (`Solucion_idSolucion` , `Solucion_Equipo_idEquipo` , `Solucion_Reto_idReto`)
-    REFERENCES Solucion(`idSolucion` , `Equipo_idEquipo` , `Reto_idReto`)
+    FOREIGN KEY (`Solucion_EsPropuesta` , `Solucion_Equipo_idEquipo` , `Solucion_Reto_idReto`)
+    REFERENCES Solucion(`EsPropuesta` , `Equipo_idEquipo` , `Reto_idReto`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Premio (`idPremio`, `DescPremio`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
-('coche', 'Renault Clio 1.6',  '2015-12-17', '2015-12-18', '2015-12-19', 's', 'solu1', 'equipoActimel', 'Nopollution');
+INSERT INTO Premio (`idPremio`, `DescPremio`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
+('coche', 'Renault Clio 1.6',  '2015-12-17', '2015-12-18', '2015-12-19', 's', '0', 'equipoActimel', 'Nopollution');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Jurado_puntua_Solucion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Jurado_puntua_Solucion (
   `Usuario_idUsuario` VARCHAR(50) NOT NULL,
-  `Solucion_idSolucion` VARCHAR(50) NOT NULL,
+  `Solucion_EsPropuesta` TINYINT(1) NOT NULL,
   `Solucion_Equipo_idEquipo` VARCHAR(50) NOT NULL,
   `Solucion_Reto_idReto` VARCHAR(50) NOT NULL,
   `Premio_idPremio` VARCHAR(50) NOT NULL,
   `Puntuacion` INT NOT NULL DEFAULT 0,
   `TipoPuntuacion` ENUM('s', 'n') DEFAULT 'n',
-  PRIMARY KEY (`Usuario_idUsuario`, `Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`),
+  PRIMARY KEY (`Usuario_idUsuario`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`),
   CONSTRAINT `fk_Jurado_Solucion`
-    FOREIGN KEY (`Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`)
-    REFERENCES Solucion(`idSolucion`, `Equipo_idEquipo`, `Reto_idReto`)
+    FOREIGN KEY (`Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`)
+    REFERENCES Solucion(`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Jurado_Premio`
@@ -165,9 +165,9 @@ CREATE TABLE IF NOT EXISTS Jurado_puntua_Solucion (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
-('jurado', 'solu1', 'equipoActimel', 'Nopollution', 'Coche', 7, 's'),
-('jurado', 'solu2', 'equipoA', 'Nopollution', 'Coche', 5, 's');
+INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
+('jurado', '0', 'equipoActimel', 'Nopollution', 'Coche', 7, 's'),
+('jurado', '0', 'equipoA', 'Nopollution', 'Coche', 5, 's');
 
 
 

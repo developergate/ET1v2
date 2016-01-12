@@ -17,6 +17,7 @@ Fecha: 07/01/2016
     $datos = $usu->consultar($_SESSION['login_usuario']);
     include_once "../../modelo/model_solucion.php";
     $sol = new Solucion();
+    $datosSol = $sol->consultar(true, $datos['equipo'], $reto);
     ?>
 
     <body>
@@ -58,7 +59,7 @@ Fecha: 07/01/2016
                         <div class="row">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Edit Profile</h4>
+                                    <h4 class="title">Propuesta de solución</h4>
                                 </div>
                                 <div class="content">
                                     <form action='../../controladores/ctrl_perfil.php' method='post'>
@@ -67,23 +68,21 @@ Fecha: 07/01/2016
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Titulo</label>
-                                                    <input type="text" class="form-control" disabled value="<?php echo $perfil['idUsuario']; ?>">
-                                                    <input name="login" type="hidden" value="<?php echo $perfil['idUsuario']; ?>">
+                                                    <input type="text" class="form-control" disabled value="<?php echo $datosSol['titulo']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Equipo -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Equipo</label>
-                                                    <input type="text" class="form-control" disabled value="<?php echo $perfil['sede']; ?>">
-                                                    <input name="sede" type="hidden" value="<?php echo $perfil['sede']; ?>">
+                                                    <input type="text" class="form-control" disabled value="<?php echo $datosSol['equipo']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Reto -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Reto</label>
-                                                    <input disabled type="text" class="form-control" value="<?php echo $perfil['rol']; ?>">
+                                                    <input disabled type="text" class="form-control" value="<?php echo $datosSol['reto']; ?>">
                                                 </div>        
                                             </div>
                                         </div>
@@ -93,21 +92,21 @@ Fecha: 07/01/2016
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>Descripcion</label>
-                                                    <input name="nombre" type="text" class="form-control" value="<?php echo $perfil['nombre']; ?>">
+                                                    <input name="nombre" type="text" class="form-control" value="<?php echo $datosSol['descripcion']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Video -->
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Video</label>
-                                                    <input name="email" type="email" class="form-control" value="<?php echo $perfil['email']; ?>">
+                                                    <input name="email" type="email" class="form-control" value="<?php echo $datosSol['video']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Documento -->
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label>Documento</label>
-                                                    <input name="email" type="email" class="form-control" value="<?php echo $perfil['email']; ?>">
+                                                    <input name="email" type="email" class="form-control" value="<?php echo $datosSol['documento']; ?>">
                                                 </div>        
                                             </div>
                                         </div>

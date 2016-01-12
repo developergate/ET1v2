@@ -6,7 +6,7 @@ Fecha: 12/01/2016
 ======================================================================
 -->
 <?php 
-include_once 'interface.php';
+include_once 'connect_DB.php';
 
 class Equipo {
     private $idEquipo;

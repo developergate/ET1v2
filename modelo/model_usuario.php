@@ -6,7 +6,7 @@ Fecha: 29/12/2015
 ======================================================================
 -->
 <?php 
-include_once 'interface.php';
+include_once 'connect_DB.php';
 
 class Usuario {
 	
