@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Usuario (
   `Idioma` ENUM('esp', 'eng') NOT NULL DEFAULT 'esp',
   `Equipo_idEquipo` VARCHAR(50) DEFAULT NULL,
   `Rol` ENUM('admin', 'juradoNacional', 'juradoSede', 'participante') DEFAULT 'participante',
-   PRIMARY KEY (`idUsuario`, `Sede_idSede`),
+   PRIMARY KEY (`idUsuario`),
   CONSTRAINT `fk_Usuario_Sede`
     FOREIGN KEY (`Sede_idSede`)
     REFERENCES Sede(`idSede`)
@@ -61,8 +61,10 @@ INSERT INTO `Usuario` (`idUsuario`, `Sede_idSede`, `Nombre`, `Password`, `Email`
 ('jurado', 'Ourense', 'Pablemos', '56e07fdb35aa5008d09813b6b89f2ad5', 'juradoSede@jurado.es', 'esp', null, 'juradoNacional'),
 -- pass participante
 ('participante', 'Ourense', 'Hackercillo', '99ac05264e7c7a69a800755bb72972d8', 'participante@gmail.com', 'esp', 'equipoActimel', 'participante'),
+-- pass participante
+('manolo', 'Ourense', 'Hackercillo', '99ac05264e7c7a69a800755bb72972d8', 'manolo@gmail.com', 'esp', 'equipoActimel', 'participante'),
 -- pass participante2
-('participante2', 'Ourense', 'mark zuckerberg', '1ae54b5fd1b7f33381081d9bcd0f3425', 'participante2@gmail.com', 'esp', 'equipoActimel', 'participante');
+('participante2', 'Ourense', 'mark zuckerberg', '1ae54b5fd1b7f33381081d9bcd0f3425', 'participante2@gmail.com', 'esp', 'equipoA', 'participante');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Reto`
@@ -107,6 +109,7 @@ ENGINE = InnoDB;
 
 INSERT INTO Solucion (`idSolucion`, `Equipo_idEquipo`, `Reto_idReto`, `DescSolucion`, `Video`, `Documento`, `Repositorio`, `EsPropuesta`) VALUES
 ('solu1', 'equipoActimel', 'Nopollution', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip', '1'),
+('propuesta1', 'equipoActimel', 'Nopollution', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip', '0'),
 ('solu2', 'equipoA', 'Nopollution', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip', '1');
 
 -- -----------------------------------------------------
@@ -139,13 +142,32 @@ INSERT INTO Premio (`idPremio`, `DescPremio`, `FechaEquipos`, `FechaJuradoS`, `F
 CREATE TABLE IF NOT EXISTS Jurado_puntua_Solucion (
   `Usuario_idUsuario` VARCHAR(50) NOT NULL,
   `Solucion_idSolucion` VARCHAR(50) NOT NULL,
+  `Solucion_Equipo_idEquipo` VARCHAR(50) NOT NULL,
+  `Solucion_Reto_idReto` VARCHAR(50) NOT NULL,
   `Premio_idPremio` VARCHAR(50) NOT NULL,
   `Puntuacion` INT NOT NULL DEFAULT 0,
-  `TipoPuntuacion` ENUM('s', 'n') DEFAULT 'n');
+  `TipoPuntuacion` ENUM('s', 'n') DEFAULT 'n',
+  PRIMARY KEY (`Usuario_idUsuario`, `Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`),
+  CONSTRAINT `fk_Jurado_Solucion`
+    FOREIGN KEY (`Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`)
+    REFERENCES Solucion(`idSolucion`, `Equipo_idEquipo`, `Reto_idReto`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Jurado_Premio`
+    FOREIGN KEY (`Premio_idPremio`)
+    REFERENCES Premio(`idPremio`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Jurado_Usuario`
+    FOREIGN KEY (`Usuario_idUsuario`)
+    REFERENCES Usuario(`idUsuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
 
-INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_idSolucion`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
-('jurado', 'solu1', 'Coche', 7, 's'),
-('jurado', 'solu2', 'Coche', 5, 's');
+INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_idSolucion`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
+('jurado', 'solu1', 'equipoActimel', 'Nopollution', 'Coche', 7, 's'),
+('jurado', 'solu2', 'equipoA', 'Nopollution', 'Coche', 5, 's');
 
 
 

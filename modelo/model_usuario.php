@@ -390,16 +390,19 @@ class Usuario {
         $db->desconectar();
     }
     
-    //Añadir un usuario a un equipo
-    public function addUsuEquipo ($idUsuario, $idEquipo){
+    //Añadir un usuario a un equipo, deben ser de la misma sede
+    public function addUsuEquipo ($idUsuario, $idEquipo, $sede){
         if ($this->exists($idUsuario)){
-            $db = new Database();
+            $sedeUsu = $this->getSede($idUsuario);
+            if($sede == $sedeUsu){
+               $db = new Database();
         
-            $sql = 'UPDATE Usuario SET Equipo_idEquipo= \''.$idEquipo.'\' WHERE idUsuario = \''.$idUsuario.'\'' ;
-            $db->consulta($sql) or die('Error al añadir del equipo al usuario');
+                $sql = 'UPDATE Usuario SET Equipo_idEquipo= \''.$idEquipo.'\' WHERE idUsuario = \''.$idUsuario.'\'' ;
+                $db->consulta($sql) or die('Error al añadir del equipo al usuario');
 
-            $db->desconectar();
-            return true;
+                $db->desconectar();
+                return true; 
+            } else die ("El usuario debe pertenecer a la misma sede.");
         } else return false;
     }
 }

@@ -76,7 +76,7 @@ Fecha: 12/01/2016
                                             </tbody>
                                         </table>
                                         <div class="container-fluid" style="text-align: center;">
-                                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo_usu.php?equipo=<?php echo $datos['equipo'];?>'">Añadir miembro</button>
+                                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo_usu.php?equipo=<?php echo $datos['equipo'];?>&sede=<?php echo $datos['sede'];?>'">Añadir miembro</button>
                                             
                                             <button type="button" class="btn btn-danger btn-fill" onclick="location.href='p_equipo_salir.php?num=<?php echo $numero; ?>'">Salir del equipo</button>
                                         </div>

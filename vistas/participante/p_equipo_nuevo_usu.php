@@ -12,6 +12,7 @@ Fecha: 12/01/2016
     $includeIdioma = permisos("participante", "../../");
     include_once $includeIdioma;
     $equipo = $_GET['equipo'];
+    $sede = $_GET['sede'];
     ?>
 
     <body>
@@ -53,6 +54,7 @@ Fecha: 12/01/2016
                                                     <label>Login del usuario</label>
                                                     <input type="text" class="form-control" placeholder="Login" name="usuario">
                                                     <input type="hidden" name="equipo" value="<?php echo $equipo; ?>">
+                                                    <input type="hidden" name="sede" value="<?php echo $sede; ?>">
                                                 </div>        
                                             </div>
                                         </div>
