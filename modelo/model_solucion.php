@@ -158,6 +158,33 @@ class Solucion {
         return $datos;
     }
     
+    public function modificar($objeto){
+        $esP = $objeto->esPropuesta;
+        $equipo = $objeto->equipo;
+        $reto = $objeto->reto;
+        if($this->exists($esP, $equipo, $reto)){
+            $db = new Database();
+
+            $sqlTitulo = 'UPDATE Solucion SET Titulo =\''. $objeto->titulo . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlTitulo) or die('Error al modificar el titulo');
+            
+            $sqlDesc = 'UPDATE Solucion SET Descripcion =\''. $objeto->descripcion . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlDesc) or die('Error al modificar la descripcion');
+            
+            $sqlVideo = 'UPDATE Solucion SET Video =\''. $objeto->video . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlVideo) or die('Error al modificar el video');
+            
+            $sqlDoc = 'UPDATE Solucion SET Documento =\''. $objeto->documento . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlDoc) or die('Error al modificar el documento');
+            
+            $sqlRepo = 'UPDATE Solucion SET Repositorio =\''. $objeto->documento . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlRepo) or die('Error al modificar el repositorio');
+            
+            $db->desconectar();
+            return true;
+        }else return false;
+    }
+    
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
 //    public function crear($objeto){
 //        if ($this->exists($esP, $equipo, $reto) == false) 

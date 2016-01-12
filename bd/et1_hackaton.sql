@@ -108,8 +108,8 @@ CREATE TABLE IF NOT EXISTS Solucion (
 ENGINE = InnoDB;
 
 INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`, `Descripcion`, `Video`, `Documento`, `Repositorio`) VALUES
-('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip'),
-('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contacminacion', 'a.avi', 'a.pdf', 'a.zip'),
+('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip'),
+('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip'),
 ('0', 'equipoA', 'Nopollution', 'solu2', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip');
 
 -- -----------------------------------------------------

@@ -62,13 +62,13 @@ Fecha: 07/01/2016
                                     <h4 class="title">Propuesta de solución</h4>
                                 </div>
                                 <div class="content">
-                                    <form action='../../controladores/ctrl_perfil.php' method='post'>
+                                    <form action='../../controladores/participante/ctrl_p_prop_mod.php' method='post'>
                                         <div class="row">
                                             <!-- Titulo -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Titulo</label>
-                                                    <input type="text" class="form-control" disabled value="<?php echo $datosSol['titulo']; ?>">
+                                                    <input name="titulo" type="text" class="form-control" value="<?php echo $datosSol['titulo']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Equipo -->
@@ -76,50 +76,54 @@ Fecha: 07/01/2016
                                                 <div class="form-group">
                                                     <label>Equipo</label>
                                                     <input type="text" class="form-control" disabled value="<?php echo $datosSol['equipo']; ?>">
+                                                    <input type="hidden" name="equipo" value="<?php echo $datosSol['equipo']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Reto -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Reto</label>
-                                                    <input disabled type="text" class="form-control" value="<?php echo $datosSol['reto']; ?>">
+                                                    <input type="text" disabled class="form-control" value="<?php echo $datosSol['reto']; ?>">
+                                                    <input type="hidden" name="reto" value="<?php echo $datosSol['reto']; ?>">
+                                                    <input type="hidden" name="esP" value="<?php echo true; ?>">
                                                 </div>        
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <!-- Descripcion -->
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Descripcion</label>
-                                                    <input name="nombre" type="text" class="form-control" value="<?php echo $datosSol['descripcion']; ?>">
+                                                    <textarea name="desc" type="text" class="form-control"><?php echo $datosSol['descripcion']; ?></textarea>
                                                 </div>        
                                             </div>
                                             <!-- Video -->
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Video</label>
-                                                    <input name="email" type="email" class="form-control" value="<?php echo $datosSol['video']; ?>">
-                                                </div>        
-                                            </div>
-                                            <!-- Documento -->
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>Documento</label>
-                                                    <input name="email" type="email" class="form-control" value="<?php echo $datosSol['documento']; ?>">
+                                                    <input name="video" type="text" class="form-control" value="<?php echo $datosSol['video']; ?>">
                                                 </div>        
                                             </div>
                                         </div>
 
                                         <!-- Repositorio -->
                                         <div class="row">
+                                            <!-- Documento -->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Documento</label>
+                                                    <input name="documento" type="text" class="form-control" value="<?php echo $datosSol['documento']; ?>">
+                                                </div>        
+                                            </div>
                                             <div class="col-md-6">
                                                 <label>Repositorio</label>
-                                                <input name="" type="text" required class="form-control">
+                                                <input name="repo" type="text" class="form-control" value="<?php echo $datosSol['repositorio']; ?>">
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                        <a class="btn btn-info btn-fill pull-left" href="p_menu.php">Volver</a>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Modificar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
