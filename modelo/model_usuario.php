@@ -359,5 +359,48 @@ class Usuario {
 			return true;
         } else return false;
     }
+    
+    //Devuelve un array con los nombres de los usuarios del equipo pasado
+    public function usuariosEquipo ($idEquipo){
+        $db = new Database();
+        
+        $sqlUsuario = $db->consulta('SELECT * FROM Usuario WHERE Equipo_idEquipo = \''. $idEquipo .'\'');
+        $arrayUsuario = array();
+        while ($row_usuario = mysqli_fetch_assoc($sqlUsuario))
+            $arrayUsuario[] = $row_usuario;
+        
+        $db->desconectar();
+        return $arrayUsuario;
+    }
+    
+    //Funcion para desvincular un equipo de un usuario
+    //Manda el numero de usuarios del equipo, por lo que si es el ultimo, elimina el equipo
+    public function salirEquipo ($idUsuario, $num){
+        $db = new Database();
+        
+        $equipo = $this->getEquipo($idUsuario);
+        $sql = 'UPDATE Usuario SET Equipo_idEquipo= null WHERE idUsuario = \'' . $idUsuario .  '\'' ;
+        $db->consulta($sql) or die('Error al desvincular del equipo');
+        
+        //Si es el ultimo usuario, eliminar el equipo
+        if($num == 1){
+            $db->consulta('DELETE FROM Equipo WHERE idEquipo = \'' .$equipo .'\'') or die('Error al eliminar el equipo') or die('Error al eliminar del equipo');
+        }
+        
+        $db->desconectar();
+    }
+    
+    //Añadir un usuario a un equipo
+    public function addUsuEquipo ($idUsuario, $idEquipo){
+        if ($this->exists($idUsuario)){
+            $db = new Database();
+        
+            $sql = 'UPDATE Usuario SET Equipo_idEquipo= \''.$idEquipo.'\' WHERE idUsuario = \''.$idUsuario.'\'' ;
+            $db->consulta($sql) or die('Error al añadir del equipo al usuario');
+
+            $db->desconectar();
+            return true;
+        } else return false;
+    }
 }
 ?>

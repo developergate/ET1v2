@@ -67,7 +67,7 @@ Fecha: 07/01/2016
                             </div>      
                         </div> 
                         <div  class="container-fluid" style="text-align: center;">
-                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='a_sede_nueva.php'"><?php echo $idioma["nueva_sede"] ?></a></button>
+                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='a_sede_nueva.php'"><?php echo $idioma["nueva_sede"] ?></button>
                         </div>
                     </div>    
                 </div>
