@@ -9,7 +9,7 @@ Fecha: 07/01/2016
 -->
 
 <?php function js_sidebar($perfil, $vs){ ?>
-    <div class="sidebar" data-color="orange" data-image="../../light-template/img/sidebar-5.jpg">    
+    <div class="sidebar" data-color="orange" data-image="../../light-template/img/sidebar-4.jpg">    
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">

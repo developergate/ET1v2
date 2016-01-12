@@ -9,7 +9,7 @@ Fecha: 07/01/2016
 -->
 
 <?php function jn_sidebar($perfil, $vn){ ?>
-    <div class="sidebar" data-color="green" data-image="../../light-template/img/sidebar-5.jpg">    
+    <div class="sidebar" data-color="green" data-image="../../light-template/img/sidebar-3.jpg">    
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">

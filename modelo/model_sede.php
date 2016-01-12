@@ -23,7 +23,7 @@ class Sede {
         $consulta = 'SELECT * FROM Sede WHERE idSede = \'' .  $pk .  '\'';
         $resultado = $db->consulta($consulta) or die('Error al ejecutar la consulta de sede');
         
-        // Si el numero de filas es 0 significa que no encontro el usuario
+        // Si el numero de filas es 0 significa que no encontro la sede
         if (mysqli_num_rows($resultado) == 0){
             $db->desconectar();
             return false;

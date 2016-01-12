@@ -11,6 +11,9 @@ Fecha: 07/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("participante", "../../");
     include_once $includeIdioma;
+    include_once "../../modelo/model_usuario.php";
+    $usu = new Usuario();
+    $datos = $usu->consultar($_SESSION['login_usuario']);
     include_once "../../modelo/model_reto.php";
     $reto = new Reto();
     $retos = $reto->listar();
@@ -50,8 +53,10 @@ Fecha: 07/01/2016
                                             <thead>
                                                 <th>Reto</th>
                                                 <th>Descripcion</th>
+                                                <?php if($datos['equipo'] != null){ ?>
                                                 <th>Propuesta de solucion</th>
                                                 <th>Solucion</th>
+                                                <?php } ?>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($retos as $r){
@@ -59,8 +64,10 @@ Fecha: 07/01/2016
                                                 <tr>
                                                     <td><?php echo $r['idReto'];?></td>
                                                     <td><?php echo $r['DescReto'];?></td>
-                                                    <td><i class="pe-7s-paper-plane"></i></td>
-                                                    <td><i class="pe-7s-check"></i></td>
+                                                    <?php if($datos['equipo'] != null){ ?>
+                                                    <td><a href="p_prop_sol.php?reto=<?php echo $r['idReto']; ?>"><i class="pe-7s-paper-plane"></i></a></td>
+                                                    <td><a href="p_sol.php?reto=<?php echo $r['idReto']; ?>"><i class="pe-7s-check"></i></a></td>
+                                                    <?php } ?>
                                                 </tr>
                                                 <?php }
                                                 }?>
