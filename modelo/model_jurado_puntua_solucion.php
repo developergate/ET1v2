@@ -142,35 +142,95 @@ class Jurado_puntua_Solucion {
         } else return false;
     }
     
-    //Devuelve todas las soluciones puntuadas de una sede
-    private function solucionesSede($idSede){
-        
-    }
-    
-    //Devuelve un array con las soluciones ganadoras de cada sede para un premio
-    public function solucionesSedes($idPremio){
+    //Devuelve todas las soluciones votadas de una sede en un premio
+    private function votacionesSede($idSede, $idPremio){
         $db = new Database();
-        include_once '../../modelo/model_solucion.php';
-        $solucion = new Solucion();
         include_once '../../modelo/model_usuario.php';
         $usuario = new Usuario();
-        include_once '../../modelo/model_sede.php';
-        $sede = new Sede();
-        $sedes = $sede->listar();
         
-        $result = $db->consulta('SELECT * FROM Jurado_puntua_Solucion WHERE Premio_idPremio = \''.$idPremio.'\' AND TipoPuntuacion = s');
-        $array = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            foreach($sedes as $s){
-                $row['Solucion_Equipo_idEquipo'];
-                if(){
-                    $array[$s['idSede']] = $row;
-                }
+        //Lista de toda la tabla Jurado_puntua_Solucion
+        $result = $db->consulta('SELECT * FROM Jurado_puntua_Solucion WHERE Premio_idPremio = \''. $idPremio .'\' AND TipoPuntuacion = "s"');
+        $arrayVotos = array();
+        
+        //Recorrer todas las votaciones, para seleccionar solo las pertenezcan a $idSede
+        while ($voto = mysqli_fetch_assoc($result)){
+            $equipo = $voto['Solucion_Equipo_idEquipo']; //equipo que subio la solucion puntuada
+            //Obtener la sede de cualquier usuario que pertenezca al equipo
+            $sede = $usuario->getSedeEquipo($equipo);
+            
+            //Si la sede de la solucion es la misma que $idSede, guardarla en el array
+            if($sede == $idSede){
+                $arrayVotos[] = $voto;
             }
         }
         
         $db->desconectar();
-        return $arraySol;
+        return $arrayVotos;
+    }
+    
+    //Dado un array con votaciones de una sede en un premio, devuelve un array con la solucion de la sede ganadora del premio - el array que devuelve la funcion votacionesSede
+    private function solucionGanadora($soluciones){
+        $puntuacionTotal = array(); //Guarda la suma de las puntuaciones de cada solucion
+        /*Recorre cada votacion, y va guardando en $puntuacionTotal la suma de los votos de cada jurado para cada solucion*/
+        for ($i = 0; $i < count($soluciones); $i++){
+            $equipo = $soluciones[$i]['Solucion_Equipo_idEquipo'];
+            $reto = $soluciones[$i]['Solucion_Reto_idReto'];
+            $puntuacion = $soluciones[$i]['Puntuacion'];
+            
+            //Si es una nueva solucion la crea en el array puntuacionTotal, sino, suma la puntuacion
+            $nuevaSolucion = true; 
+            $max = count($puntuacionTotal)/3; //Entre 3 porque guarda 3 elementos en cada fila, y cuenta todo
+            for($j = 0; $j < $max; $j++){
+                //echo $puntuacionTotal[$j]['equipo'];
+                if(($puntuacionTotal[$j]['equipo'] == $equipo) && ($puntuacionTotal[$j]['reto'] == $reto)){
+                    $puntuacionTotal[$j]['puntuacion'] += $puntuacion;
+                    $nuevaSolucion = false;
+                }
+            }
+            if($nuevaSolucion == true){
+                $puntuacionTotal[$max]['equipo'] = $equipo;
+                $puntuacionTotal[$max]['reto'] = $reto;
+                $puntuacionTotal[$max]['puntuacion'] = $puntuacion;
+            }
+        }
+        
+        $solMasVotada['equipo'] = "";
+        $solMasVotada['reto'] = "";
+        $solMasVotada['puntuacion'] = 0;
+        /*Recorrer $puntuacionTotal para quedarnos con la solucion mas votada*/
+        foreach($puntuacionTotal as $pt){
+            if($pt['puntuacion'] > $solMasVotada['puntuacion']){
+                $solMasVotada['equipo'] = $pt['equipo'];
+                $solMasVotada['reto'] = $pt['reto'];
+                $solMasVotada['puntuacion'] = $pt['puntuacion'];
+            }
+        }
+        
+        return $solMasVotada;
+    }
+    
+    //Devuelve un array con las soluciones ganadoras de cada sede para un premio
+    /*Para recorrer el array se debe hace un for ($i=0; $i < count($array); $i++) y dentro seleccionar $array['equipo'], $array['reto'] y $array['puntuacion']*/
+    public function ganadorasDeSedes($idPremio){
+        $db = new Database();
+        include_once '../../modelo/model_sede.php';
+        $sede = new Sede();
+        $sedes = $sede->listar();
+        
+        $i = 0;
+        $ganadoras = array();
+        foreach($sedes as $s){
+            $votaciones = $this->votacionesSede($s['idSede'], $idPremio);
+            //Si la sede tiene votaciones registradas
+            if($votaciones != null){
+                $ganadoraSede = $this->solucionGanadora($votaciones);
+                $ganadoras[$i] = $ganadoraSede; //Guarda equipo, reto y puntuacion de la solucion ganadora de cada sede
+                $i++;   
+            }
+        }
+        
+        $db->desconectar();
+        return $ganadoras;
     }
 }
 ?>

@@ -12,10 +12,18 @@ Fecha: 13/01/2016
     $includeIdioma = permisos("juradoNacional", "../../");
     include_once $includeIdioma;
     $idPremio = $_GET['premio'];
+    
+    //Usado para saber la sede de un equipo
+    include_once '../../modelo/model_usuario.php';
+    $usu = new Usuario();
+    
+    //Para consultar los datos de cada solucion ganadora
+    include_once '../../modelo/model_solucion.php';
+    $sol = new Solucion();
     //Listar las soluciones
     include_once '../../modelo/model_jurado_puntua_solucion.php';
     $s = new Jurado_puntua_Solucion();
-    $soluciones = $s->solucionesSedes($idPremio); //Listar las soluciones ganadoras de cada sede
+    $soluciones = $s->ganadorasDeSedes($idPremio); //Listar las soluciones ganadoras de cada sede
     ?>
 
     <body>
@@ -47,7 +55,7 @@ Fecha: 13/01/2016
                         <!-- Retos -->
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"><?php echo $idioma['soluciones'];?></h4>
+                                <h4 class="title"><?php echo $idioma['soluciones_ganadoras'];?></h4>
                                 <p class="category"><?php echo $idioma['premio']?> <?php echo $idPremio; ?></p>
                             </div>
                             <div class="content table-responsive table-full-width">
@@ -56,21 +64,22 @@ Fecha: 13/01/2016
                                         <th><?php echo $idioma["titulo"]; ?></th>
                                         <th><?php echo $idioma["equipo"]; ?></th>
                                         <th><?php echo $idioma["reto"]; ?></th>
+                                        <th>Sede</th>
                                         <th><?php echo $idioma["votar"]; ?></th>
                                     </thead>
                                     <tbody>
                                         <?php $count = 0;
-                                        foreach ($soluciones as $s){ 
-                                        //Si las soluciones se subieron en la fecha indicada
-                                        if($s['Fecha'] <= $premio['fechaEquipos']){ ?>
+                                        for ($i = 0; $i < count($soluciones); $i++){
+                                        $s = $sol->consultar(false, $soluciones[$i]['equipo'], $soluciones[$i]['reto']);
+                                        ?>
                                         <tr>
-                                            <td width='30%'><?php echo $s['Titulo'];?></td>
-                                            <td width='40%'><?php echo $s['Equipo_idEquipo'];?></td>
-                                            <td width='40%'><?php echo $s['Reto_idReto'];?></td>
+                                            <td width='30%'><?php echo $s['titulo'];?></td>
+                                            <td width='40%'><?php echo $s['equipo'];?></td>
+                                            <td width='40%'><?php echo $s['reto'];?></td>
+                                            <td width='40%'><?php echo $usu->getSedeEquipo($s['equipo']);?></td>
                                             <td width='10%'><a href="js_votar_sol.php?premio=<?php echo $idPremio;?>&reto=<?php echo $s['Reto_idReto'];?>&equipo=<?php echo $s['Equipo_idEquipo'];?>"><i class="pe-7s-medal"></i></a></td>
                                         </tr>
-                                        <?php }
-                                        }?>
+                                        <?php }?>
                                     </tbody>
                                 </table>
                             </div>

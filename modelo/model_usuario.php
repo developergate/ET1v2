@@ -406,5 +406,17 @@ class Usuario {
             } else die ("El usuario debe pertenecer a la misma sede.");
         } else return false;
     }
+    
+    //Devuelve la sede del equipo
+    public function getSedeEquipo($equipo){
+        $db = new Database();
+        
+        $sql = $db->consulta('SELECT Sede_idSede FROM Usuario WHERE Equipo_idEquipo = \''. $equipo .'\'');
+        $row = $sql->fetch_array(MYSQLI_NUM); /* array numérico */
+        $sede = $row[0];
+        
+        $db->desconectar();
+        return $sede;
+    }
 }
 ?>

@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Equipo (
   PRIMARY KEY (`idEquipo`))
 ENGINE = InnoDB;
 
-INSERT INTO Equipo (`idEquipo`) VALUES ('equipoActimel'), ('equipoA');
+INSERT INTO Equipo (`idEquipo`) VALUES ('equipoActimel'), ('equipoA'), ('superLugo');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Usuario`
@@ -58,11 +58,17 @@ INSERT INTO `Usuario` (`idUsuario`, `Sede_idSede`, `Nombre`, `Password`, `Email`
 -- pass jurado
 ('juradoSede', 'Ourense', 'Pablemos', '56e07fdb35aa5008d09813b6b89f2ad5', 'jurado@jurado.es', 'esp', null, 'juradoSede'),
 -- pass jurado
+('juradoSede2', 'Lugo', 'Pedro', '56e07fdb35aa5008d09813b6b89f2ad5', 'jurado@jurado.es', 'esp', null, 'juradoSede'),
+-- pass jurado
 ('jurado', 'Ourense', 'Pablemos', '56e07fdb35aa5008d09813b6b89f2ad5', 'juradoSede@jurado.es', 'esp', null, 'juradoNacional'),
 -- pass participante
 ('participante', 'Ourense', 'Hackercillo', '99ac05264e7c7a69a800755bb72972d8', 'participante@gmail.com', 'esp', 'equipoActimel', 'participante'),
 -- pass participante
 ('manolo', 'Ourense', 'Hackercillo', '99ac05264e7c7a69a800755bb72972d8', 'manolo@gmail.com', 'esp', 'equipoActimel', 'participante'),
+-- pass participante
+('carlos', 'Lugo', 'Carlos', '99ac05264e7c7a69a800755bb72972d8', 'manolo@gmail.com', 'esp', 'superLugo', 'participante'),
+-- pass participante
+('juan', 'Lugo', 'Juan', '99ac05264e7c7a69a800755bb72972d8', 'manolo@gmail.com', 'esp', 'superLugo', 'participante'),
 -- pass participante2
 ('participante2', 'Ourense', 'mark zuckerberg', '1ae54b5fd1b7f33381081d9bcd0f3425', 'participante2@gmail.com', 'esp', 'equipoA', 'participante');
 
@@ -109,8 +115,12 @@ CREATE TABLE IF NOT EXISTS Solucion (
 ENGINE = InnoDB;
 
 INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`, `Descripcion`, `Video`, `Documento`, `Repositorio`, `Fecha`) VALUES
+('0', 'superLugo', 'Nopollution', 'solucion lugo', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
+('1', 'superLugo', 'Nopollution', 'propuesta lugo', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
 ('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
 ('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
+('0', 'equipoActimel', 'FreeEnergy','solucion1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
+('1', 'equipoActimel', 'FreeEnergy','propuesta1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
 ('0', 'equipoA', 'Nopollution', 'solu2', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip', '2015-12-12');
 
 -- -----------------------------------------------------
@@ -177,8 +187,16 @@ CREATE TABLE IF NOT EXISTS Jurado_puntua_Solucion (
 ENGINE = InnoDB;
 
 INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
-('jurado', '0', 'equipoActimel', 'Nopollution', 'Coche', 7, 's'),
-('jurado', '0', 'equipoA', 'Nopollution', 'Coche', 5, 's');
+('jurado', '0', 'equipoActimel', 'Nopollution', 'Coche', 7, 'n'),
+('jurado', '0', 'equipoA', 'Nopollution', 'Coche', 5, 'n'),
+('juradoSede', '0', 'superLugo', 'Nopollution', 'Moton', 8, 's'),
+('juradoSede2', '0', 'superLugo', 'Nopollution', 'Moton', 5, 's'),
+('juradoSede', '0', 'equipoActimel', 'Nopollution', 'Moton', 5, 's'),
+('juradoSede2', '0', 'equipoActimel', 'Nopollution', 'Moton', 9, 's'),
+('juradoSede', '0', 'equipoActimel', 'FreeEnergy', 'Moton', 3, 's'),
+('juradoSede2', '0', 'equipoActimel', 'FreeEnergy', 'Moton', 6, 's'),
+('juradoSede', '0', 'equipoA', 'Nopollution', 'Moton', 6, 's'),
+('juradoSede2', '0', 'equipoA', 'Nopollution', 'Moton', 5, 's');
 
 
 

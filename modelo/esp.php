@@ -90,6 +90,7 @@ $idioma['votar_solucion'] = "Votar solucion";
 //Jurado nacional
 $idioma['gestion_votos_nacional'] = "Gestion de votaciones nacionales";
 $idioma['jn_no_pn'] = "No hay premios nacionales en plazo de votación nacional";
+$idioma['soluciones_ganadoras'] = "Soluciones ganadoras de cada sede";
 
 //Premios
 $idioma['premio_nacional'] = "Premio nacional";
