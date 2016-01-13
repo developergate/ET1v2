@@ -89,4 +89,8 @@ $idioma['votar_solucion'] = "Vote solution";
 //Jurado nacional
 $idioma['gestion_votos_nacional'] = "Manage national votes";
 $idioma['jn_no_pn'] = "There aren't national awards at this time";
+
+//Premios
+$idioma['premio_nacional'] = "National award";
+$idioma['premio_sede'] = "Headquarter award";
 ?>

@@ -118,6 +118,7 @@ INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`,
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Premio (
   `idPremio` VARCHAR(50) NOT NULL,
+  `Sede_idSede` VARCHAR(50),
   `Descripcion` VARCHAR(300),
   `FechaEquipos` DATE NOT NULL,
   `FechaJuradoS` DATE NOT NULL,
@@ -131,14 +132,20 @@ CREATE TABLE IF NOT EXISTS Premio (
     FOREIGN KEY (`Solucion_EsPropuesta` , `Solucion_Equipo_idEquipo` , `Solucion_Reto_idReto`)
     REFERENCES Solucion(`EsPropuesta` , `Equipo_idEquipo` , `Reto_idReto`)
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Premio_Sede`
+    FOREIGN KEY (`Sede_idSede`)
+    REFERENCES Sede(`idSede`)
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 INSERT INTO Premio (`idPremio`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
-('Coche', 'Renault Clio 1.6',  '2015-12-17', '2016-02-28', null, 's', '0', 'equipoActimel', 'Nopollution'),
-('Moto', 'Renault Clio 1.6',  '2016-01-12', '2016-01-14', '2016-01-16', 'n', null, null, null),
-('Motito', 'Renault Clio 1.6',  '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
-('Moton', 'Renault Clio 1.6',  '2016-01-10', '2016-01-11', '2016-01-30', 'n', null, null, null);
+('Coche', 'Renault Clio 1.6', '2015-12-17', '2016-01-10', null, 's', '0', 'equipoActimel', 'Nopollution'),
+('Cochazo', 'Super coche', '2016-01-31', '2016-02-28', null, 's', '0', null, null),
+('Moto', 'Renault Clio 1.6', '2016-01-01', '2016-01-04', '2016-01-06', 'n', '0', 'equipoActimel', 'Nopollution'),
+('Motito', 'Renault Clio 1.6', '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
+('Moton', 'Renault Clio 1.6', '2016-01-10', '2016-01-11', '2016-01-31', 'n', null, null, null);
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Jurado_puntua_Solucion`

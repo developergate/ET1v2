@@ -1,6 +1,6 @@
 <!--
 ======================================================================
-Lista de soluciones a votar
+Lista de soluciones sede ganadoras a votar
 Creado por: Andrea Sanchez
 Fecha: 13/01/2016
 ======================================================================
@@ -9,30 +9,25 @@ Fecha: 13/01/2016
 <html lang="en">
     <?php
     include_once('../../controladores/ctrl_permisos.php');
-    $includeIdioma = permisos("juradoSede", "../../");
+    $includeIdioma = permisos("juradoNacional", "../../");
     include_once $includeIdioma;
-    //Listar las soluciones
-    include_once '../../modelo/model_solucion.php';
-    $s = new Solucion();
-    $soluciones = $s->listar(false); //Listar las soluciones
-    
-    //Saber la fecha del premio para no votar las soluciones fuera de plazo
     $idPremio = $_GET['premio'];
-    include_once '../../modelo/model_premio.php';
-    $p = new Premio();
-    $premio = $p->consultar($idPremio);
+    //Listar las soluciones
+    include_once '../../modelo/model_jurado_puntua_solucion.php';
+    $s = new Jurado_puntua_Solucion();
+    $soluciones = $s->solucionesSedes($idPremio); //Listar las soluciones ganadoras de cada sede
     ?>
 
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/js_sidebar.php'; js_sidebar('', 'class="active"');?>
+            <?php include_once '../Sidebars/jn_sidebar.php'; jn_sidebar('', 'class="active"');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><?php echo $idioma['gestion_votos_sede'];?></a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma['gestion_votos_nacional']; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">

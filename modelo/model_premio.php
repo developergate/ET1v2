@@ -36,6 +36,124 @@ class Premio {
         $this->solReto = $solReto;
     }
 	
+    private function getSede ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT Sede_idSede FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    private function getDescripcion ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT Descripcion FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    private function getFechaEquipos ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT FechaEquipos FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    private function getFechaJuradoS ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT FechaJuradoS FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    private function getFechaJuradoN ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT FechaJuradoN FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    private function getTipoPremio ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT TipoPremio FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
+    //Devuelve un array asociativo con los datos de la solucion ganadora
+    private function getGanador ($idPremio){
+        $db = new Database();
+
+        $query = 'SELECT Solucion_EsPropuesta, Solucion_Equipo_idEquipo, Solucion_Reto_idReto FROM Premio WHERE idPremio = \''.$idPremio.'\'';
+        $result = $db->consulta($query);
+
+        $ganador = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $ganador[] = $row;
+        }
+        
+        $db->desconectar();
+        return $ganador;
+    }
+    
     //Comprueba si existe
     public function exists ($pk) {
         $db = new Database();
@@ -66,6 +184,21 @@ class Premio {
         
         $db->desconectar();
         return $arrayPremios;
+    }
+    
+    public function consultar ($premio){
+        $sede = $this->getSede($premio);
+        $desc = $this->getDescripcion($premio);
+        $fe = $this->getFechaEquipos($premio);
+        $fs = $this->getFechaJuradoS($premio);
+        $fn = $this->getFechaJuradoN($premio);
+        $tipo = $this->getTipoPremio($premio);
+        $ganador = $this->getGanador($premio);
+
+        //Crear array asoc con los datos
+        $datos = array("premio"=>$premio, "sede"=>$sede, "descripcion" => $desc, "fechaEquipos"=>$fe, "fechaJuradoS"=>$fs, "fechaJuradoN" => $fn, "tipo"=>$tipo, "solEsPropuesta"=>$ganador[0]['Solucion_EsPropuesta'], "solEquipo"=>$ganador[0]['Solucion_Equipo_idEquipo'], "solReto"=>$ganador[0]['Solucion_Reto_idReto']);
+        
+        return $datos;
     }
     
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true

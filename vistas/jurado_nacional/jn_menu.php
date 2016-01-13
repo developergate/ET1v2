@@ -16,7 +16,7 @@ Fecha: 07/01/2016
     $premios = $p->listar('n');
     // Fecha actual del usuario
     date_default_timezone_set('Europe/Madrid');
-    $date = date('Y/m/d', time());
+    $date = date('Y-m-d', time());
     ?>
 
     <body>
@@ -59,13 +59,13 @@ Fecha: 07/01/2016
                                             <tbody>
                                                 <?php foreach ($premios as $p){
                                                 $count = 0;
-                                                if(($p['FechaJuradoS'] >= $date) && ($p['FechaJuradoN'] <= $date)){
+                                                if(($p['FechaJuradoS'] < $date) && ($p['FechaJuradoN'] >= $date)){
                                                 $count++;?>
                                                 <tr>
                                                     <td><?php echo $p['idPremio'];?></td>
                                                     <td><?php echo $p['FechaJuradoS'];?></td>
                                                     <td><?php echo $p['FechaJuradoN'];?></td>
-                                                    <td><a href="jn_votar.php?sede=<?php echo $s['idSede'];?>"><i class="pe-7s-medal"></i></a></td>
+                                                    <td><a href="jn_soluciones.php?premio=<?php echo $p['idPremio'];?>"><i class="pe-7s-medal"></i></a></td>
                                                 </tr>
                                                 <?php }
                                                 }?>

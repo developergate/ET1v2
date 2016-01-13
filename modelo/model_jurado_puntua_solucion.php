@@ -141,5 +141,36 @@ class Jurado_puntua_Solucion {
             return true;
         } else return false;
     }
+    
+    //Devuelve todas las soluciones puntuadas de una sede
+    private function solucionesSede($idSede){
+        
+    }
+    
+    //Devuelve un array con las soluciones ganadoras de cada sede para un premio
+    public function solucionesSedes($idPremio){
+        $db = new Database();
+        include_once '../../modelo/model_solucion.php';
+        $solucion = new Solucion();
+        include_once '../../modelo/model_usuario.php';
+        $usuario = new Usuario();
+        include_once '../../modelo/model_sede.php';
+        $sede = new Sede();
+        $sedes = $sede->listar();
+        
+        $result = $db->consulta('SELECT * FROM Jurado_puntua_Solucion WHERE Premio_idPremio = \''.$idPremio.'\' AND TipoPuntuacion = s');
+        $array = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            foreach($sedes as $s){
+                $row['Solucion_Equipo_idEquipo'];
+                if(){
+                    $array[$s['idSede']] = $row;
+                }
+            }
+        }
+        
+        $db->desconectar();
+        return $arraySol;
+    }
 }
 ?>
