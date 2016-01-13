@@ -18,7 +18,10 @@ $video = $_POST['video'];
 $documento = $_POST['documento'];
 $repo = $_POST['repo'];
 
-$nueva = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
+date_default_timezone_set('Europe/Madrid');
+$date = date('Y-m-d', time());
+
+$nueva = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo, $date);
 
 //Crear propuesta o solucion
 if ($nueva->crear($nueva))

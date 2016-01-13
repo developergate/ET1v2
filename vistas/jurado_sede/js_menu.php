@@ -15,7 +15,7 @@ Fecha: 07/01/2016
     $p = new Premio();
     $premiosS = $p->listar('s');
     $premiosN = $p->listar('n');
-    // Fecha actual del usuario
+    // Fecha actual
     date_default_timezone_set('Europe/Madrid');
     $date = date('Y-m-d', time());
     ?>

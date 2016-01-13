@@ -17,8 +17,9 @@ class Solucion {
     private $video;
     private $documento;
     private $repositorio;
+    private $fecha;
     
-    public function __construct($esPropuesta=true, $equipo="", $reto="", $titulo="", $descripcion="", $video="", $documento="", $repositorio="") {
+    public function __construct($esPropuesta=true, $equipo="", $reto="", $titulo="", $descripcion="", $video="", $documento="", $repositorio="", $fecha="") {
         $this->esPropuesta = $esPropuesta;
         $this->equipo = $equipo;
         $this->reto = $reto;
@@ -27,6 +28,7 @@ class Solucion {
         $this->video = $video;
         $this->documento = $documento;
         $this->repositorio = $repositorio;
+        $this->fecha = $fecha;
     }
 	
     private function getTitulo ($esP, $equipo, $reto){
@@ -112,6 +114,23 @@ class Solucion {
         return $toret;
     }
     
+    private function getFecha ($esP, $equipo, $reto){
+        $db = new Database();
+
+        $query = 'SELECT Fecha FROM Solucion WHERE EsPropuesta = \''.$esP.'\' AND Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\'';
+        $result = $db->consulta($query);
+
+        /* array numérico */
+        $row = $result->fetch_array(MYSQLI_NUM);
+        $toret = $row[0];
+
+        /* liberar la serie de resultados */
+        $result->free();
+        $db->desconectar();
+        
+        return $toret;
+    }
+    
     //Comprueba si existe
     public function exists ($esP, $equipo, $reto) {
         $db = new Database();
@@ -151,9 +170,10 @@ class Solucion {
         $video = $this->getVideo($esP, $equipo, $reto);
         $documento = $this->getDocumento($esP, $equipo, $reto);
         $repositorio = $this->getRepo($esP, $equipo, $reto);
+        $fecha = $this->getFecha($esP, $equipo, $reto);
 
         //Crear array asoc con los datos de $pk
-        $datos = array("esPropuesta" => $esP, "equipo"=>$equipo, "reto"=>$reto, "titulo" => $titulo, "descripcion"=>$descripcion, "video"=>$video, "documento"=>$documento, "repositorio"=>$repositorio);
+        $datos = array("esPropuesta" => $esP, "equipo"=>$equipo, "reto"=>$reto, "titulo" => $titulo, "descripcion"=>$descripcion, "video"=>$video, "documento"=>$documento, "repositorio"=>$repositorio, "fecha"=>$fecha);
         
         return $datos;
     }
@@ -180,6 +200,10 @@ class Solucion {
             $sqlRepo = 'UPDATE Solucion SET Repositorio =\''. $objeto->documento . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
             $db->consulta($sqlRepo) or die('Error al modificar el repositorio');
             
+            //Actualizar la fecha
+            $sqlFecha = 'UPDATE Solucion SET Fecha =\''. $objeto->fecha . '\' WHERE Equipo_idEquipo = \''.$equipo.'\' AND Reto_idReto = \''.$reto.'\' AND EsPropuesta = \''.$esP.'\'' ;
+            $db->consulta($sqlFecha) or die('Error al modificar la fecha');
+            
             $db->desconectar();
             return true;
         }else return false;
@@ -194,7 +218,7 @@ class Solucion {
         {
             $db = new Database();
             //Inserta la Solucion en la tabla Solucion
-            $insertaSolucion = "INSERT INTO Solucion (EsPropuesta, Equipo_idEquipo, Reto_idReto, Titulo, Descripcion, Video, Documento, Repositorio) VALUES ('$esP', '$equipo', '$reto', '$objeto->titulo', '$objeto->descripcion', '$objeto->video', '$objeto->documento', '$objeto->repositorio');";
+            $insertaSolucion = "INSERT INTO Solucion (EsPropuesta, Equipo_idEquipo, Reto_idReto, Titulo, Descripcion, Video, Documento, Repositorio, Fecha) VALUES ('$esP', '$equipo', '$reto', '$objeto->titulo', '$objeto->descripcion', '$objeto->video', '$objeto->documento', '$objeto->repositorio', '$objeto->fecha');";
 
             $db->consulta($insertaSolucion) or die('Error al crear.');
             $db->desconectar();

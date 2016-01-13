@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS Solucion (
   `Video` VARCHAR(100),
   `Documento` VARCHAR(100),
   `Repositorio` VARCHAR(100),
+  `Fecha` DATE NOT NULL,
    PRIMARY KEY (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`),
   CONSTRAINT `fk_Solucion_Equipo`
     FOREIGN KEY (`Equipo_idEquipo`)
@@ -107,10 +108,10 @@ CREATE TABLE IF NOT EXISTS Solucion (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`, `Descripcion`, `Video`, `Documento`, `Repositorio`) VALUES
-('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip'),
-('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip'),
-('0', 'equipoA', 'Nopollution', 'solu2', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip');
+INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`, `Descripcion`, `Video`, `Documento`, `Repositorio`, `Fecha`) VALUES
+('0', 'equipoActimel', 'Nopollution', 'solu1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
+('1', 'equipoActimel', 'Nopollution','propuesta1', 'Evitar contaminacion', 'a.avi', 'a.pdf', 'a.zip', '2015-12-12'),
+('0', 'equipoA', 'Nopollution', 'solu2', 'Evitar contaminacion', 'b.avi', 'b.pdf', 'b.zip', '2015-12-12');
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Premio`

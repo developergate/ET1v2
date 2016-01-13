@@ -18,7 +18,10 @@ $video = $_POST['video'];
 $documento = $_POST['documento'];
 $repo = $_POST['repo'];
 
-$mod = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo);
+date_default_timezone_set('Europe/Madrid');
+$date = date('Y-m-d', time());
+
+$mod = new Solucion($esP, $equipo, $reto, $titulo, $desc, $video, $documento, $repo, $date);
 
 //Modificar la propuesta o solucion
 if ($mod->modificar($mod))
