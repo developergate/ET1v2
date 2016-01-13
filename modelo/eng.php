@@ -67,4 +67,7 @@ $idioma["reto_modificar"] = "Modify challenge";
 //nueva sede
 $idioma["nueva_sede"] = "New Place";
 $idioma["id_Sede"] = "Insert Location";
+
+//Jurado sede
+$idioma['gestion_votos_sede'] = "Manage headquarters";
 ?>

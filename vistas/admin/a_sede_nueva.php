@@ -28,7 +28,7 @@ Fecha: 08/01/2016
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <a href="../../controladores/ctrl_log_out.php">
-                                        Log out
+                                        <?php echo $idioma["cerrar"]; ?>
                                     </a>
                                 </li> 
                             </ul>

@@ -47,7 +47,7 @@ Fecha: 13/01/2016
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title"><?php echo $idioma["reto_modoficar"]; ?></h4>
+                                        <h4 class="title"><?php echo $idioma["reto_modificar"]; ?></h4>
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_reto_mod.php' method='post'>

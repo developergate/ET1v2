@@ -49,7 +49,7 @@ Fecha: 08/01/2016
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">   <?php echo $idioma["reto_eliminar"]; ?></h4>
+                                        <h4 class="title"><?php echo $idioma["reto_eliminar"]; ?></h4>
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_reto_del.php' method='post'>

@@ -61,17 +61,10 @@ $idioma["reto_aceptado"] = "Aceptado";
 $idioma["reto_crear"] = "Crear reto";
 $idioma["reto_modificar"] = "Modificar reto";
 
-
-;
-
-
-
-
-
-
-
-
 //nueva sede
 $idioma["nueva_sede"] = "Nueva Sede";
 $idioma["id_Sede"] = "Introduzca Ubicación";
+
+//Jurado sede
+$idioma['gestion_votos_sede'] = "Gestion de votaciones sede";
 ?>

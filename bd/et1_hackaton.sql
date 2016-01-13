@@ -117,7 +117,7 @@ INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`,
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Premio (
   `idPremio` VARCHAR(50) NOT NULL,
-  `DescPremio` VARCHAR(300),
+  `Descripcion` VARCHAR(300),
   `FechaEquipos` DATE NOT NULL,
   `FechaJuradoS` DATE NOT NULL,
   `FechaJuradoN` VARCHAR(45) NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS Premio (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Premio (`idPremio`, `DescPremio`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
+INSERT INTO Premio (`idPremio`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
 ('coche', 'Renault Clio 1.6',  '2015-12-17', '2015-12-18', '2015-12-19', 's', '0', 'equipoActimel', 'Nopollution');
 
 -- -----------------------------------------------------

@@ -52,7 +52,7 @@ Fecha: 13/01/2016
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_nombre"]; ?></label>
-                                                        <input type="text" class="form-control" name="sede">
+                                                        <input type="text" class="form-control" name="nombre">
                                                     </div>        
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@ Fecha: 13/01/2016
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_descripcion"]; ?></label>
-                                                        <textarea type="text" class="form-control" name="sede"></textarea>
+                                                        <textarea type="text" class="form-control" name="descripcion"></textarea>
                                                     </div>        
                                                 </div>
                                             </div>
