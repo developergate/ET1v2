@@ -11,6 +11,16 @@ Fecha: 27/12/2015
 //varios
 $idioma["aceptar"] = "Save";
 $idioma["cancelar"] = "Cancel";
+$idioma["editar"] = "Edit";
+$idioma["eliminar"] = "Delete";
+$idioma["volver"] = "Back";
+$idioma["crear"] = "Create";
+$idioma["eliminar"] = "Modify";
+$idioma["cerrar"] = "Log out";
+$idioma["si"] = "SI";
+$idioma["no"] = "NO";
+
+
 
 //login
 $idioma["login_introduccion"] = "Welcome to the Hackaton website.";
@@ -42,11 +52,17 @@ $idioma["registro_equipo"] = "Team";
 $idioma["registro_aceptar"] = "Sign up";
 $idioma["registro_volver"] = "Go back";
 
+//Retos
 //Nuevo reto
-$idioma["crear"] = "Create";
 $idioma["reto_introduce"] = "Complete the following fields";
-$idioma["titulo_reto"] = "Title";
-$idioma["desc_reto"] = "Description";
+$idioma["gestion_retos"] = "Manage challenges";
+$idioma["retoSi"] = "Acepted challenges";
+$idioma["retoNo"] = "Not acepted challenges";
+$idioma["reto_nombre"] = "Challenge name";
+$idioma["reto_descripcion"] = "Descripction";
+$idioma["reto_aceptado"] = "Acepted";
+$idioma["reto_crear"] = "Create challenge";
+$idioma["reto_modificar"] = "Modify challenge";
 
 //nueva sede
 $idioma["nueva_sede"] = "New Place";

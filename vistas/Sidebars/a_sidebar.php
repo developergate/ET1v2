@@ -11,10 +11,13 @@ Fecha: 07/01/2016
 <?php function a_sidebar($perfil, $sedes, $usuarios, $retos, $ps, $pn){ ?>
     <div class="sidebar" data-color="purple" data-image="../../light-template/img/sidebar-5.jpg">    
         <div class="sidebar-wrapper">
-            <div class="logo">
+            <div class="logo" >
                 <a href="#" class="simple-text">
                     ADMIN
                 </a>
+                <a href="../../controladores/ctrl_cambio_idioma_espanol.php"><img class="ico-idioma" src="../../img/ES.png"></a>
+                <a href="../../controladores/ctrl_cambio_idioma_ingles.php"><img class="ico-idioma" src="../../img/EN.png"></a> 
+
             </div>
 
             <ul class="nav">
@@ -37,7 +40,7 @@ Fecha: 07/01/2016
                     </a>        
                 </li>
                 <li <?php echo $retos;?>>
-                    <a href="typography.html">
+                    <a href="../admin/a_retos.php">
                         <i class="pe-7s-news-paper"></i> 
                         <p>Gestion de retos</p>
                     </a>        
@@ -54,7 +57,11 @@ Fecha: 07/01/2016
                         <p>Gestión de premios nacionales</p>
                     </a>        
                 </li>
+                <li>
+                          
+                </li>
             </ul> 
         </div>
     </div>
+
 <?php }?>
