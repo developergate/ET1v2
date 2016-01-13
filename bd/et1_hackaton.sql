@@ -187,8 +187,6 @@ CREATE TABLE IF NOT EXISTS Jurado_puntua_Solucion (
 ENGINE = InnoDB;
 
 INSERT INTO `Jurado_puntua_Solucion` (`Usuario_idUsuario`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`, `Premio_idPremio`, `Puntuacion`, `TipoPuntuacion`) VALUES
-('jurado', '0', 'equipoActimel', 'Nopollution', 'Coche', 7, 'n'),
-('jurado', '0', 'equipoA', 'Nopollution', 'Coche', 5, 'n'),
 ('juradoSede', '0', 'superLugo', 'Nopollution', 'Moton', 8, 's'),
 ('juradoSede2', '0', 'superLugo', 'Nopollution', 'Moton', 5, 's'),
 ('juradoSede', '0', 'equipoActimel', 'Nopollution', 'Moton', 5, 's'),

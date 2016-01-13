@@ -77,7 +77,7 @@ Fecha: 13/01/2016
                                             <td width='40%'><?php echo $s['equipo'];?></td>
                                             <td width='40%'><?php echo $s['reto'];?></td>
                                             <td width='40%'><?php echo $usu->getSedeEquipo($s['equipo']);?></td>
-                                            <td width='10%'><a href="js_votar_sol.php?premio=<?php echo $idPremio;?>&reto=<?php echo $s['Reto_idReto'];?>&equipo=<?php echo $s['Equipo_idEquipo'];?>"><i class="pe-7s-medal"></i></a></td>
+                                            <td width='10%'><a href="jn_votar_sol.php?premio=<?php echo $idPremio;?>&reto=<?php echo $s['reto'];?>&equipo=<?php echo $s['equipo'];?>"><i class="pe-7s-medal"></i></a></td>
                                         </tr>
                                         <?php }?>
                                     </tbody>

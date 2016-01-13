@@ -396,13 +396,16 @@ class Usuario {
         if ($this->exists($idUsuario)){
             $sedeUsu = $this->getSede($idUsuario);
             if($sede == $sedeUsu){
-               $db = new Database();
+                $equipo = $this->getEquipo($idUsuario);
+                if($equipo == null){
+                    $db = new Database();
         
-                $sql = 'UPDATE Usuario SET Equipo_idEquipo= \''.$idEquipo.'\' WHERE idUsuario = \''.$idUsuario.'\'' ;
-                $db->consulta($sql) or die('Error al añadir del equipo al usuario');
+                    $sql = 'UPDATE Usuario SET Equipo_idEquipo= \''.$idEquipo.'\' WHERE idUsuario = \''.$idUsuario.'\'' ;
+                    $db->consulta($sql) or die('Error al añadir del equipo al usuario');
 
-                $db->desconectar();
-                return true; 
+                    $db->desconectar();
+                return true;   
+                } else die("El usuario ya se encuentra en un equipo.");
             } else die ("El usuario debe pertenecer a la misma sede.");
         } else return false;
     }
