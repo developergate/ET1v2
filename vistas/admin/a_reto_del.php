@@ -42,7 +42,7 @@ Fecha: 08/01/2016
                     </div>
                 </nav>
 
-                <!-- CONTENIDO -->
+               <!-- CONTENIDO -->
                 <div class="content">
                     <div class="container-fluid">  
                         <div class="row">
@@ -53,35 +53,24 @@ Fecha: 08/01/2016
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_reto_del.php' method='post'>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label><?php echo $idioma["reto_nombre"]; ?></label>
-                                                        <input type="text" class="form-control" disabled value="<?php echo $idReto;?>">
-                                                        <input type="hidden" name="nombre" value="<?php echo $idReto;?>">
-                                                    </div>        
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label><?php echo $idioma["reto_descripcion"]; ?></label>
-                                                        <input type="text" class="form-control" disabled value="<?php echo $r['DescReto'];?>">
-                                                    </div>        
-                                                </div>      
-                                                </div>
-                                            </div>
-                                            <?php if($u['rol'] == 'participante'){ ?>
+                                            <!-- Nombre -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Equipo</label>
-                                                        <input type="text" class="form-control" disabled value="<?php echo $u['equipo'];?>">
+                                                        <label><?php echo $idioma["reto_nombre"]; ?></label>
+                                                        <input type="text" class="form-control" name="nombre">
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <?php }?>
-
+                                            <!-- Descripcion -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label><?php echo $idioma["reto_descripcion"]; ?></label>
+                                                        <textarea type="text" class="form-control" name="descripcion"></textarea>
+                                                    </div>        
+                                                </div>
+                                            </div>
                                             <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["eliminar"]; ?></button>
                                             <div class="clearfix"></div>
                                         </form>

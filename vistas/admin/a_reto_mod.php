@@ -39,8 +39,7 @@ Fecha: 13/01/2016
                         </div>
                     </div>
                 </nav>
-
-                 <!-- CONTENIDO -->
+                <!-- CONTENIDO -->
                 <div class="content">
                     <div class="container-fluid">  
                         <div class="row">
@@ -50,31 +49,30 @@ Fecha: 13/01/2016
                                         <h4 class="title"><?php echo $idioma["reto_modificar"]; ?></h4>
                                     </div>
                                     <div class="content">
-                                        <form action='../../controladores/admin/ctrl_a_reto_mod.php' method='post'>
+                                        <form action='../../controladores/admin/ctrl_a_reto_modificar.php' method='post'>
+                                            <!-- Nombre -->
                                             <div class="row">
-                                                <!-- Nombre -->
-                                                <div class="col-md-4">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_nombre"]; ?></label>
-                                                        <input type="text" name="nombre" required class="form-control" value="<?php echo $reto["idReto"]; ?>">
+                                                        <input type="text" class="form-control" name="nombre">
                                                     </div>        
                                                 </div>
-                                              
                                             </div>
+                                            <!-- Descripcion -->
                                             <div class="row">
-                                                <!-- Descripcion -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="form-username"><?php echo $idioma["reto_descripcion"]; ?></label>
-                                                        <input type="text" name="descripcion" required class="form-control" value="<?php echo $reto["DescReto"]; ?>">
+                                                        <label><?php echo $idioma["reto_descripcion"]; ?></label>
+                                                        <textarea type="text" class="form-control" name="descripcion"></textarea>
                                                     </div>        
                                                 </div>
-
+                                            </div>
+                                            <!-- Aceptado -->
                                             <div class="row">
-                                                <!-- Aceptado -->
-                                                <div class="col-md-3">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="form-username"><?php echo $idioma["reto_aceptado"]; ?></label>
+                                                        <label><?php echo $idioma["reto_aceptado"]; ?></label>
                                                         <?php if($reto['Aceptado'] == 0){ ?>
                                                         
                                                         <select type="text" name='aceptado' class="form-control">
@@ -88,11 +86,9 @@ Fecha: 13/01/2016
                                                         </select>
                                                         <?php } ?>
                                                     </div>        
-                                              
-                                            
-
-                                            <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["modificar"]; ?></button>
                                                 </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["crear"]; ?></button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -101,8 +97,7 @@ Fecha: 13/01/2016
                         </div>
                     </div>    
                 </div>
-
-
+               
                 <footer class="footer">
                     <div class="container-fluid">
                         <p class="copyright pull-right"> &copy; 2016 Grupo 5, Hackathon</p>
