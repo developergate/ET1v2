@@ -41,7 +41,6 @@ Fecha: 07/01/2016
                 
                 <!-- CONTENIDO -->
                 <div class="content">
-
                     <div class="container-fluid">   
                         <div class="row">                   
                             <div class="col-md-12">
