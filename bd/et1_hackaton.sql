@@ -117,10 +117,10 @@ INSERT INTO Solucion (`EsPropuesta`, `Equipo_idEquipo`, `Reto_idReto`, `Titulo`,
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Premio (
   `idPremio` VARCHAR(50) NOT NULL,
-  `DescPremio` VARCHAR(300),
+  `Descripcion` VARCHAR(300),
   `FechaEquipos` DATE NOT NULL,
   `FechaJuradoS` DATE NOT NULL,
-  `FechaJuradoN` VARCHAR(45) NOT NULL,
+  `FechaJuradoN` VARCHAR(45),
   `TipoPremio` ENUM('s', 'n') DEFAULT 'n',
   `Solucion_EsPropuesta` TINYINT(1),
   `Solucion_Equipo_idEquipo` VARCHAR(50),
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS Premio (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Premio (`idPremio`, `DescPremio`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
-('coche', 'Renault Clio 1.6',  '2015-12-17', '2015-12-18', '2015-12-19', 's', '0', 'equipoActimel', 'Nopollution'),
+INSERT INTO Premio (`idPremio`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
+('coche', 'Renault Clio 1.6',  '2015-12-17', '2016-02-28', null, 's', '0', 'equipoActimel', 'Nopollution'),
 ('Moto', 'Renault Clio 1.6',  '2016-01-12', '2016-01-14', '2016-01-16', 'n', null, null, null),
 ('Motito', 'Renault Clio 1.6',  '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
 ('Moton', 'Renault Clio 1.6',  '2016-01-10', '2016-01-11', '2016-01-30', 'n', null, null, null);

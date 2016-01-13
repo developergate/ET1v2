@@ -20,7 +20,9 @@ $idioma["cerrar"] = "Log out";
 $idioma["si"] = "SI";
 $idioma["no"] = "NO";
 
-
+//Perfil
+$idioma['perfil'] = "Profile";
+$idioma['editar_perfil'] = "Edit profile";
 
 //login
 $idioma["login_introduccion"] = "Welcome to the Hackaton website.";
@@ -69,5 +71,17 @@ $idioma["nueva_sede"] = "New Place";
 $idioma["id_Sede"] = "Insert Location";
 
 //Jurado sede
-$idioma['gestion_votos_sede'] = "Manage headquarters";
+$idioma['gestion_votos_sede'] = "Manage headquarter votes";
+$idioma['js_no_pn'] = "There aren't national awards at this time";
+$idioma['js_no_ps'] = "There aren't headquarter awards at this time";
+$idioma['premios_sede'] = "Headquarter awards";
+$idioma['premios_nacional'] = "National awards";
+$idioma['premio'] = "Award";
+$idioma['fi'] = "Beginning date";
+$idioma['ff'] = "End date";
+$idioma['votar'] = "Vote";
+
+//Jurado nacional
+$idioma['gestion_votos_nacional'] = "Manage national votes";
+$idioma['jn_no_pn'] = "There aren't national awards at this time";
 ?>

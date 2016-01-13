@@ -47,8 +47,10 @@ $retosNo = $retoNo->listarNo();
                         <div class="row">                   
                             <div class="col-md-12">
                                 <!-- Tabla de aceptados-->
-                                <h4><?php echo $idioma["retoSi"]; ?></h4>
                                 <div class="card">
+                                    <div class="header">
+                                        <h4 class="title"><?php echo $idioma['retoSi'];?></h4>
+                                    </div>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
@@ -73,8 +75,10 @@ $retosNo = $retoNo->listarNo();
                                     </div>
                                 </div>
                                 <!-- Tabla de no aceptados-->
-                                <h4><?php echo $idioma["retoNo"]; ?></h4>
                                 <div class="card">
+                                    <div class="header">
+                                        <h4 class="title"><?php echo $idioma['retoNo'];?></h4>
+                                    </div>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
@@ -101,7 +105,7 @@ $retosNo = $retoNo->listarNo();
                             </div>      
                         </div> 
                         <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-info btn-fill"><a class="boton" href="a_reto_nuevo.php"><?php echo $idioma["reto_crear"]; ?></a></button>
+                            <a class="btn btn-info btn-fill boton" href="a_reto_nuevo.php"><?php echo $idioma["reto_crear"]; ?></a>
                         </div>
                     </div>    
                 </div>

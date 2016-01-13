@@ -12,6 +12,12 @@ Fecha: 07/01/2016
     $includeIdioma = permisos("juradoSede", "../../");
     include_once $includeIdioma;
     include_once '../../modelo/model_premio.php';
+    $p = new Premio();
+    $premiosS = $p->listar('s');
+    $premiosN = $p->listar('n');
+    // Fecha actual del usuario
+    date_default_timezone_set('Europe/Madrid');
+    $date = date('Y-m-d', time());
     ?>
 
     <body>
@@ -40,32 +46,89 @@ Fecha: 07/01/2016
                 <!-- CONTENIDO -->
                 <div class="content">
                     <div class="container-fluid">
-                        <h4>Premios sede</h4>
+                        <!-- Premios sede -->
                         <div class="card">
+                            <div class="header">
+                                <h4 class="title"><?php echo $idioma['premios_sede'];?></h4>
+                            </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th><?php echo $idioma["reto_nombre"]; ?></th>
-                                        <th><?php echo $idioma["reto_descripcion"]; ?></th>
-                                        <th><?php echo $idioma["reto_aceptado"]; ?></th>
-                                        <th><?php echo $idioma["editar"]; ?></th>
-                                        <th><?php echo $idioma["eliminar"]; ?></th>
+                                        <th><?php echo $idioma['premio'];?></th>
+                                        <th><?php echo $idioma['fi'];?></th>
+                                        <th><?php echo $idioma['ff'];?></th>
+                                        <th><?php echo $idioma['votar'];?></th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($retosSi as $rs){ ?>
+                                        <?php $count = 0;
+                                        foreach ($premiosS as $ps){
+                                        if(($ps['FechaEquipos'] < $date) && ($ps['FechaJuradoS'] >= $date)){
+                                        $count++;?>
                                         <tr>
-                                            <td width='30%'><?php echo $rs['idReto'];?></td>
-                                            <td width='40%'><?php echo $rs['DescReto'];?></td>
-                                            <td width='10%'><?php if($rs['Aceptado']==1) echo "SI";?></td>
-                                            <td width='10%'><a href="a_reto_mod.php?reto=<?php echo $rs['idReto'];?>"><i class="pe-7s-eyedropper"></i></a></td>
-                                            <td width='10%'><a href="a_reto_del.php?reto=<?php echo $rs['idReto'];?>"><i class="pe-7s-trash"></i></a></td>
+                                            <td><?php echo $ps['idPremio'];?></td>
+                                            <!-- Transformar las fechas en formato dia-mes-año -->
+                                            <td><?php $fi=date_create($ps['FechaEquipos']);
+                                            echo date_format($fi,"d-m-Y");?></td>
+                                            <td><?php $ff=date_create($ps['FechaJuradoS']);
+                                            echo date_format($ff,"d-m-Y");?></td>
+                                            <!-- Icono que lleva a la lista de retos con soluciones para votar -->
+                                            <td><a href="js_retos.php?premio=<?php echo $ps['idPremio'];?>"><i class="pe-7s-medal"></i></a></td>
                                         </tr>
-                                        <?php }?>
+                                        <?php }
+                                        }?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <h4>Premios nacionales</h4>
+                        <?php if($count == 0){ ?>
+                        <div class="row">
+                            <div class="col-md-4 alert alert-warning bs-alert-old-docs">
+                                <p><?php echo $idioma['js_no_ps'];?>.</p>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        
+                        <!-- Premios nacional -->
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"><?php echo $idioma['premios_nacional'];?></h4>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th><?php echo $idioma['premio'];?></th>
+                                        <th><?php echo $idioma['fi'];?></th>
+                                        <th><?php echo $idioma['ff'];?></th>
+                                        <th><?php echo $idioma['votar'];?></th>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $count2 = 0;
+                                        foreach ($premiosN as $pn){
+                                        if(($pn['FechaEquipos'] < $date) && ($pn['FechaJuradoS'] >= $date)){
+                                        $count2++;?>
+                                        <tr>
+                                            <td><?php echo $pn['idPremio'];?></td>
+                                            <!-- Transformar las fechas en formato dia-mes-año -->
+                                            <td><?php $fi=date_create($pn['FechaEquipos']);
+                                            echo date_format($fi,"d-m-Y");?></td>
+                                            <td><?php $ff=date_create($pn['FechaJuradoS']);
+                                            echo date_format($ff,"d-m-Y");?></td>
+                                            <td><a href="js_votarN.php?sede=<?php echo $s['idSede'];?>"><i class="pe-7s-medal"></i></a></td>
+                                        </tr>
+                                        <?php }
+                                        }?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <?php if($count2 == 0){ ?>
+                        <div class="row">
+                            <div class="col-md-4 alert alert-warning bs-alert-old-docs">
+                                <p><?php echo $idioma['js_no_pn'];?></p>
+                            </div>
+                        </div>
+                        <?php } ?>
                     </div>    
                 </div>
 

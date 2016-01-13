@@ -14,7 +14,7 @@ Fecha: 07/01/2016
     include_once '../../modelo/model_premio.php';
     $p = new Premio();
     $premios = $p->listar('n');
-    // Change the line below to your timezone!
+    // Fecha actual del usuario
     date_default_timezone_set('Europe/Madrid');
     $date = date('Y/m/d', time());
     ?>
@@ -28,7 +28,7 @@ Fecha: 07/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de votaciones nacionales</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma['gestion_votos_nacional']; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -74,7 +74,11 @@ Fecha: 07/01/2016
                                     </div>
                                 </div>
                                 <?php if($count == 0){ ?>
-                                <h3>No hay premios nacionales en plazo de votación.</h3>
+                                <div class="row">
+                                    <div class="col-md-5 alert alert-warning bs-alert-old-docs">
+                                        <p><?php echo $idioma['jn_no_pn'];?></p>
+                                    </div>
+                                </div>
                                 <?php } ?>
                             </div>      
                         </div> 

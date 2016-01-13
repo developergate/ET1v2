@@ -76,7 +76,7 @@ Fecha: 08/01/2016
                             </div>      
                         </div> 
                         <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-info btn-fill"><a class="boton" href="a_usu_nuevo.php">Crear usuario</a></button>
+                            <a class="boton btn btn-info btn-fill" href="a_usu_nuevo.php">Crear usuario</a>
                         </div>
                     </div>    
                 </div>

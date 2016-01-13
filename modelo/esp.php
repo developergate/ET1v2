@@ -19,6 +19,9 @@ $idioma["cerrar"] = "Cerrar sesión";
 $idioma["si"] = "SI";
 $idioma["no"] = "NO";
 
+//Perfil
+$idioma['perfil'] = "Perfil";
+$idioma['editar_perfil'] = "Editar perfil";
 
 //login
 $idioma["login_introduccion"] = "Bienvenido a la pagina del Hackaton.";
@@ -67,4 +70,16 @@ $idioma["id_Sede"] = "Introduzca Ubicación";
 
 //Jurado sede
 $idioma['gestion_votos_sede'] = "Gestion de votaciones sede";
+$idioma['js_no_pn'] = "No hay premios nacionales en plazo de votación sede";
+$idioma['js_no_ps'] = "No hay premios sede en plazo de votación";
+$idioma['premios_sede'] = "Premios sede";
+$idioma['premios_nacional'] = "Premios nacionales";
+$idioma['premio'] = "Premio";
+$idioma['fi'] = "Fecha inicio";
+$idioma['ff'] = "Fecha fin";
+$idioma['votar'] = "Votar";
+
+//Jurado nacional
+$idioma['gestion_votos_nacional'] = "Gestion de votaciones nacionales";
+$idioma['jn_no_pn'] = "No hay premios nacionales en plazo de votación nacional";
 ?>

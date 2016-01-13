@@ -50,6 +50,7 @@ Fecha: 12/01/2016
                                 </div>
                                 <div class="content">
                                     <form action='../../controladores/participante/ctrl_p_equipo_salir.php' method='post'>
+                                        <!-- Informacion del equipo -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -59,6 +60,7 @@ Fecha: 12/01/2016
                                                 </div>        
                                             </div>
                                         </div>
+                                        <!-- Notificacion si es el ultimo usuario del equipo -->
                                         <?php if($numero == 1){ ?>
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-3 alert alert-danger bs-alert-old-docs">
