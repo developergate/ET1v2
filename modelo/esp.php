@@ -68,6 +68,9 @@ $idioma["reto_modificar"] = "Modificar reto";
 $idioma["nueva_sede"] = "Nueva Sede";
 $idioma["id_Sede"] = "Introduzca Ubicación";
 
+//Retos
+$idioma['retos'] = "Retos";
+
 //Jurado sede
 $idioma['gestion_votos_sede'] = "Gestion de votaciones sede";
 $idioma['js_no_pn'] = "No hay premios nacionales en plazo de votación sede";
@@ -78,6 +81,11 @@ $idioma['premio'] = "Premio";
 $idioma['fi'] = "Fecha inicio";
 $idioma['ff'] = "Fecha fin";
 $idioma['votar'] = "Votar";
+$idioma['titulo'] = "Titulo";
+$idioma['equipo'] = "Equipo";
+$idioma['reto'] = "Reto";
+$idioma['soluciones'] = "Soluciones";
+$idioma['votar_solucion'] = "Votar solucion";
 
 //Jurado nacional
 $idioma['gestion_votos_nacional'] = "Gestion de votaciones nacionales";

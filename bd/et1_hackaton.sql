@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS Premio (
 ENGINE = InnoDB;
 
 INSERT INTO Premio (`idPremio`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
-('coche', 'Renault Clio 1.6',  '2015-12-17', '2016-02-28', null, 's', '0', 'equipoActimel', 'Nopollution'),
+('Coche', 'Renault Clio 1.6',  '2015-12-17', '2016-02-28', null, 's', '0', 'equipoActimel', 'Nopollution'),
 ('Moto', 'Renault Clio 1.6',  '2016-01-12', '2016-01-14', '2016-01-16', 'n', null, null, null),
 ('Motito', 'Renault Clio 1.6',  '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
 ('Moton', 'Renault Clio 1.6',  '2016-01-10', '2016-01-11', '2016-01-30', 'n', null, null, null);

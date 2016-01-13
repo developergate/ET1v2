@@ -13,7 +13,7 @@ $idioma["aceptar"] = "Save";
 $idioma["cancelar"] = "Cancel";
 $idioma["editar"] = "Edit";
 $idioma["eliminar"] = "Delete";
-$idioma["volver"] = "Back";
+$idioma["volver"] = "Go back";
 $idioma["crear"] = "Create";
 $idioma["eliminar"] = "Modify";
 $idioma["cerrar"] = "Log out";
@@ -80,6 +80,11 @@ $idioma['premio'] = "Award";
 $idioma['fi'] = "Beginning date";
 $idioma['ff'] = "End date";
 $idioma['votar'] = "Vote";
+$idioma['titulo'] = "Title";
+$idioma['equipo'] = "Team";
+$idioma['reto'] = "Challenge";
+$idioma['soluciones'] = "Solutions";
+$idioma['votar_solucion'] = "Vote solution";
 
 //Jurado nacional
 $idioma['gestion_votos_nacional'] = "Manage national votes";

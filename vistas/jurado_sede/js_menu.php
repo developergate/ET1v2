@@ -57,7 +57,7 @@ Fecha: 07/01/2016
                                         <th><?php echo $idioma['premio'];?></th>
                                         <th><?php echo $idioma['fi'];?></th>
                                         <th><?php echo $idioma['ff'];?></th>
-                                        <th><?php echo $idioma['votar'];?></th>
+                                        <th><?php echo $idioma['soluciones'];?></th>
                                     </thead>
                                     <tbody>
                                         <?php $count = 0;
@@ -72,7 +72,7 @@ Fecha: 07/01/2016
                                             <td><?php $ff=date_create($ps['FechaJuradoS']);
                                             echo date_format($ff,"d-m-Y");?></td>
                                             <!-- Icono que lleva a la lista de retos con soluciones para votar -->
-                                            <td><a href="js_retos.php?premio=<?php echo $ps['idPremio'];?>"><i class="pe-7s-medal"></i></a></td>
+                                            <td><a href="js_soluciones.php?premio=<?php echo $ps['idPremio'];?>"><i class="pe-7s-magic-wand"></i></a></td>
                                         </tr>
                                         <?php }
                                         }?>
@@ -99,7 +99,7 @@ Fecha: 07/01/2016
                                         <th><?php echo $idioma['premio'];?></th>
                                         <th><?php echo $idioma['fi'];?></th>
                                         <th><?php echo $idioma['ff'];?></th>
-                                        <th><?php echo $idioma['votar'];?></th>
+                                        <th><?php echo $idioma['soluciones'];?></th>
                                     </thead>
                                     <tbody>
                                         <?php
@@ -114,7 +114,7 @@ Fecha: 07/01/2016
                                             echo date_format($fi,"d-m-Y");?></td>
                                             <td><?php $ff=date_create($pn['FechaJuradoS']);
                                             echo date_format($ff,"d-m-Y");?></td>
-                                            <td><a href="js_votarN.php?sede=<?php echo $s['idSede'];?>"><i class="pe-7s-medal"></i></a></td>
+                                            <td><a href="js_soluciones.php?premio=<?php echo $pn['idPremio'];?>"><i class="pe-7s-magic-wand"></i></a></td>
                                         </tr>
                                         <?php }
                                         }?>

@@ -130,7 +130,7 @@ class Solucion {
         }
     }
     
-    //Devuelve un array asociativo de la tabla de la clase Solucion
+    //Devuelve un array asociativo de la tabla de la clase Solucion, indicar true o false, si es propuesta o no
     public function listar($esP){
         $db = new Database();
         
@@ -153,7 +153,7 @@ class Solucion {
         $repositorio = $this->getRepo($esP, $equipo, $reto);
 
         //Crear array asoc con los datos de $pk
-        $datos = array("esPropuesta" => $esP, "equipo"=>$equipo, "reto"=>$reto, "titulo" => $titulo, "descripcion"=>$descripcion, "video"=>$video, "documento"=>$documento, "repositorio"=>$repositorio,);
+        $datos = array("esPropuesta" => $esP, "equipo"=>$equipo, "reto"=>$reto, "titulo" => $titulo, "descripcion"=>$descripcion, "video"=>$video, "documento"=>$documento, "repositorio"=>$repositorio);
         
         return $datos;
     }
