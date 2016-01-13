@@ -2,7 +2,7 @@
 ======================================================================
 Crear una nueva sede
 Creado por: Andrea Sanchez
-Fecha: 08/01/2016
+Fecha: 13/01/2016
 ======================================================================
 -->
 <!doctype html>
@@ -16,13 +16,13 @@ Fecha: 08/01/2016
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', 'class="active"', '', '', '', '');?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', 'class="active"', '', '');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de sedes</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_retos"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -43,19 +43,28 @@ Fecha: 08/01/2016
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Crear sede</h4>
+                                        <h4 class="title"><?php echo $idioma["reto_crear"]; ?></h4>
                                     </div>
                                     <div class="content">
-                                        <form action='../../controladores/admin/ctrl_a_sede_nueva.php' method='post'>
+                                        <form action='../../controladores/admin/ctrl_a_reto_nuevo.php' method='post'>
+                                            <!-- Nombre -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Nombre de sede</label>
-                                                        <input type="text" class="form-control" placeholder="Sede" name="sede">
+                                                        <label><?php echo $idioma["reto_nombre"]; ?></label>
+                                                        <input type="text" class="form-control" name="nombre">
                                                     </div>        
                                                 </div>
                                             </div>
-
+                                            <!-- Descripcion -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label><?php echo $idioma["reto_descripcion"]; ?></label>
+                                                        <textarea type="text" class="form-control" name="descripcion"></textarea>
+                                                    </div>        
+                                                </div>
+                                            </div>
                                             <button type="submit" class="btn btn-info btn-fill pull-right">Crear</button>
                                             <div class="clearfix"></div>
                                         </form>

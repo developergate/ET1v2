@@ -321,7 +321,8 @@ class Usuario {
                 $idioma = $objeto->idioma;
                 $sqlIdioma = 'UPDATE Usuario SET Idioma=\''. $idioma . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
                 $db->consulta($sqlIdioma) or die('Error al modificar el idioma');
-                
+                $_SESSION["idioma"] = $idioma; //Cambiar el idioma en la sesion
+
                 //Modificar la contraseña
                 //Si la nueva contraseña es diferente y no es la cadena vacia en md5
                 if (($pass != $newPass) && ($newPass != "d41d8cd98f00b204e9800998ecf8427e")){

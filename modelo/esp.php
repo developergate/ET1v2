@@ -10,6 +10,15 @@ Fecha: 27/12/2015
 //varios
 $idioma["aceptar"] = "Aceptar";
 $idioma["cancelar"] = "Cancelar";
+$idioma["editar"] = "Editar";
+$idioma["eliminar"] = "Eliminar";
+$idioma["volver"] = "Volver";
+$idioma["crear"] = "Crear";
+$idioma["modificar"] = "Modificar";
+$idioma["cerrar"] = "Cerrar sesión";
+$idioma["si"] = "SI";
+$idioma["no"] = "NO";
+
 
 //login
 $idioma["login_introduccion"] = "Bienvenido a la pagina del Hackaton.";
@@ -41,13 +50,21 @@ $idioma["registro_equipo"] = "Equipo";
 $idioma["registro_aceptar"] = "Regístrate";
 $idioma["registro_volver"] = "Volver";
 
-//Nuevo reto
-$idioma["crear"] = "Crear";
+//Retos
 $idioma["reto_introduce"] = "Completa los siguientes campos";
-$idioma["titulo_reto"] = "Titulo";
-$idioma["desc_reto"] = "Descripcion";
+$idioma["gestion_retos"] = "Gestión de retos";
+$idioma["retoSi"] = "Retos aceptados";
+$idioma["retoNo"] = "Retos no aceptados";
+$idioma["reto_nombre"] = "Nombre del reto";
+$idioma["reto_descripcion"] = "Descripción";
+$idioma["reto_aceptado"] = "Aceptado";
+$idioma["reto_crear"] = "Crear reto";
+$idioma["reto_modificar"] = "Modificar reto";
 
 //nueva sede
 $idioma["nueva_sede"] = "Nueva Sede";
 $idioma["id_Sede"] = "Introduzca Ubicación";
+
+//Jurado sede
+$idioma['gestion_votos_sede'] = "Gestion de votaciones sede";
 ?>
