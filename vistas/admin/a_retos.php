@@ -1,21 +1,21 @@
 <!--
 ======================================================================
 Muestra los usuarios
-Creado por: Andrea Sanchez
-Fecha: 08/01/2016
+Creado por: Edgard RUiz
+Fecha: 13/01/2016
 ======================================================================
 -->
 <!doctype html>
 <html lang="en">
     <?php
-    include_once('../../controladores/ctrl_permisos.php');
-    $includeIdioma = permisos("admin", "../../");
-    include_once $includeIdioma;
-    include_once '../../modelo/model_reto.php';
-    $retoSi = new Reto();
-    $retoNo = new Reto();
-    $retosSi = $retoSi->listarSi();
-    $retosNo = $retoNo->listarNo();
+include_once('../../controladores/ctrl_permisos.php');
+$includeIdioma = permisos("admin", "../../");
+include_once $includeIdioma;
+include_once '../../modelo/model_reto.php';
+$retoSi = new Reto();
+$retoNo = new Reto();
+$retosSi = $retoSi->listarSi();
+$retosNo = $retoNo->listarNo();
     ?>
 
     <body>
@@ -40,19 +40,17 @@ Fecha: 08/01/2016
                         </div>
                     </div>
                 </nav>
-                
+
                 <!-- CONTENIDO -->
                 <div class="content">
                     <div class="container-fluid">   
                         <div class="row">                   
                             <div class="col-md-12">
+                                <!-- Tabla de aceptados-->
+                                <h4><?php echo $idioma["retoSi"]; ?></h4>
                                 <div class="card">
                                     <div class="content table-responsive table-full-width">
-                                           <!-- Tabla de aceptados-->
-                                           <table class="table table-hover table-striped">
-                                            <thead>
-                                            <th><?php echo $idioma["retoSi"]; ?></th>
-                                            </thead>
+                                        <table class="table table-hover table-striped">
                                             <thead>
                                                 <th><?php echo $idioma["reto_nombre"]; ?></th>
                                                 <th><?php echo $idioma["reto_descripcion"]; ?></th>
@@ -72,10 +70,13 @@ Fecha: 08/01/2016
                                                 <?php }?>
                                             </tbody>
                                         </table>
-                                            <table class="table table-hover table-striped">
-                                             <thead>
-                                            <th><?php echo $idioma["retoNo"]; ?></th>
-                                            </thead>
+                                    </div>
+                                </div>
+                                <!-- Tabla de no aceptados-->
+                                <h4><?php echo $idioma["retoNo"]; ?></h4>
+                                <div class="card">
+                                    <div class="content table-responsive table-full-width">
+                                        <table class="table table-hover table-striped">
                                             <thead>
                                                 <th><?php echo $idioma["reto_nombre"]; ?></th>
                                                 <th><?php echo $idioma["reto_descripcion"]; ?></th>
@@ -84,7 +85,7 @@ Fecha: 08/01/2016
                                                 <th><?php echo $idioma["eliminar"]; ?></th>
                                             </thead>
                                             <tbody>
-                                               <?php foreach ($retosNo as $rn){ ?>
+                                                <?php foreach ($retosNo as $rn){ ?>
                                                 <tr>
                                                     <td width='30%'><?php echo $rn['idReto'];?></td>
                                                     <td width='40%'><?php echo $rn['DescReto'];?></td>
@@ -95,7 +96,6 @@ Fecha: 08/01/2016
                                                 <?php }?>
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>      

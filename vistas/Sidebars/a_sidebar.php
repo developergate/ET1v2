@@ -15,8 +15,6 @@ Fecha: 07/01/2016
                 <a href="#" class="simple-text">
                     ADMIN
                 </a>
-                <a href="../../controladores/ctrl_cambio_idioma_espanol.php"><img class="ico-idioma" src="../../img/ES.png"></a>
-                <a href="../../controladores/ctrl_cambio_idioma_ingles.php"><img class="ico-idioma" src="../../img/EN.png"></a> 
 
             </div>
 

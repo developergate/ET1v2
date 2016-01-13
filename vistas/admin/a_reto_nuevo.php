@@ -1,8 +1,8 @@
 <!--
 ======================================================================
-Crear un nuevo usuario
+Crear una nueva sede
 Creado por: Andrea Sanchez
-Fecha: 08/01/2016
+Fecha: 13/01/2016
 ======================================================================
 -->
 <!doctype html>
@@ -16,7 +16,7 @@ Fecha: 08/01/2016
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', 'class="active"',  '', '');?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', 'class="active"', '', '');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
@@ -47,28 +47,25 @@ Fecha: 08/01/2016
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_reto_nuevo.php' method='post'>
+                                            <!-- Nombre -->
                                             <div class="row">
-                                                <!-- Login -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_nombre"]; ?></label>
-                                                        <input type="text" name="nombre" required class="form-control" placeholder="<?php echo $idioma["reto_nombre"]; ?>">
+                                                        <input type="text" class="form-control" name="sede">
                                                     </div>        
                                                 </div>
-                                              
                                             </div>
+                                            <!-- Descripcion -->
                                             <div class="row">
-                                                <!-- Email -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="form-username"><?php echo $idioma["reto_descripcion"]; ?></label>
-                                                        <input type="text" name="descripcion" required class="form-control" placeholder="<?php echo $idioma["reto_descripcion"]; ?>">
+                                                        <label><?php echo $idioma["reto_descripcion"]; ?></label>
+                                                        <textarea type="text" class="form-control" name="sede"></textarea>
                                                     </div>        
                                                 </div>
-                                              
-                                            
-
-                                            <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right"><?php echo $idioma["crear"]; ?></button>
+                                            </div>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Crear</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -87,12 +84,5 @@ Fecha: 08/01/2016
             </div>   
         </div>
     </body>
-    <script src="../../js/md5.js" type="text/javascript"></script> 
-        <script>
-            function cifrar(){
-                var input_pass = document.getElementById("pass");
-                input_pass.value = hex_md5(input_pass.value);
-            }
-        </script>
     <?php include_once '../footers.php'; ?>
 </html>
