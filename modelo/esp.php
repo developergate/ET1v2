@@ -116,6 +116,7 @@ $idioma['gestion_premios_sede'] = "Gestion de premios sede";
 $idioma['gestion_premios_nacionales'] = "Gestion de premios nacionales";
 $idioma['premio_nacional'] = "Premio nacional";
 $idioma['premio_sede'] = "Premio sede";
+$idioma['nuevo_ps'] = "Nuevo premio sede";
 
 //Participantes
 $idioma['participante'] = "PARTICIPANTE";

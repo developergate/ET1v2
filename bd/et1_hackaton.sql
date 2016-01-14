@@ -150,12 +150,21 @@ CREATE TABLE IF NOT EXISTS Premio (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-INSERT INTO Premio (`idPremio`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
-('Coche', 'Renault Clio 1.6', '2015-12-17', '2016-01-10', null, 's', '0', 'equipoActimel', 'Nopollution'),
-('Cochazo', 'Super coche', '2016-01-31', '2016-02-28', null, 's', '0', null, null),
-('Moto', 'Renault Clio 1.6', '2016-01-01', '2016-01-04', '2016-01-06', 'n', '0', 'equipoActimel', 'Nopollution'),
-('Motito', 'Renault Clio 1.6', '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
-('Moton', 'Renault Clio 1.6', '2016-01-10', '2016-01-11', '2016-01-31', 'n', null, null, null);
+INSERT INTO Premio (`idPremio`, `Sede_idSede`, `Descripcion`, `FechaEquipos`, `FechaJuradoS`, `FechaJuradoN`, `TipoPremio`, `Solucion_EsPropuesta`, `Solucion_Equipo_idEquipo`, `Solucion_Reto_idReto`) VALUES
+-- premio resuelto
+('Coche', 'Ourense', 'Renault Clio 1.6', '2015-12-17', '2016-01-10', null, 's', '0', 'equipoActimel', 'Nopollution'),
+-- premio de lugo en plazo para equipos
+('Cochazo', 'Lugo', 'Super coche', '2016-01-31', '2016-02-28', null, 's', '0', null, null),
+-- premio de lugo en plazo de votacion sede
+('Cochito', 'Lugo', 'Cochito de sede lugo', '2015-12-31', '2016-01-31', null, 's', '0', null, null),
+-- premio de ourense en plazo de votacion sede
+('Lancha', 'Ourense', 'Lancha de sede ourense', '2015-12-31', '2016-01-31', null, 's', '0', null, null),
+-- premio nacional resuelto
+('Moto', null, 'Renault Clio 1.6', '2016-01-01', '2016-01-04', '2016-01-06', 'n', '0', 'equipoActimel', 'Nopollution'),
+-- premio nacional en plazo de votacion sede
+('Motito', null, 'Renault Clio 1.6', '2016-01-10', '2016-01-30', '2016-02-28', 'n', null, null, null),
+-- premio nacional en plazo de votacion nacional
+('Moton', null, 'Renault Clio 1.6', '2016-01-10', '2016-01-11', '2016-01-31', 'n', null, null, null);
 
 -- -----------------------------------------------------
 -- Table `et1_hackaton`.`Jurado_puntua_Solucion`

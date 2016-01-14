@@ -1,8 +1,8 @@
 <!--
 ======================================================================
-Lista de soluciones a votar un premio nacional
+Lista de soluciones a votar un premio sede
 Creado por: Andrea Sanchez
-Fecha: 13/01/2016
+Fecha: 14/01/2016
 ======================================================================
 -->
 <!doctype html>
@@ -11,6 +11,10 @@ Fecha: 13/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("juradoSede", "../../");
     include_once $includeIdioma;
+
+    //Obtener la sede de la solucion
+    include_once '../../modelo/model_usuario.php';
+    $usu = new Usuario();
 
     //Listar las soluciones
     include_once '../../modelo/model_solucion.php';
@@ -22,6 +26,12 @@ Fecha: 13/01/2016
     include_once '../../modelo/model_premio.php';
     $p = new Premio();
     $premio = $p->consultar($idPremio);
+
+    //Mostrar las soluciones para un premio sede
+    $sede = null;
+    if (isset($_GET['sede'])){
+        $sede = $_GET['sede'];
+    } else die("Falta la sede");
     ?>
 
     <body>
@@ -67,8 +77,11 @@ Fecha: 13/01/2016
                                     <tbody>
                                         <?php $count = 0;
                                         foreach ($soluciones as $s){ 
+                                        $sedeSol = $usu->getSedeEquipo($s['Equipo_idEquipo']); //sede de la solucion
                                         //Si las soluciones se subieron en la fecha indicada y son de la sede del premio
-                                        if($s['Fecha'] <= $premio['fechaEquipos']){
+                                        if($s['Fecha'] <= $premio['fechaEquipos']
+                                           && ($sede != null
+                                           && $sedeSol == $sede)){ //comparar si la solucion es de la misma sede que el premio
                                         ?> 
                                         <tr>
                                             <td width='30%'><?php echo $s['Titulo'];?></td>

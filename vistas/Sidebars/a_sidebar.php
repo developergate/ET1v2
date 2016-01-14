@@ -52,13 +52,13 @@ Fecha: 07/01/2016
                     </a>        
                 </li>
                 <li <?php echo $ps;?>>
-                    <a href="../admin/a_premios_sede.php">
+                    <a href="../admin/a_ps.php">
                         <i class="pe-7s-science"></i> 
                         <p><?php echo $idioma["gestion_premios_sede"]; ?></p>
                     </a>        
                 </li>
                 <li <?php echo $pn;?>>
-                    <a href="maps.html">
+                    <a href="../admin/a_pn.php">
                         <i class="pe-7s-map-marker"></i> 
                         <p><?php echo $idioma["gestion_premios_nacionales"]; ?></p>
                     </a>        

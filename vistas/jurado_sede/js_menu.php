@@ -55,6 +55,7 @@ Fecha: 07/01/2016
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th><?php echo $idioma['premio'];?></th>
+                                        <th><?php echo $idioma['registro_sede'];?></th>
                                         <th><?php echo $idioma['fi'];?></th>
                                         <th><?php echo $idioma['ff'];?></th>
                                         <th><?php echo $idioma['soluciones'];?></th>
@@ -66,13 +67,14 @@ Fecha: 07/01/2016
                                         $count++;?>
                                         <tr>
                                             <td><?php echo $ps['idPremio'];?></td>
+                                            <td><?php echo $ps['Sede_idSede'];?></td>
                                             <!-- Transformar las fechas en formato dia-mes-año -->
                                             <td><?php $fi=date_create($ps['FechaEquipos']);
                                             echo date_format($fi,"d-m-Y");?></td>
                                             <td><?php $ff=date_create($ps['FechaJuradoS']);
                                             echo date_format($ff,"d-m-Y");?></td>
                                             <!-- Icono que lleva a la lista de retos con soluciones para votar -->
-                                            <td><a href="js_soluciones.php?premio=<?php echo $ps['idPremio'];?>"><i class="pe-7s-magic-wand"></i></a></td>
+                                            <td><a href="js_soluciones_sede.php?premio=<?php echo $ps['idPremio'];?>&sede=<?php echo $ps['Sede_idSede'];?>"><i class="pe-7s-magic-wand"></i></a></td>
                                         </tr>
                                         <?php }
                                         }?>
