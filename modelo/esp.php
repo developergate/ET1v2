@@ -18,6 +18,7 @@ $idioma["modificar"] = "Modificar";
 $idioma["cerrar"] = "Cerrar sesión";
 $idioma["si"] = "SI";
 $idioma["no"] = "NO";
+$idioma["ver"] = "Ver";
 
 //Perfil
 $idioma['perfil'] = "Perfil";
@@ -117,6 +118,8 @@ $idioma['gestion_premios_nacionales'] = "Gestion de premios nacionales";
 $idioma['premio_nacional'] = "Premio nacional";
 $idioma['premio_sede'] = "Premio sede";
 $idioma['nuevo_ps'] = "Nuevo premio sede";
+$idioma['nuevo_pn'] = "Nuevo premio nacional";
+$idioma['premios_resueltos'] = "Premios resueltos";
 
 //Participantes
 $idioma['participante'] = "PARTICIPANTE";
