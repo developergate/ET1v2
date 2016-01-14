@@ -45,6 +45,8 @@ if(!$idioma){
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/form-elements.css">
@@ -137,10 +139,17 @@ Seccion dos. Muestra los retos
                     <div class="row uniform">
                         <?php foreach ($retos as $r){
                         if($r['Aceptado'] == true){?>
-                        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-4">    
-                            <h3><?php echo $r['idReto'];?></h3>
-                            <p><?php echo $r['DescReto'];?></p>
-                        </section>
+                    <section class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                     <div id="card"> 
+                      <div class="front"> 
+                        <h3><?php echo $r['idReto'];?></h3>
+                      </div> 
+                      <div class="back">
+                        <h3><?php echo $r['DescReto'];?></h3>
+                      </div> 
+                    </div>
+                         </section>  
+
                         <?php }
                         }?>
                     </div>
@@ -160,7 +169,17 @@ Seccion dos. Muestra los retos
             
             </div>
         </section>
-        <!-- Javascript -->
+        <!-- Javascript -->      
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+    <script>
+        $("#card").flip({
+          axis: 'y',
+          trigger: 'click'
+        });
+        $("#card").flip({reverse: true});
+        $("#card").flip({reverse: false});
+    </script>
         <script src="../js/jquery-1.11.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../js/jquery.backstretch.min.js"></script>
