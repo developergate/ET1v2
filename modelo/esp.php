@@ -120,6 +120,11 @@ $idioma['premio_sede'] = "Premio sede";
 $idioma['nuevo_ps'] = "Nuevo premio sede";
 $idioma['nuevo_pn'] = "Nuevo premio nacional";
 $idioma['premios_resueltos'] = "Premios resueltos";
+$idioma['premio_crear'] = "Crear Premio";
+$idioma['premio_nombre'] = "Nombre del premio";
+$idioma['premio_desc'] = "Descripcion";
+
+
 
 //Participantes
 $idioma['participante'] = "PARTICIPANTE";
