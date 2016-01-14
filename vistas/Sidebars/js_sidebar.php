@@ -8,12 +8,20 @@ Fecha: 07/01/2016
 ======================================================================
 -->
 
-<?php function js_sidebar($perfil, $vs){ ?>
+<?php function js_sidebar($perfil, $vs){ 
+    $lang = $_SESSION['idioma'];
+
+    if($lang == "esp"){
+        include "../../modelo/esp.php";
+    }else{
+        include "../../modelo/eng.php";
+    }
+?>
     <div class="sidebar" data-color="orange" data-image="../../light-template/img/sidebar-4.jpg">    
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    JURADO SEDE
+                    <?php echo $idioma['jurado_sede']; ?>
                 </a>
             </div>
 
@@ -21,13 +29,13 @@ Fecha: 07/01/2016
                 <li <?php echo $perfil;?> >
                     <a href="../Sidebars/perfil.php">
                         <i class="pe-7s-user"></i> 
-                        <p>Perfil</p>
+                        <p><?php echo $idioma['perfil']; ?></p>
                     </a>
                 </li> 
                 <li <?php echo $vs;?>>
                     <a href="../jurado_sede/js_menu.php">
                         <i class="pe-7s-graph"></i> 
-                        <p>Gestión de votaciones de sedes</p>
+                        <p><?php echo $idioma['gestion_votos_sede']; ?></p>
                     </a>            
                 </li>
             </ul> 

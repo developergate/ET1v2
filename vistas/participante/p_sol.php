@@ -138,7 +138,7 @@ Fecha: 12/01/2016
                                             <!-- Fecha -->
                                             <div class="col-md-2">
                                                 <label>Fecha de entrega</label>
-                                                <input disabled type="date" class="form-control" value="<?php
+                                                <input disabled class="form-control" value="<?php
                                                 $fecha = date_create($datosSol['fecha']);
                                                 echo date_format($fecha,"d-m-Y"); ?>">
                                             </div>

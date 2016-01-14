@@ -28,7 +28,7 @@ Fecha: 08/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de usuarios</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_usuarios"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -49,51 +49,56 @@ Fecha: 08/01/2016
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Eliminar usuario</h4>
+                                        <h4 class="title"><?php echo $idioma["eliminar_usuario"]; ?></h4>
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_usu_del.php' method='post'>
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <!-- Login -->
                                                     <div class="form-group">
                                                         <label>Login</label>
                                                         <input type="text" class="form-control" disabled value="<?php echo $idUsuario;?>">
                                                         <input type="hidden" name="usuario" value="<?php echo $idUsuario;?>">
                                                     </div>        
                                                 </div>
+                                                <!-- Nombre -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Nombre</label>
+                                                        <label><?php echo $idioma["registro_nombre"]; ?></label>
                                                         <input type="text" class="form-control" disabled value="<?php echo $u['nombre'];?>">
                                                     </div>        
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <!-- Email -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Email</label>
+                                                        <label><?php echo $idioma["registro_email"]; ?></label>
                                                         <input type="text" class="form-control" disabled value="<?php echo $u['email'];?>">
                                                     </div>        
                                                 </div>
+                                                <!-- Rol -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Rol</label>
+                                                        <label><?php echo $idioma["rol"]; ?></label>
                                                         <input type="text" class="form-control" disabled value="<?php echo $u['rol'];?>">
                                                     </div>        
                                                 </div>
                                             </div>
+                                            <!-- Equipo si es un participante -->
                                             <?php if($u['rol'] == 'participante'){ ?>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Equipo</label>
+                                                        <label><?php echo $idioma["equipo"]; ?></label>
                                                         <input type="text" class="form-control" disabled value="<?php echo $u['equipo'];?>">
                                                     </div>        
                                                 </div>
                                             </div>
                                             <?php }?>
 
-                                            <button type="submit" class="btn btn-info btn-fill pull-right">Eliminar</button>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["eliminar"]; ?></button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>

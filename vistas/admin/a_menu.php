@@ -25,7 +25,7 @@ Fecha: 07/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de sedes</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_sedes"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -48,8 +48,8 @@ Fecha: 07/01/2016
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
-                                                <th>Sede</th>
-                                                <th>Eliminar</th>
+                                                <th><?php echo $idioma["registro_sede"]; ?></th>
+                                                <th><?php echo $idioma["eliminar"]; ?></th>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($sedes as $s){ ?>

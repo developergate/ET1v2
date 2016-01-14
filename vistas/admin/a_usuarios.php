@@ -25,7 +25,7 @@ Fecha: 08/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de usuarios</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_usuarios"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -49,12 +49,12 @@ Fecha: 08/01/2016
                                         <table class="table table-hover table-striped">
                                             <thead>
                                                 <th>Login</th>
-                                                <th>Sede</th>
-                                                <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Rol</th>
-                                                <th>Editar</th>
-                                                <th>Eliminar</th>
+                                                <th><?php echo $idioma["registro_sede"]; ?></th>
+                                                <th><?php echo $idioma["registro_nombre"]; ?></th>
+                                                <th><?php echo $idioma["registro_email"]; ?></th>
+                                                <th><?php echo $idioma["rol"]; ?></th>
+                                                <th><?php echo $idioma["editar"]; ?></th>
+                                                <th><?php echo $idioma["eliminar"]; ?></th>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($usuarios as $u){ ?>
@@ -76,7 +76,7 @@ Fecha: 08/01/2016
                             </div>      
                         </div> 
                         <div class="col-md-2 col-md-offset-5">
-                            <a class="boton btn btn-info btn-fill" href="a_usu_nuevo.php">Crear usuario</a>
+                            <a class="boton btn btn-info btn-fill" href="a_usu_nuevo.php"><?php echo $idioma["nuevo_usu"]; ?></a>
                         </div>
                     </div>    
                 </div>

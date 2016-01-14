@@ -5,7 +5,6 @@ Creado por: Edgard Ruiz
 Fecha: 27/12/2015
 ======================================================================
 -->
-
 <?php
 
 //varios
@@ -15,7 +14,7 @@ $idioma["editar"] = "Edit";
 $idioma["eliminar"] = "Delete";
 $idioma["volver"] = "Go back";
 $idioma["crear"] = "Create";
-$idioma["eliminar"] = "Modify";
+$idioma["modificar"] = "Modify";
 $idioma["cerrar"] = "Log out";
 $idioma["si"] = "SI";
 $idioma["no"] = "NO";
@@ -23,6 +22,10 @@ $idioma["no"] = "NO";
 //Perfil
 $idioma['perfil'] = "Profile";
 $idioma['editar_perfil'] = "Edit profile";
+$idioma['eliminar_perfil'] = "Delete my account";
+$idioma['rol'] = "Role";
+$idioma['idioma'] = "Language";
+$idioma['nueva_pass'] = "New password";
 
 //login
 $idioma["login_introduccion"] = "Welcome to the Hackaton website.";
@@ -53,10 +56,8 @@ $idioma["registro_email"] = "Email";
 $idioma["registro_equipo"] = "Team";
 $idioma["registro_aceptar"] = "Sign up";
 $idioma["registro_volver"] = "Go back";
-$idioma['reto_eliminar'] = "Delete challenge";
 
 //Retos
-//Nuevo reto
 $idioma["reto_introduce"] = "Complete the following fields";
 $idioma["gestion_retos"] = "Manage challenges";
 $idioma["retoSi"] = "Acepted challenges";
@@ -66,12 +67,29 @@ $idioma["reto_descripcion"] = "Descripction";
 $idioma["reto_aceptado"] = "Acepted";
 $idioma["reto_crear"] = "Create challenge";
 $idioma["reto_modificar"] = "Modify challenge";
+$idioma['retos'] = "Challenges";
+$idioma['reto_eliminar'] = "Delete challenge";
 
-//nueva sede
-$idioma["nueva_sede"] = "New Place";
+//Sede
+$idioma["gestion_sedes"] = "Manage headquarters";
+$idioma["nueva_sede"] = "New headquarter";
 $idioma["id_Sede"] = "Insert Location";
+$idioma["nombre_sede"] = "Headquarter name";
+$idioma["eliminar_sede"] = "Delete headquarter";
+
+//Usuarios
+$idioma["gestion_usuarios"] = "Manage users";
+$idioma["nuevo_usu"] = "Create user";
+$idioma["usu_p"] = "Competitor";
+$idioma["usu_js"] = "Headquarter jury";
+$idioma["usu_jn"] = "National jury";
+$idioma["admin"] = "Administrator";
+$idioma["modificar_usuario"] = "Modify user";
+$idioma["eliminar_usuario"] = "Delete user";
+$idioma["equipo"] = "Team";
 
 //Jurado sede
+$idioma['jurado_sede'] = "HEADQUARTER JURY";
 $idioma['gestion_votos_sede'] = "Manage headquarter votes";
 $idioma['js_no_pn'] = "There aren't national awards at this time";
 $idioma['js_no_ps'] = "There aren't headquarter awards at this time";
@@ -88,11 +106,18 @@ $idioma['soluciones'] = "Solutions";
 $idioma['votar_solucion'] = "Vote solution";
 
 //Jurado nacional
+$idioma['jurado_nacional'] = "NATIONAL JURY";
 $idioma['gestion_votos_nacional'] = "Manage national votes";
 $idioma['jn_no_pn'] = "There aren't national awards at this time";
 $idioma['soluciones_ganadoras'] = "Winner headquarter solutions";
 
 //Premios
+$idioma['gestion_premios_sede'] = "Manage headquarter awards";
+$idioma['gestion_premios_nacionales'] = "Manage national awards";
 $idioma['premio_nacional'] = "National award";
 $idioma['premio_sede'] = "Headquarter award";
+
+//Participantes
+$idioma['participante'] = "COMPETITOR";
+$idioma['gestion_equipos'] = "Manage teams";
 ?>

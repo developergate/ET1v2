@@ -49,13 +49,13 @@ Fecha: 13/01/2016
                                         <h4 class="title"><?php echo $idioma["reto_modificar"]; ?></h4>
                                     </div>
                                     <div class="content">
-                                        <form action='../../controladores/admin/ctrl_a_reto_modificar.php' method='post'>
+                                        <form action='../../controladores/admin/ctrl_a_reto_mod.php' method='post'>
                                             <!-- Nombre -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_nombre"]; ?></label>
-                                                        <input type="text" class="form-control" name="nombre">
+                                                        <input type="text" class="form-control" name="nombre" value="<?php echo $reto['idReto'] ?>">
                                                     </div>        
                                                 </div>
                                             </div>
@@ -64,7 +64,7 @@ Fecha: 13/01/2016
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["reto_descripcion"]; ?></label>
-                                                        <textarea type="text" class="form-control" name="descripcion"></textarea>
+                                                        <textarea type="text" class="form-control" name="descripcion"><?php echo $reto['DescReto'] ?></textarea>
                                                     </div>        
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@ Fecha: 13/01/2016
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["crear"]; ?></button>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma["modificar"]; ?></button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>

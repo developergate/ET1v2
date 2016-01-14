@@ -22,6 +22,10 @@ $idioma["no"] = "NO";
 //Perfil
 $idioma['perfil'] = "Perfil";
 $idioma['editar_perfil'] = "Editar perfil";
+$idioma['eliminar_perfil'] = "Eliminar mi cuenta";
+$idioma['rol'] = "Rol";
+$idioma['idioma'] = "Idioma";
+$idioma['nueva_pass'] = "Nueva contraseña";
 
 //login
 $idioma["login_introduccion"] = "Bienvenido a la pagina del Hackaton.";
@@ -63,15 +67,29 @@ $idioma["reto_descripcion"] = "Descripción";
 $idioma["reto_aceptado"] = "Aceptado";
 $idioma["reto_crear"] = "Crear reto";
 $idioma["reto_modificar"] = "Modificar reto";
+$idioma['retos'] = "Retos";
+$idioma['reto_eliminar'] = "Eliminar reto";
 
-//nueva sede
+//Sede
+$idioma["gestion_sedes"] = "Gestion de sedes";
 $idioma["nueva_sede"] = "Nueva Sede";
 $idioma["id_Sede"] = "Introduzca Ubicación";
+$idioma["nombre_sede"] = "Nombre de sede";
+$idioma["eliminar_sede"] = "Eliminar sede";
 
-//Retos
-$idioma['retos'] = "Retos";
+//Usuarios
+$idioma["gestion_usuarios"] = "Gestion de usuarios";
+$idioma["nuevo_usu"] = "Crear usuario";
+$idioma["usu_p"] = "Participante";
+$idioma["usu_js"] = "Jurado sede";
+$idioma["usu_jn"] = "Jurado nacional";
+$idioma["admin"] = "Administrador";
+$idioma["modificar_usuario"] = "Modificar usuario";
+$idioma["modificar_usuario"] = "Modificar usuario";
+$idioma["equipo"] = "Equipo";
 
 //Jurado sede
+$idioma['jurado_sede'] = "JURADO SEDE";
 $idioma['gestion_votos_sede'] = "Gestion de votaciones sede";
 $idioma['js_no_pn'] = "No hay premios nacionales en plazo de votación sede";
 $idioma['js_no_ps'] = "No hay premios sede en plazo de votación";
@@ -86,13 +104,20 @@ $idioma['equipo'] = "Equipo";
 $idioma['reto'] = "Reto";
 $idioma['soluciones'] = "Soluciones";
 $idioma['votar_solucion'] = "Votar solucion";
-$idioma['reto_eliminar'] = "Eliminar reto";
+
 //Jurado nacional
+$idioma['jurado_nacional'] = "JURADO NACIONAL";
 $idioma['gestion_votos_nacional'] = "Gestion de votaciones nacionales";
 $idioma['jn_no_pn'] = "No hay premios nacionales en plazo de votación nacional";
 $idioma['soluciones_ganadoras'] = "Soluciones ganadoras de cada sede";
 
 //Premios
+$idioma['gestion_premios_sede'] = "Gestion de premios sede";
+$idioma['gestion_premios_nacionales'] = "Gestion de premios nacionales";
 $idioma['premio_nacional'] = "Premio nacional";
 $idioma['premio_sede'] = "Premio sede";
+
+//Participantes
+$idioma['participante'] = "PARTICIPANTE";
+$idioma['gestion_equipos'] = "Gestion de equipos";
 ?>

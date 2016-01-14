@@ -29,7 +29,7 @@ Fecha: 11/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestion de usuarios</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_usuarios"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -50,7 +50,7 @@ Fecha: 11/01/2016
                             <div>
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Modificar usuario</h4>
+                                        <h4 class="title"><?php echo $idioma["modificar_usuario"]; ?></h4>
                                     </div>
                                     <div class="content">
                                         <form action='../../controladores/admin/ctrl_a_usu_mod.php' method='post'>
@@ -66,7 +66,7 @@ Fecha: 11/01/2016
                                                 <!-- Nombre -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Nombre</label>
+                                                        <label><?php echo $idioma["registro_nombre"]; ?></label>
                                                         <input type="text" class="form-control" name="nombre" value="<?php echo $usuario['nombre']; ?>">
                                                     </div>        
                                                 </div>
@@ -76,14 +76,14 @@ Fecha: 11/01/2016
                                                 <!-- Email -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Email</label>
+                                                        <label><?php echo $idioma["registro_email"]; ?></label>
                                                         <input type="email" name="email" class="form-control" value="<?php echo $usuario['email']; ?>">
                                                     </div>        
                                                 </div>
                                                 <!-- Contrasenha -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Contraseña</label>
+                                                        <label><?php echo $idioma["registro_pass"]; ?></label>
                                                         <input type="password" id="pass" name="pass" class="form-control" placeholder="Password">
                                                     </div>
                                                 </div>
@@ -93,40 +93,40 @@ Fecha: 11/01/2016
                                                 <!-- Rol -->
                                                 <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label>Rol</label>
+                                                        <label><?php echo $idioma["rol"]; ?></label>
                                                         <select type="text" name='rol' class="form-username form-control">
                                                         <?php switch ($usuario['rol'])
                                                             {
                                                                 case 'admin':
                                                                 ?> 
-                                                                    <option value='admin' selected>Administrador</option>
-                                                                    <option value='juradoNacional'>Jurado nacional</option>
-                                                                    <option value='juradoSede'>Jurado sede</option>
-                                                                    <option value='participante'>Participante</option>
+                                                                    <option value='admin' selected><?php echo $idioma["admin"]; ?></option>
+                                                                    <option value='juradoNacional'><?php echo $idioma["usu_jn"]; ?></option>
+                                                                    <option value='juradoSede'><?php echo $idioma["usu_js"]; ?></option>
+                                                                    <option value='participante'><?php echo $idioma["usu_p"]; ?></option>
                                                                 <?php
                                                                     break;
                                                                 case 'juradoNacional':
                                                                 ?> 
-                                                                    <option value='admin'>Administrador</option>
-                                                                    <option value='juradoNacional' selected>Jurado nacional</option>
-                                                                    <option value='juradoSede'>Jurado sede</option>
-                                                                    <option value='participante'>Participante</option>
+                                                                    <option value='admin'><?php echo $idioma["admin"]; ?></option>
+                                                                    <option value='juradoNacional' selected><?php echo $idioma["usu_jn"]; ?></option>
+                                                                    <option value='juradoSede'><?php echo $idioma["usu_js"]; ?></option>
+                                                                    <option value='participante'><?php echo $idioma["usu_p"]; ?></option>
                                                                 <?php
                                                                     break;
                                                                 case 'juradoSede':
                                                                 ?> 
-                                                                    <option value='admin'>Administrador</option>
-                                                                    <option value='juradoNacional'>Jurado nacional</option>
-                                                                    <option value='juradoSede' selected>Jurado sede</option>
-                                                                    <option value='participante'>Participante</option>
+                                                                    <option value='admin'><?php echo $idioma["admin"]; ?></option>
+                                                                    <option value='juradoNacional'><?php echo $idioma["usu_jn"]; ?></option>
+                                                                    <option value='juradoSede' selected><?php echo $idioma["usu_js"]; ?></option>
+                                                                    <option value='participante'><?php echo $idioma["usu_p"]; ?></option>
                                                                 <?php
                                                                     break;
                                                                 case 'participante':
                                                                 ?> 
-                                                                    <option value='admin'>Administrador</option>
-                                                                    <option value='juradoNacional'>Jurado nacional</option>
-                                                                    <option value='juradoSede'>Jurado sede</option>
-                                                                    <option value='participante' selected>Participante</option>
+                                                                    <option value='admin'><?php echo $idioma["admin"]; ?></option>
+                                                                    <option value='juradoNacional'><?php echo $idioma["usu_jn"]; ?></option>
+                                                                    <option value='juradoSede'><?php echo $idioma["usu_js"]; ?></option>
+                                                                    <option value='participante' selected><?php echo $idioma["usu_p"]; ?></option>
                                                                 <?php
                                                                     break;
                                                             }
@@ -154,7 +154,7 @@ Fecha: 11/01/2016
                                                 <!-- Idioma -->
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Idioma</label>
+                                                        <label><?php echo $idioma["idioma"]; ?></label>
                                                         <?php if($usuario['idioma'] == 'esp'){ ?>
                                                         <select type="text" name='idioma' class="form-control">
                                                             <option value='esp' selected>Español</option>
@@ -170,7 +170,7 @@ Fecha: 11/01/2016
                                                 </div> 
                                             </div>
 
-                                            <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right">Modificar</button>
+                                            <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right"><?php echo $idioma["modificar"]; ?></button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>

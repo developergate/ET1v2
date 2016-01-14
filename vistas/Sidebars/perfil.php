@@ -61,7 +61,7 @@ $perfil = $usu->consultar($idUsuario);
                                             <!-- Login -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Username</label>
+                                                    <label><?php echo $idioma['login_usuario'];?></label>
                                                     <input type="text" class="form-control" disabled value="<?php echo $perfil['idUsuario']; ?>">
                                                     <input name="login" type="hidden" value="<?php echo $perfil['idUsuario']; ?>">
                                                 </div>        
@@ -69,7 +69,7 @@ $perfil = $usu->consultar($idUsuario);
                                             <!-- Sede -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Sede</label>
+                                                    <label><?php echo $idioma['registro_sede'];?></label>
                                                     <input type="text" class="form-control" disabled value="<?php echo $perfil['sede']; ?>">
                                                     <input name="sede" type="hidden" value="<?php echo $perfil['sede']; ?>">
                                                 </div>        
@@ -77,7 +77,7 @@ $perfil = $usu->consultar($idUsuario);
                                             <!-- Rol -->
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Rol</label>
+                                                    <label><?php echo $idioma['rol'];?></label>
                                                     <input disabled type="text" class="form-control" value="<?php echo $perfil['rol']; ?>">
                                                 </div>        
                                             </div>
@@ -87,21 +87,21 @@ $perfil = $usu->consultar($idUsuario);
                                             <!-- Nombre -->
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>Name</label>
+                                                    <label><?php echo $idioma['registro_nombre'];?></label>
                                                     <input name="nombre" type="text" class="form-control" value="<?php echo $perfil['nombre']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Email -->
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <label for="exampleInputEmail1"><?php echo $idioma['registro_email'];?></label>
                                                     <input name="email" type="email" class="form-control" value="<?php echo $perfil['email']; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Idioma -->
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label>Idioma</label>
+                                                    <label><?php echo $idioma['idioma'];?></label>
                                                     <?php if($perfil['idioma'] == 'esp'){ ?>
                                                     <select type="text" name='idioma' class="form-control">
                                                         <option value='esp' selected>Español</option>
@@ -119,22 +119,22 @@ $perfil = $usu->consultar($idUsuario);
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label for="exampleInputEmail1">Contraseña</label>
+                                                <label for="exampleInputEmail1"><?php echo $idioma['registro_pass'];?></label>
                                                 <input id="oldPass" name="oldPass" type="password" required class="form-control">
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="exampleInputEmail1">Nueva contraseña</label>
+                                                <label for="exampleInputEmail1"><?php echo $idioma['nueva_pass'];?></label>
                                                 <input id="newPass" name="newPass" type="password" class="form-control">
                                             </div>
                                         </div>
 
-                                        <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                        <button type="submit" onclick="cifrar()" class="btn btn-info btn-fill pull-right"><?php echo $idioma['editar_perfil']; ?></button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                             <form action='../../controladores/ctrl_perfil_del.php' method='post'>
-                                <button type="submit" class="btn btn-danger btn-fill">Eliminar mi cuenta</button>
+                                <button type="submit" class="btn btn-danger btn-fill"><?php echo $idioma['eliminar_perfil']; ?></button>
                             </form>
                         </div> 
                     </div>    
