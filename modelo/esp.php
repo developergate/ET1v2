@@ -86,7 +86,7 @@ $idioma['equipo'] = "Equipo";
 $idioma['reto'] = "Reto";
 $idioma['soluciones'] = "Soluciones";
 $idioma['votar_solucion'] = "Votar solucion";
-
+$idioma['reto_eliminar'] = "Eliminar reto";
 //Jurado nacional
 $idioma['gestion_votos_nacional'] = "Gestion de votaciones nacionales";
 $idioma['jn_no_pn'] = "No hay premios nacionales en plazo de votación nacional";

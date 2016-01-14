@@ -53,6 +53,7 @@ $idioma["registro_email"] = "Email";
 $idioma["registro_equipo"] = "Team";
 $idioma["registro_aceptar"] = "Sign up";
 $idioma["registro_volver"] = "Go back";
+$idioma['reto_eliminar'] = "Delete challenge";
 
 //Retos
 //Nuevo reto

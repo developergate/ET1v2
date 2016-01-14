@@ -128,6 +128,7 @@ Seccion dos. Muestra los retos
 -->
         <section id="dos" class="wrapper">
             <div class="container">
+                    
                 <header>
                     <h2><?php echo $idioma['login_retos'];?></h2>
                     <p><?php echo $idioma['login_frase_retos'];?></p>
@@ -136,8 +137,7 @@ Seccion dos. Muestra los retos
                     <div class="row uniform">
                         <?php foreach ($retos as $r){
                         if($r['Aceptado'] == true){?>
-                        <section class="4u 6u(medium) 12u$(xsmall)">
-                            <span class="glyphicon glyphicon-plus"></span>
+                        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-4">    
                             <h3><?php echo $r['idReto'];?></h3>
                             <p><?php echo $r['DescReto'];?></p>
                         </section>
@@ -153,10 +153,11 @@ Seccion dos. Muestra los retos
                     </div>
                 </div>
                 <footer class="major">
-                    <ul class="actions">
+                    <ul class="actions col-sm-6 col-sm-offset-3 social-login">
                         <li><a href="#" class="button"><?php echo $idioma['volver_login'];?></a></li>
                     </ul>
                 </footer>
+            
             </div>
         </section>
         <!-- Javascript -->

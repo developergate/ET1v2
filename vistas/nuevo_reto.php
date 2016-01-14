@@ -75,13 +75,13 @@ if(!$lang){
                                 <form role="form" id="login" action="../controladores/ctrl_nuevo_reto.php" method="post" class="login-form">
                                     <!-- Titulo del reto -->
                                     <div class="form-group">
-                                        <input type="text" name="titulo" placeholder="<?php echo $idioma["titulo_reto"];?>" class='form-username form-control' id="form-username">
+                                        <input type="text" name="titulo" placeholder="<?php echo $idioma["reto_nombre"];?>" class='form-username form-control' id="form-username">
                                         <!--Pasar el idioma seleccionado-->
                                         <input type="hidden" id="language" name='language' value="<?php echo $_GET['lang']; ?>">
                                     </div>
                                     <!-- Descripcion -->
                                     <div class="form-group">
-                                        <textarea type="text" name="descripcion" placeholder="<?php echo $idioma["desc_reto"];?>" class="form-username form-control" id="form-username"></textarea>
+                                        <textarea type="text" name="descripcion" placeholder="<?php echo $idioma["reto_descripcion"];?>" class="form-username form-control" id="form-username"></textarea>
                                     </div>
                                     <button type="submit" class="btn" onclick="cifrar()" name='accion' value="Entrar">
                                         <?php echo $idioma["crear"];?>
