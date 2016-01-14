@@ -36,7 +36,7 @@ $idioma["login_registrar"] = "Sing up";
 $idioma["login_or"] = "or...";
 $idioma["login_visita"] = "Check challenges";
 $idioma["login_retos"] = "Challenges";
-$idioma['login_frase_retos'] = "Here you can see all the challenges!!";
+$idioma['login_frase_retos'] = "Click  on challenges to show description";
 $idioma['volver_login'] = "Go to Login";
 $idioma['crear_reto'] = "Create a challenge!";
 

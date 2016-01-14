@@ -35,7 +35,7 @@ $idioma["login_registrar"] = "Regístrate";
 $idioma["login_or"] = "o si no...";
 $idioma["login_visita"] = "Mira los retos";
 $idioma["login_retos"] = "Retos";
-$idioma['login_frase_retos'] = "¡¡Aqui puedes ver todos los retos!!";
+$idioma['login_frase_retos'] = "Haz click en los retos para ver su descripcion";
 $idioma['volver_login'] = "Volver al login";
 $idioma['crear_reto'] = "¡Crea un reto!";
 
