@@ -121,6 +121,7 @@ $idioma['nuevo_ps'] = "Nuevo premio sede";
 $idioma['nuevo_pn'] = "Nuevo premio nacional";
 $idioma['premios_resueltos'] = "Premios resueltos";
 $idioma['premio_crear'] = "Crear Premio";
+$idioma['premio_eliminar'] = "Eliminar premio";
 $idioma['premio_nombre'] = "Nombre del premio";
 $idioma['premio_desc'] = "Descripcion";
 $idioma['selecciona'] = "selecciona una sede";

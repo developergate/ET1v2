@@ -122,6 +122,7 @@ $idioma['nuevo_pn'] = "New national award";
 $idioma['premios_resueltos'] = "Solved awards";
 $idioma['premio_crear'] = "Create award";
 $idioma['premio_nombre'] = "Award name";
+$idioma['premio_eliminar'] = "Delete award";
 $idioma['premio_desc'] = "Description";
 $idioma['selecciona'] = "Select a headquarter";
 $idioma['sede'] = "headquarter";
