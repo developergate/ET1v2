@@ -27,7 +27,7 @@ Fecha: 14/01/2016
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', 'class="active"', '', '');?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', '', 'class="active"', '');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
@@ -76,21 +76,36 @@ Fecha: 14/01/2016
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <!-- Fecha inicio -->
+                                            <!--sede-->
+                                            <div class="form-group">
+                                                    <label><?php echo $idioma['sede'];?></label>
+                                                    <select type="text" name='idioma' class="form-control">
+                                                        <option value='esp' name="sede" selected><?php echo $idioma['selecciona'];?></option>
+                                                    </select>
+                                                </div>
+                                            <!-- Fecha equipos -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label><?php echo $idioma["fi"]; ?></label>
-                                                        <input type="date" class="form-control" name="fi"></textarea>
+                                                        <label><?php echo $idioma["fe"]; ?></label>
+                                                        <input type="date" class="form-control" name="fe"></textarea>
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <!-- Fecha fin -->
+                                            <!-- Fecha limite -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label><?php echo $idioma["ff"]; ?></label>
-                                                        <input type="date" class="form-control" name="ff"></textarea>
+                                                        <label><?php echo $idioma["fjs"]; ?></label>
+                                                        <input type="date" class="form-control" name="fjs"></textarea>
+                                                    </div>        
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label><?php echo $idioma["fjn"]; ?></label>
+                                                        <input type="date" class="form-control" name="fjn"></textarea>
                                                     </div>        
                                                 </div>
                                             </div>

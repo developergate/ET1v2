@@ -120,6 +120,14 @@ $idioma['premio_sede'] = "Headquarter award";
 $idioma['nuevo_ps'] = "New headquarter award";
 $idioma['nuevo_pn'] = "New national award";
 $idioma['premios_resueltos'] = "Solved awards";
+$idioma['premio_crear'] = "Create award";
+$idioma['premio_nombre'] = "Award name";
+$idioma['premio_desc'] = "Description";
+$idioma['selecciona'] = "Select a headquarter";
+$idioma['sede'] = "headquarter";
+$idioma['fe'] = "Last day to send a solution";
+$idioma['fjs'] = "Last day to vote as headcuarter jury";
+$idioma['fjn'] = "Last day to vote as national jury";
 
 //Participantes
 $idioma['participante'] = "COMPETITOR";

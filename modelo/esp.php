@@ -123,6 +123,12 @@ $idioma['premios_resueltos'] = "Premios resueltos";
 $idioma['premio_crear'] = "Crear Premio";
 $idioma['premio_nombre'] = "Nombre del premio";
 $idioma['premio_desc'] = "Descripcion";
+$idioma['selecciona'] = "selecciona una sede";
+$idioma['sede'] = "Sede";
+$idioma['fe'] = "Fecha final prevista para los equipos";
+$idioma['fjs'] = "Fecha tope para votar el jurado de la sede";
+$idioma['fjn'] = "Fecha tope para votar el jurado nacional";
+
 
 
 
