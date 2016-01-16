@@ -106,12 +106,5 @@ Fecha: 13/01/2016
             </div>   
         </div>
     </body>
-    <script src="../../js/md5.js" type="text/javascript"></script> 
-        <script>
-            function cifrar(){
-                var input_pass = document.getElementById("pass");
-                input_pass.value = hex_md5(input_pass.value);
-            }
-        </script>
     <?php include_once '../footers.php'; ?>
 </html>

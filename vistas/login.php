@@ -123,37 +123,38 @@ if(!$idioma){
                 </div>
             </div>
         </div>
-<!--
+        <!--
 ======================================================================
 Seccion dos. Muestra los retos
 ======================================================================
 -->
         <section id="dos" class="wrapper">
             <div class="container">
-                    
+
                 <header>
                     <h2><?php echo $idioma['login_retos'];?></h2>
                     <p><?php echo $idioma['login_frase_retos'];?></p>
                 </header>
-                <div class="box alt">
-                    <div class="row uniform">
-                        <?php foreach ($retos as $r){
-                        if($r['Aceptado'] == true){?>
-                    <section class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                     <div id="card"> 
-                      <div class="front"> 
-                        <h3><?php echo $r['idReto'];?></h3>
-                      </div> 
-                      <div class="back">
-                        <h3><?php echo $r['DescReto'];?></h3>
-                      </div> 
+                <?php foreach ($retos as $r){
+                if($r['Aceptado'] == true){?>
+                <div class="row">
+                    <div class="social-login">
+                        <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="card"> 
+                                <div class="front"> 
+                                    <h3><?php echo $r['idReto'];?></h3>
+                                </div> 
+                                <div class="back">
+                                    <h3><?php echo $r['DescReto'];?></h3>
+                                </div> 
+                            </div>
+                        </section>
                     </div>
-                         </section>  
-
-                        <?php }
-                        }?>
-                    </div>
-                </div>
+                </div>  
+                <br>
+                <?php }
+                }?>
+                <br>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 social-login">
                         <a class="btn btn-link-1 btn-link-1-twitter" href="../vistas/nuevo_reto.php?lang=esp">
@@ -166,20 +167,21 @@ Seccion dos. Muestra los retos
                         <li><a href="#" class="button"><?php echo $idioma['volver_login'];?></a></li>
                     </ul>
                 </footer>
-            
+
             </div>
         </section>
+
         <!-- Javascript -->      
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
-    <script>
-        $("#card").flip({
-          axis: 'y',
-          trigger: 'click'
-        });
-        $("#card").flip({reverse: true});
-        $("#card").flip({reverse: false});
-    </script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+        <script>
+            $(".card").flip({
+                axis: 'y',
+                trigger: 'click'
+            });
+            $(".card").flip({reverse: true});
+            $(".card").flip({reverse: false});
+        </script>
         <script src="../js/jquery-1.11.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../js/jquery.backstretch.min.js"></script>
