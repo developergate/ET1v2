@@ -30,6 +30,8 @@ Fecha: 13/01/2016
     if($v->exists($usuario, $premio, false, $equipo, $reto)){
         $voto = $v->consultar($usuario, $premio, false, $equipo, $reto);
     }
+    
+    $sede = $_GET['sede'];
     ?>
     
     <body>
@@ -80,6 +82,7 @@ Fecha: 13/01/2016
                                                     <input type="text" class="form-control" disabled value="<?php echo $datos['equipo']; ?>">
                                                     <input type="hidden" name="equipo" value="<?php echo $datos['equipo']; ?>">
                                                     <input type="hidden" name="usuario" value="<?php echo $usuario; ?>">
+                                                    <input type="hidden" name="sede" value="<?php echo $sede; ?>">
                                                 </div>        
                                             </div>
                                             <!-- Reto -->
@@ -148,7 +151,7 @@ Fecha: 13/01/2016
                                             </div>
                                         </div>
 
-                                        <a class="btn btn-info btn-fill pull-left" href="js_soluciones.php?premio=<?php echo $premio; ?>"><?php echo $idioma['volver'];?></a>
+                                        <a class="btn btn-info btn-fill pull-left" href="js_soluciones_sede.php?premio=<?php echo $premio; ?>&sede=<?php echo $sede;?>"><?php echo $idioma['volver'];?></a>
                                         <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma['votar'];?></button>
                                         <div class="clearfix"></div>
                                     </form>

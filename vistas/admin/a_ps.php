@@ -11,6 +11,16 @@ Fecha: 14/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("admin", "../../");
     include_once $includeIdioma;
+    
+    // Fecha actual
+    date_default_timezone_set('Europe/Madrid');
+    $date = date('Y-m-d', time());
+    
+    //Ejecutar la funcion para comprobar si hay nuevos premios finalizados, y sacar sus ganadores
+    include_once '../../modelo/model_jurado_puntua_solucion.php';
+    $jps = new Jurado_puntua_Solucion();
+    $jps->ganadoresFinales($date);
+    
     include_once '../../modelo/model_premio.php';
     $premio = new Premio();
     $premios = $premio->listar('s');

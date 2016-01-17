@@ -170,7 +170,7 @@ Fecha: 12/01/2016
                                             <?php foreach ($premiosS as $ps){
                                             if(($ps['FechaEquipos'] >= $datosSol['fecha']) 
                                                && ($datos['sede'] == $ps['Sede_idSede'])
-                                               && ($ps['Solucion_Equipo_idEquipo'] == null)){?>
+                                               && ($ps['Solucion_EsPropuesta'] == null)){?>
                                             <tr>
                                                 <td><?php echo $ps['idPremio'];?></td>
                                                 <td><?php echo $ps['Descripcion'];?></td>
@@ -184,7 +184,7 @@ Fecha: 12/01/2016
                                             <!-- Premios nacionales -->
                                             <?php foreach ($premiosN as $pn){
                                             if(($pn['FechaEquipos'] >= $datosSol['fecha'])
-                                              && ($pn['Solucion_Equipo_idEquipo'] == null)){?>
+                                              && ($pn['Solucion_EsPropuesta'] == null)){?>
                                             <tr>
                                                 <td><?php echo $pn['idPremio'];?></td>
                                                 <td><?php echo $pn['Descripcion'];?></td>

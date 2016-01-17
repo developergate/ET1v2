@@ -28,6 +28,11 @@ class Database {
     public function desconectar(){
         $this->conexion->close();
     }
+    
+    
+    public function error(){
+        $this->conexion->error;
+    }
 }
 
 ?>

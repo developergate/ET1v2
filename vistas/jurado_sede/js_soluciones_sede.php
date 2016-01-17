@@ -84,10 +84,10 @@ Fecha: 14/01/2016
                                            && $sedeSol == $sede)){ //comparar si la solucion es de la misma sede que el premio
                                         ?> 
                                         <tr>
-                                            <td width='30%'><?php echo $s['Titulo'];?></td>
+                                            <td width='30%'><?php echo $s['Titulo']; ?></td>
                                             <td width='40%'><?php echo $s['Equipo_idEquipo'];?></td>
                                             <td width='40%'><?php echo $s['Reto_idReto'];?></td>
-                                            <td width='10%'><a href="js_votar_sol.php?premio=<?php echo $idPremio;?>&reto=<?php echo $s['Reto_idReto'];?>&equipo=<?php echo $s['Equipo_idEquipo'];?>"><i class="pe-7s-medal"></i></a></td>
+                                            <td width='10%'><a href="js_votar_sol.php?premio=<?php echo $idPremio;?>&reto=<?php echo $s['Reto_idReto'];?>&equipo=<?php echo $s['Equipo_idEquipo'];?>&sede=<?php echo $sede;?>"><i class="pe-7s-medal"></i></a></td>
                                         </tr>
                                         <?php }
                                         }?>

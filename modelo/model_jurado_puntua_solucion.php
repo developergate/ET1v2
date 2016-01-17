@@ -142,6 +142,24 @@ class Jurado_puntua_Solucion {
         } else return false;
     }
     
+    //Devuelve todas las soluciones votadas de por el jurado nacional en un premio
+    private function votacionesNacional($idPremio){
+        $db = new Database();
+        include_once '../../modelo/model_usuario.php';
+        $usuario = new Usuario();
+        
+        //Lista de toda la tabla Jurado_puntua_Solucion
+        $result = $db->consulta('SELECT * FROM Jurado_puntua_Solucion WHERE Premio_idPremio = \''. $idPremio .'\' AND TipoPuntuacion = "n"');
+        $arrayVotos = array();
+        
+        while ($voto = mysqli_fetch_assoc($result)){
+            $arrayVotos[] = $voto;
+        }
+        
+        $db->desconectar();
+        return $arrayVotos;
+    }
+    
     //Devuelve todas las soluciones votadas de una sede en un premio
     private function votacionesSede($idSede, $idPremio){
         $db = new Database();
@@ -213,7 +231,7 @@ class Jurado_puntua_Solucion {
     /*Para recorrer el array se debe hace un for ($i=0; $i < count($array); $i++) y dentro seleccionar $array['equipo'], $array['reto'] y $array['puntuacion']*/
     public function ganadorasDeSedes($idPremio){
         $db = new Database();
-        include_once '../../modelo/model_sede.php';
+        include_once 'model_sede.php';
         $sede = new Sede();
         $sedes = $sede->listar();
         
@@ -231,6 +249,47 @@ class Jurado_puntua_Solucion {
         
         $db->desconectar();
         return $ganadoras;
+    }
+    
+    //Funcion que comprueba si el plazo de votacion ha acabado, y calcula los ganadores
+    public function ganadoresFinales ($fecha){
+        $db = new Database();
+        include_once 'model_premio.php';
+        $premio = new Premio();
+        $premiosS = $premio->listar('s');
+        $premiosN = $premio->listar('n');
+        
+        //Premios sede
+        foreach($premiosS as $ps){
+                //Si la fecha de votacion ha finaliado
+                if($ps['FechaJuradoS'] < $fecha){
+                    $votaciones = $this->votacionesSede($ps['Sede_idSede'], $ps['idPremio']);
+                    if($votaciones != null){
+                        $ganadoraSede = $this->solucionGanadora($votaciones);
+                        $esP = 0;                    
+
+                        //Modificar el premio para añadir la solucion ganadora
+                        $sql = 'UPDATE Premio SET Solucion_Equipo_idEquipo = \''.$ganadoraSede['equipo'].'\' AND Solucion_Reto_idReto = \''.$ganadoraSede['reto'].'\' AND Solucion_EsPropuesta = 0 WHERE idPremio = \''.$ps['idPremio'].'\'';
+                        $db->consulta($sql) or die('Fallo al añadir el ganador del premio '.$ps['idPremio']);
+                    }
+                }
+        }
+        
+        //premios nacionales
+        foreach($premiosN as $pn){
+            //Si la fecha de votacion ha finaliado
+                if($pn['FechaJuradoN'] < $fecha){
+                    $votaciones = $this->votacionesNacional($pn['idPremio']);
+                    $ganadoraN = $this->solucionGanadora($votaciones);
+                    $esP = false;
+                    
+                    //Modificar el premio para añadir la solucion ganadora
+                    $sql = 'UPDATE Premio SET Solucion_Equipo_idEquipo = \''.$ganadoraN['equipo'].'\' AND Solucion_Reto_idReto = \''.$ganadoraN['reto'].'\' AND Solucion_EsPropuesta = \''.$esP.'\' WHERE idPremio = \''.$ps['idPremio'].'\'';
+                    $db->consulta($sql);
+                }
+        }
+        
+        $db->desconectar();
     }
 }
 ?>
