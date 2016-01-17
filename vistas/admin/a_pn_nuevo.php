@@ -1,8 +1,8 @@
 <!--
 ======================================================================
-Modificar premio sede
-Creado por: David Ansia, Andrea Sanchez
-Fecha: 14/01/2016
+Modificar premio nacional
+Creado por: Andrea Sanchez
+Fecha: 17/01/2016
 ======================================================================
 -->
 <!doctype html>
@@ -11,23 +11,18 @@ Fecha: 14/01/2016
     include_once('../../controladores/ctrl_permisos.php');
     $includeIdioma = permisos("admin", "../../");
     include_once $includeIdioma;
-    
-    //Listar las sedes
-    include_once('../../modelo/model_sede.php');
-    $s = new Sede();
-    $sedes = $s->listar();
     ?>
 
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', '', 'class="active"', '');?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', '', '', 'class="active"');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_premios_sede"]; ?></a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma["gestion_premios_nacionales"]; ?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -51,7 +46,7 @@ Fecha: 14/01/2016
                                         <h4 class="title"><?php echo $idioma["premio_crear"]; ?></h4>
                                     </div>
                                     <div class="content">
-                                        <form action='../../controladores/admin/ctrl_a_ps_nuevo.php' method='post'>
+                                        <form action='../../controladores/admin/ctrl_a_pn_nuevo.php' method='post'>
                                             <!-- Nombre -->
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -70,16 +65,6 @@ Fecha: 14/01/2016
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <!--sede-->
-                                            <div class="form-group">
-                                                <label><?php echo $idioma['sede'];?></label>
-                                                <select type="text" name='sede' class="form-control">
-                                                    <?php
-                                                    foreach ($sedes as $se){ ?>
-                                                        <option value='<?php echo $se['idSede'] ?>' name="sede"><?php echo $se['idSede'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
                                             <!-- Fecha equipos -->
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -89,12 +74,21 @@ Fecha: 14/01/2016
                                                     </div>        
                                                 </div>
                                             </div>
-                                            <!-- Fecha limite -->
+                                            <!-- Fecha sede -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><?php echo $idioma["fjs"]; ?></label>
                                                         <input type="date" required class="form-control" name="fjs">
+                                                    </div>        
+                                                </div>
+                                            </div>
+                                            <!-- Fecha nacional -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label><?php echo $idioma["fjn"]; ?></label>
+                                                        <input type="date" required class="form-control" name="fjn">
                                                     </div>        
                                                 </div>
                                             </div>

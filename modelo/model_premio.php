@@ -202,16 +202,43 @@ class Premio {
     }
     
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
-    public function crear($objeto){
+    public function crear($objeto, $fechaActual){
         if ($this->exists($objeto->idPremio) == false) 
-        {
-            $db = new Database();
-            //Inserta la Premio en la tabla Premio
-            $insertaPremio = "INSERT INTO Premio (idPremio) VALUES ('$objeto->idPremio');";
+        {            
+            //Crear un premio sede
+            if($objeto->tipo == 's'){
+                //Comprobar que las fechas son validas
+                if(($objeto->fechaJuradoS >= $fechaActual) 
+                   && ($objeto->fechaEquipos >= $fechaActual) 
+                   && ($objeto->fechaEquipos <= $objeto->fechaJuradoS)){
+                    $db = new Database();
+                
+                    //Inserta la Premio en la tabla Premio
+                    $insertaPremio = "INSERT INTO Premio (idPremio, Sede_idSede, Descripcion, FechaEquipos, FechaJuradoS, TipoPremio) VALUES ('$objeto->idPremio', '$objeto->sede', '$objeto->descripcion', '$objeto->fechaEquipos', '$objeto->fechaJuradoS', '$objeto->tipo');";
 
-            $db->consulta($insertaPremio) or die('Error al crear la Premio '. $objeto->idPremio);
-            $db->desconectar();
-            return true;
+                    $db->consulta($insertaPremio) or die('Error al crear el premio '. $objeto->idPremio);
+                    $db->desconectar();
+                    return true;
+                } else die("Por favor, comprueba que las fechas sean correctas y coherentes");
+            }
+            //Crear un premio nacional
+            else {
+                //Comprobar que las fechas son validas
+                if(($objeto->fechaJuradoN >= $fechaActual) 
+                    && ($objeto->fechaEquipos >= $fechaActual) 
+                    && ($objeto->fechaJuradoS >= $fechaActual) 
+                   && ($objeto->fechaJuradoS <= $objeto->fechaJuradoN) 
+                   &&($objeto->fechaEquipos <= $objeto->fechaJuradoS)){
+                    $db = new Database();
+                
+                    //Inserta la Premio en la tabla Premio
+                    $insertaPremio = "INSERT INTO Premio (idPremio, Descripcion, FechaEquipos, FechaJuradoS, FechaJuradoN, TipoPremio) VALUES ('$objeto->idPremio', '$objeto->descripcion', '$objeto->fechaEquipos', '$objeto->fechaJuradoS', '$objeto->fechaJuradoN', '$objeto->tipo');";
+
+                    $db->consulta($insertaPremio) or die('Error al crear el premio '. $objeto->idPremio);
+                    $db->desconectar();
+                    return true;
+                }else die("Por favor, comprueba que las fechas sean correctas y coherentes");
+            }
         } else return false;
     }
     

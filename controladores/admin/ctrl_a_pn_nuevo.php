@@ -1,8 +1,8 @@
 <!--
 ===========================================================================
 Controlador para crear un premio
-Creado por: David Ansia, Andrea Sanchez
-Fecha: 14/01/2016
+Creado por: Andrea Sanchez
+Fecha: 17/01/2016
 ============================================================================
 -->
 
@@ -13,17 +13,17 @@ $idPremio = $_POST['nombre'];
 $descPremio = $_POST['descripcion'];
 $fe = $_POST['fe'];
 $fjs = $_POST['fjs'];
-$sede = $_POST['sede'];
+$fjn = $_POST['fjn'];
 
 // Fecha actual
 date_default_timezone_set('Europe/Madrid');
 $date = date('Y-m-d', time());
 
-$nuevoPremio = new Premio($idPremio, $sede, $descPremio, $fe, $fjs, null, $tipo='s', $solEsPropuesta="", $solEquipo="", $solReto="");
+$nuevoPremio = new Premio($idPremio, null, $descPremio, $fe, $fjs, $fjn, $tipo='n', $solEsPropuesta="", $solEquipo="", $solReto="");
 
 //Crea el premio
 if ($nuevoPremio->crear($nuevoPremio, $date))
-    header('Location:../../vistas/admin/a_ps.php');
+    header('Location:../../vistas/admin/a_pn.php');
 else
     die("El premio ". $idPremio. " ya existe.");
 ?>

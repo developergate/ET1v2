@@ -19,7 +19,7 @@ Fecha: 15/01/2016
     <body>
         <div class="wrapper">
             <!-- Barra de navegacion lateral -->
-            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', 'class="active"', '', '', '', '');?>
+            <?php include_once '../Sidebars/a_sidebar.php'; a_sidebar('', '', '', '', '', 'class="active"');?>
             <div class="main-panel">
                 <!-- Barra de logout superior -->
                 <nav class="navbar navbar-default navbar-fixed">
