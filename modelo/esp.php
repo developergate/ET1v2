@@ -130,6 +130,7 @@ $idioma['sede'] = "Sede";
 $idioma['fe'] = "Fecha final prevista para los equipos";
 $idioma['fjs'] = "Fecha tope para votar el jurado sede";
 $idioma['fjn'] = "Fecha tope para votar el jurado nacional";
+$idioma['premio_modificar'] = "Modificar premio";
 
 //Participantes
 $idioma['participante'] = "PARTICIPANTE";

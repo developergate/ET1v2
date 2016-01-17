@@ -130,6 +130,7 @@ $idioma['sede'] = "headquarter";
 $idioma['fe'] = "Last day to send a solution";
 $idioma['fjs'] = "Last day to vote as headcuarter jury";
 $idioma['fjn'] = "Last day to vote as national jury";
+$idioma['premio_modificar'] = "Modify award";
 
 //Participantes
 $idioma['participante'] = "COMPETITOR";

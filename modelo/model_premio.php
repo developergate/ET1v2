@@ -201,6 +201,64 @@ class Premio {
         return $datos;
     }
     
+    public function modificar($pk, $objeto){
+        if ($this->exists($pk)){
+            $db = new Database();
+            $datos = $this->consultar($pk);
+            
+            //Modificar la sede
+            $oldSede = $datos['sede'];
+            $newSede = $objeto->sede;
+
+            if ($oldSede != $newSede){
+                $sql = 'UPDATE Premio SET Sede_idSede=\''. $newSede . '\' WHERE idPremio = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar la sede');
+            }
+
+            //Modificar la descripcion
+            $oldDesc = $datos['descripcion'];
+            $newDesc = $objeto->descripcion;
+
+            if ($oldDesc != $newDesc){
+                $sql = 'UPDATE Premio SET Descripcion=\''. $newDesc . '\' WHERE idPremio = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar la descripcion');
+            }
+            
+            //Modificar la sede
+            $oldSede = $datos['sede'];
+            $newSede = $objeto->sede;
+
+            if ($oldSede != $newSede){
+                $sql = 'UPDATE Usuario SET Sede_idSede=\''. $newSede . '\' WHERE idUsuario = \'' . $pk .  '\'' ;
+
+                $db->consulta($sql) or die('Error al modificar la sede');
+            }
+
+            //Modificar la fechaEquipos
+            $newF = $objeto->fechaEquipos;
+            $sqlF = 'UPDATE Premio SET FechaEquipos=\''. $newF . '\' WHERE idPremio = \'' . $pk .  '\'' ;
+            $db->consulta($sqlF) or die('Error al modificar fechaEquipos');
+            
+            //Modificar la fechaJuradoS
+            $newF = $objeto->fechaJuradoS;
+            $sqlF = 'UPDATE Premio SET FechaJuradoS=\''. $newF . '\' WHERE idPremio = \'' . $pk .  '\'' ;
+            $db->consulta($sqlF) or die('Error al modificar fechaJuradoS');
+
+            //Modificar la fechaJuradoN
+            $newF = $objeto->fechaJuradoN;
+            $sqlF = 'UPDATE Premio SET FechaJuradoN=\''. $newF . '\' WHERE idPremio = \'' . $pk .  '\'' ;
+            $db->consulta($sqlF) or die('Error al modificar fechaJuradoN');
+
+            $db->desconectar();
+            return true;
+        }else {
+            return false;
+        }   
+        
+    }
+    
     //Crea el objeto pasado en la tabla de la base de datos, si devuelve fue bien devuelve true
     public function crear($objeto, $fechaActual){
         if ($this->exists($objeto->idPremio) == false) 
