@@ -44,18 +44,20 @@ Fecha: 14/01/2016
                     <div class="container-fluid">   
                         <div class="row">                   
                             <div class="col-md-12">
+                                <!-- Premios en proceso -->
                                 <div class="card">
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
-                                                <th>Login</th>
+                                                <th><?php echo $idioma["premio"]; ?></th>
                                                 <th><?php echo $idioma["registro_sede"]; ?></th>
                                                 <th><?php echo $idioma["reto_descripcion"]; ?></th>
                                                 <th><?php echo $idioma["editar"]; ?></th>
                                                 <th><?php echo $idioma["eliminar"]; ?></th>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($premios as $p){ ?>
+                                                <?php foreach ($premios as $p){ 
+                                                if($p['Solucion_EsPropuesta'] == null){?>
                                                 <tr>
                                                     <td><?php echo $p['idPremio'];?></td>
                                                     <td><?php echo $p['Sede_idSede'];?></td>
@@ -63,7 +65,34 @@ Fecha: 14/01/2016
                                                     <td><a href="a_ps_mod.php?ps=<?php echo $p['idPremio'];?>"><i class="pe-7s-eyedropper"></i></a></td>
                                                     <td><a href="a_ps_del.php?ps=<?php echo $p['idPremio'];?>"><i class="pe-7s-trash"></i></a></td>
                                                 </tr>
-                                                <?php }?>
+                                                <?php } }?>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <!-- Premios finalizados -->
+                                <div class="card">
+                                    <div class="header">
+                                        <h4 class="title"><?php echo $idioma['premios_resueltos'];?></h4>
+                                    </div>
+                                    <div class="content table-responsive table-full-width">
+                                        <table class="table table-hover table-striped">
+                                            <thead>
+                                                <th><?php echo $idioma["premio"]; ?></th>
+                                                <th><?php echo $idioma["reto_descripcion"]; ?></th>
+                                                <th><?php echo $idioma["equipo"]; ?></th>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($premios as $p){
+                                                if($p['Solucion_EsPropuesta'] != null){
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $p['idPremio'];?></td>
+                                                    <td><?php echo $p['Descripcion'];?></td>
+                                                    <td><?php echo $p['Solucion_Equipo_idEquipo'];?><i class="pe-7s-eye-dropper"></i></td>
+                                                </tr>
+                                                <?php } }?>
                                             </tbody>
                                         </table>
 

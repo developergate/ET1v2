@@ -49,7 +49,7 @@ Fecha: 14/01/2016
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
-                                                <th>Login</th>
+                                                <th><?php echo $idioma["premio"]; ?></th>
                                                 <th><?php echo $idioma["reto_descripcion"]; ?></th>
                                                 <th><?php echo $idioma["editar"]; ?></th>
                                                 <th><?php echo $idioma["eliminar"]; ?></th>
@@ -78,9 +78,9 @@ Fecha: 14/01/2016
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
-                                                <th>Login</th>
+                                                <th><?php echo $idioma["premio"]; ?></th>
                                                 <th><?php echo $idioma["reto_descripcion"]; ?></th>
-                                                <th><?php echo $idioma["ver"]; ?></th>
+                                                <th><?php echo $idioma["equipo"]; ?></th>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($premios as $p){
@@ -89,7 +89,7 @@ Fecha: 14/01/2016
                                                 <tr>
                                                     <td><?php echo $p['idPremio'];?></td>
                                                     <td><?php echo $p['Descripcion'];?></td>
-                                                    <td><a href="a_pn_ver.php?pn=<?php echo $p['idPremio'];?>"><i class="pe-7s-eye-dropper"></i></a></td>
+                                                    <td><?php echo $p['Solucion_Equipo_idEquipo'];?><i class="pe-7s-eye-dropper"></i></td>
                                                 </tr>
                                                 <?php } }?>
                                             </tbody>

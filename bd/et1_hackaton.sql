@@ -156,11 +156,11 @@ INSERT INTO Premio (`idPremio`, `Sede_idSede`, `Descripcion`, `FechaEquipos`, `F
 -- premio resuelto
 ('Coche', 'Ourense', 'Renault Clio 1.6', '2015-12-17', '2016-01-10', null, 's', '0', 'equipoActimel', 'Nopollution'),
 -- premio de lugo en plazo para equipos
-('Cochazo', 'Lugo', 'Super coche', '2016-01-31', '2016-02-28', null, 's', '0', null, null),
+('Cochazo', 'Lugo', 'Super coche', '2016-01-31', '2016-02-28', null, 's', null, null, null),
 -- premio de lugo en plazo de votacion sede
-('Cochito', 'Lugo', 'Cochito de sede lugo', '2015-12-31', '2016-01-31', null, 's', '0', null, null),
+('Cochito', 'Lugo', 'Cochito de sede lugo', '2015-12-31', '2016-01-31', null, 's', null, null, null),
 -- premio de ourense en plazo de votacion sede
-('Lancha', 'Ourense', 'Lancha de sede ourense', '2015-12-31', '2016-01-31', null, 's', '0', null, null),
+('Lancha', 'Ourense', 'Lancha de sede ourense', '2015-12-31', '2016-01-31', null, 's', null, null, null),
 -- premio nacional resuelto
 ('Moto', null, 'Renault Clio 1.6', '2016-01-01', '2016-01-04', '2016-01-06', 'n', '0', 'equipoActimel', 'Nopollution'),
 -- premio nacional en plazo de votacion sede
