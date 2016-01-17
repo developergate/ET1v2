@@ -15,6 +15,11 @@ Fecha: 17/01/2016
     include_once "../../modelo/model_premio.php";
     $p = new Premio();
     $premio = $p->consultar($idPremio);
+    
+    //Listar las sedes
+    include_once('../../modelo/model_sede.php');
+    $s = new Sede();
+    $sedes = $s->listar();
     ?>
 
     <body>
@@ -74,9 +79,13 @@ Fecha: 17/01/2016
                                                 <label><?php echo $idioma['sede'];?></label>
                                                 <select type="text" name='sede' class="form-control">
                                                     <?php
-                                                    foreach ($sedes as $se){ ?>
+                                                    foreach ($sedes as $se){ 
+                                                        if($premio['sede']==$se['idSede']) { ?>
+                                                        <option value='<?php echo $se['idSede'] ?>' selected name="sede"><?php echo $se['idSede'] ?></option>
+                                                    <?php } else{ ?>
                                                         <option value='<?php echo $se['idSede'] ?>' name="sede"><?php echo $se['idSede'] ?></option>
-                                                    <?php } ?>
+                                                    <?php }
+                                                           } ?>
                                                 </select>
                                             </div>
                                             <!-- Fecha equipos -->
