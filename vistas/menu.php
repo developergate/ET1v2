@@ -9,6 +9,11 @@ Fecha: 07/01/2016
 <?php
 session_start();	
 
+//Si es el usuario test, redirige a la pagina de tests
+if(isset($_SESSION['login_usuario']) && ($_SESSION['login_usuario'] == 'test')){
+    header('Location: ../pruebas/pruebas.html');
+}else 
+//Sino redirige a la pagina principal segun el tipo de usuario
 if (isset($_SESSION['rol'])){
 	switch ($_SESSION['rol'])
 	{

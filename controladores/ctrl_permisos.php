@@ -25,8 +25,9 @@ function permisos ($rol, $ruta){
 		if (!isset($_SESSION["rol"])){
 			header('Location:' .$ruta. 'vistas/login.php');
 		}
-		//Si el usuario logueado no es el permitido, redirige a su menu principal
-		else if ($_SESSION["rol"] != $rol){
+        //Si el usuario logueado no es el usuario de prueba y
+		//tampoco es el permitido, redirige a su menu principal
+		else if (($_SESSION["rol"] != $rol) && ($_SESSION["login_usuario"] != 'test')){
 			header('location:' .$ruta. 'vistas/menu.php');
 		}
 		//Si el usuario logueado es el permitido

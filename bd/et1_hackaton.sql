@@ -53,6 +53,8 @@ CREATE TABLE IF NOT EXISTS Usuario (
 ENGINE = InnoDB;
 
 INSERT INTO `Usuario` (`idUsuario`, `Sede_idSede`, `Nombre`, `Password`, `Email`, `Idioma`, `Equipo_idEquipo`, `Rol`) VALUES
+-- pass test
+('test', 'Ourense', 'Super Usuario', '098f6bcd4621d373cade4e832627b4f6', 'test@test.com', 'esp', null, 'admin'),
 -- pass admin
 ('admin', 'Ourense', 'Super Administrador', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.es', 'esp', null, 'admin'),
 -- pass jurado
