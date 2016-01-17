@@ -19,6 +19,7 @@ $idioma["cerrar"] = "Cerrar sesión";
 $idioma["si"] = "SI";
 $idioma["no"] = "NO";
 $idioma["ver"] = "Ver";
+$idioma["add"] = "Añadir";
 
 //Perfil
 $idioma['perfil'] = "Perfil";
@@ -101,7 +102,6 @@ $idioma['fi'] = "Fecha inicio";
 $idioma['ff'] = "Fecha fin";
 $idioma['votar'] = "Votar";
 $idioma['titulo'] = "Titulo";
-$idioma['equipo'] = "Equipo";
 $idioma['reto'] = "Reto";
 $idioma['soluciones'] = "Soluciones";
 $idioma['votar_solucion'] = "Votar solucion";
@@ -130,10 +130,16 @@ $idioma['fe'] = "Fecha final prevista para los equipos";
 $idioma['fjs'] = "Fecha tope para votar el jurado de la sede";
 $idioma['fjn'] = "Fecha tope para votar el jurado nacional";
 
-
-
-
 //Participantes
 $idioma['participante'] = "PARTICIPANTE";
 $idioma['gestion_equipos'] = "Gestion de equipos";
+$idioma['nuevo_equipo'] = "Crear equipo";
+$idioma['sin_equipo'] = "No se encuentra registrado en ningún equipo.";
+$idioma['sin_equipo2'] = "Por favor, contacte a algún miembro de otro equipo para que lo añadan, o cree uno.";
+$idioma['equipo_nombre'] = "Nombre del equipo";
+$idioma['add_miembro'] = "Añadir miembro";
+$idioma['salir_equipo'] = "Salir del equipo";
+$idioma['user_login'] = "Login del usuario";
+$idioma['salir'] = "Salir";
+$idioma['ultimo_miembro'] = "Eres el último miembro, el equipo se eliminará si lo abandonas";
 ?>

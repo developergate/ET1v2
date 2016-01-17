@@ -26,7 +26,7 @@ Fecha: 12/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestionar equipo</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma['gestion_equipos'];?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -46,7 +46,7 @@ Fecha: 12/01/2016
                         <div class="row">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Salir del equipo</h4>
+                                    <h4 class="title"><?php echo $idioma['salir_equipo']; ?></h4>
                                 </div>
                                 <div class="content">
                                     <form action='../../controladores/participante/ctrl_p_equipo_salir.php' method='post'>
@@ -54,7 +54,7 @@ Fecha: 12/01/2016
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Nombre del equipo</label>
+                                                    <label><?php echo $idioma['equipo_nombre']; ?></label>
                                                     <input type="text" class="form-control" disabled value="<?php echo $datos['equipo'];?>">
                                                     <input type="hidden" name="num" value="<?php echo $numero; ?>">
                                                 </div>        
@@ -64,11 +64,11 @@ Fecha: 12/01/2016
                                         <?php if($numero == 1){ ?>
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-3 alert alert-danger bs-alert-old-docs">
-                                                <p>Eres el último miembro, el equipo se eliminará si lo abandonas.</p>
+                                                <p><?php echo $idioma['ultimo_miembro']; ?></p>
                                             </div>
                                         </div>
                                         <?php } ?>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Salir</button>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right"><?php echo $idioma['salir']; ?></button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

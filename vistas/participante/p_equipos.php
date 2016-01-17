@@ -25,7 +25,7 @@ Fecha: 12/01/2016
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">    
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Gestionar equipo</a>
+                            <a class="navbar-brand" href="#"><?php echo $idioma['gestion_equipos'];?></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
@@ -45,9 +45,9 @@ Fecha: 12/01/2016
                         <!-- Si el usuario no tiene equipo -->
                         <?php if($datos['equipo'] == null){ ?>
                         <div class="container-fluid" style="text-align: center;">
-                            <h2>No se encuentra registrado en ningún equipo.</h2>
-                            <p>Por favor, contacte a algún miembro de otro equipo para que lo añadan, o cree uno.</p>
-                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo.php'">Crear equipo</button>
+                            <h2><?php echo $idioma['sin_equipo'];?></h2>
+                            <p><?php echo $idioma['sin_equipo2'];?></p>
+                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo.php'"><?php echo $idioma['nuevo_equipo'];?></button>
                         </div>
                         <?php } else { ?>
                         <!-- Si el usuario tiene equipo -->
@@ -55,12 +55,12 @@ Fecha: 12/01/2016
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Equipo: <?php echo $datos['equipo'];?></h4>
+                                        <h4 class="title"><?php echo $idioma['equipo'];?>: <?php echo $datos['equipo'];?></h4>
                                     </div>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
                                             <thead>
-                                                <th>Usuario</th>
+                                                <th><?php echo $idioma['login_usuario']; ?></th>
                                             </thead>
                                             <tbody>
                                                 <?php 
@@ -76,9 +76,9 @@ Fecha: 12/01/2016
                                             </tbody>
                                         </table>
                                         <div class="container-fluid" style="text-align: center;">
-                                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo_usu.php?equipo=<?php echo $datos['equipo'];?>&sede=<?php echo $datos['sede'];?>'">Añadir miembro</button>
+                                            <button type="button" class="btn btn-info btn-fill" onclick="location.href='p_equipo_nuevo_usu.php?equipo=<?php echo $datos['equipo'];?>&sede=<?php echo $datos['sede'];?>'"><?php echo $idioma['add_miembro']; ?></button>
                                             
-                                            <button type="button" class="btn btn-danger btn-fill" onclick="location.href='p_equipo_salir.php?num=<?php echo $numero; ?>'">Salir del equipo</button>
+                                            <button type="button" class="btn btn-danger btn-fill" onclick="location.href='p_equipo_salir.php?num=<?php echo $numero; ?>'"><?php echo $idioma['salir_equipo']; ?></button>
                                         </div>
                                     </div>
                                 </div>
