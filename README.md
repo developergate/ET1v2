@@ -31,3 +31,30 @@ The features of the application are the following:
 * Challenges: submited by any user and supervised by the administrator.
 * Solutions: each team may submit first a proposal and after that a solution. Solutions can be turned in by any team member.
 * Vote: the jury rates the submited solutions to each challenge.
+
+## [Live preview logins](https://asblanco.000webhostapp.com/ET1v2/vistas/login.php?lang=eng)
+Administrator
+* username: admin
+ * pass: admin
+
+National Jury
+* username: jurado
+ * pass: jurado
+
+Headquarter Jury
+* username: juradoSede
+ * pass: jurado
+* username: juradoSede2
+ * pass: jurado
+
+Participants
+* username: participante
+ * pass: participante
+* username: manolo
+ * pass: participante
+* username: carlos
+ * pass: participante 
+* username: juan
+ * pass: participante 
+* username: participante2
+ * pass: participante2
